@@ -1,5 +1,5 @@
 body {
-  background-color: #F6FCEE;
+  background-color: white;
 }
 
 .container {
@@ -38,10 +38,10 @@ body {
   box-sizing: border-box;
 }
 
-.custom-form-style .form-label {
-  display: none;
+// .custom-form-style .form-label {
+//   // display: none;
 
-}
+// }
 
 #next-icon {
   font-size: 80px;
@@ -51,6 +51,6 @@ body {
   font-size: 30px;
 }
 
-h2 {
+.first-name {
   font-size: 35px;
 }
