@@ -1,0 +1,13 @@
+<%# form to add new profile %>
+<h1>Join JAM</h1>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :description %>
+  <%= f.input :birth_year %>
+  <%= f.input :gender %>
+  <%= f.submit %>
+<% end %>
