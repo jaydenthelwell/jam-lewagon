@@ -8,10 +8,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index] do
     member do
-      post :swipe
-      post :unswipe
+      post :like
+      post :dislike
     end
   end
-  
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   resources :users, except: [:index]
 end

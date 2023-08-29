@@ -1,3 +1,29 @@
+
+<li data-user=<%= user.id %>>
+  <%= user.name %>
+  <%= user.email %>
+
+  <% if current_user.swiped_and_liked?(user.id) ||current_user.swiped_and_disliked?(user.id) %>
+
+    <p>You have sent the request.</p>
+
+  <% else %>
+
+    <form action="/users/<%= user.id %>/like" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <button type="submit" class="btn btn-primary">Like</button>
+      <%# link_to "like", like_user_path(user.id), method: :post, remote: true %>
+    </form>
+
+    <form action="/users/<%= user.id %>/dislike" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <button type="submit" class="btn btn-danger">Dislike</button>
+      <%# link_to "like", like_user_path(user.id), method: :post, remote: true %>
+    </form>
+
+  <% end %>
+</li>
+
 <div class="user">
   <div class="container">
     <div class="card">
@@ -21,3 +47,4 @@
     </div>
   </div>
 </div>
+
