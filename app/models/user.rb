@@ -11,16 +11,31 @@ class User < ApplicationRecord
   has_many :swipee, through: :swipee_relationships, source: :swipee
 
 
-  def swipe(user_id)
-    swiper_relationships.create(swipee_id: user_id)
+  def like(user_id)
+    swiper_relationships.create(swipee_id: user_id, like: true)
   end
 
-  def unswipe(user_id)
-    swipee_relationships.find_by(swipee_id: user_id).destroy
+  def dislike(user_id)
+    swiper_relationships.create(swipee_id: user_id, like: false)
   end
 
-  def is_following?(user_id)
+  # def unswipe(user_id)
+  #   swipee_relationships.find_by(swipee_id: user_id).destroy
+  # end
+
+  def swiped?(user_id)
     relationship = Swipe.find_by(swiper_id: id, swipee_id: user_id)
+    return true if relationship
+  end
+
+
+  def swiped_and_liked?(user_id)
+    relationship = Swipe.find_by(swiper_id: id, swipee_id: user_id, like: true)
+    return true if relationship
+  end
+
+  def swiped_and_disliked?(user_id)
+    relationship = Swipe.find_by(swiper_id: id, swipee_id: user_id, like: false)
     return true if relationship
   end
 end
