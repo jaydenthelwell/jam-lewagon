@@ -1,0 +1,56 @@
+body {
+  background-color: #F6FCEE;
+}
+
+.container {
+  padding: 30px;
+  margin-top: 40%;
+}
+
+#next-icon {
+  color: #83EBEC;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+// .container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 100vh;
+// }
+
+// .centered-content {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.custom-form-style .form-control {
+  border: none;
+  border-bottom: 2px solid black;
+  background: none;
+  outline: none;
+  width: 100%;
+  color: black;
+  padding: 5px 0;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.custom-form-style .form-label {
+  display: none;
+
+}
+
+#next-icon {
+  font-size: 80px;
+}
+
+#email-icon {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 35px;
+}
