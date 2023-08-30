@@ -1,9 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
-import flatpickr from "flatpickr";
 
-// Connects to data-controller="flatpickr"
+// Connects to data-controller="test"
 export default class extends Controller {
   connect() {
-    flatpickr(this.element)
+    console.log(this.iconTarget)
+    console.log("testing")
   }
 }
