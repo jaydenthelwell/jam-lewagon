@@ -30,3 +30,14 @@
   user.save!
 end
 
+@users = User.all
+
+5.times do
+  @users.each do |user|
+    top_genre = TopGenre.new(
+      genre: Faker::Music.genre,
+      user_id: user.id
+    )
+    top_genre.save!
+  end
+end
