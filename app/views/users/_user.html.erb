@@ -24,7 +24,7 @@
   <% end %>
 
  <% if current_user.swiped_and_liked?(user.id) && user.id.swiped_and_liked?(current_user)%>
- <%= "You matched with #{user.name}" %>
+ <%= user.name %>
 
  <% end %>
 </li>

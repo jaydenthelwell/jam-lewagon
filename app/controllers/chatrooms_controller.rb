@@ -4,23 +4,14 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @match = Match.find(params[:id])
+
+    if ![@match.swipe.swiper, @match.swipe.swipee].include?(current_user)
+      redirect_to root_path, notice: "You are not in the chat"
+      return
+    end
+
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-  end
-
-
-  def create
-    @chatroom = Chatroom.new(chatroom_params)
-    if @chatroom.save
-      redirect_to root_path, notice: "chatrooms was successfully created."
-    else
-      render :chatrooms, status: :unprocessable_entity
-    end
-  end
-
-  private
-
-  def matches_params
-    params.require(:chatroom).permit(:match_id)
   end
 end
