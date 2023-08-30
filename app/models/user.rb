@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   has_many :top_genres
 
+  # For cloudinary to work
+  has_one_attached :photo
+
 
 
   def like(user_id)

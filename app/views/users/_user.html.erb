@@ -1,16 +1,18 @@
-<div data-user="<%= user.id %>" class="users-container">
-  <div class="card">
-    <div id="img-artist">
-      <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
-    </div>
-    <div class="user-image-wrapper">
-      <img src= "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80" alt="">
-    </div>
+<% @users.each do |user| %>
+  <div data-user="<%= user.id %>" class="users-container">
+    <div class="card">
+      <div id="img-artist">
+        <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
+      </div>
+      <div class="user-image-wrapper">
+        <%# <img src= "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3087&q=80" alt=""> %>
+        <%= cl_image_tag user.photo.key %>
+      </div>
 
-    <div class="profile-name">
-      <%= user.name %>
-    </div>
 
+      <div class="profile-name">
+        <%= user.name %>
+      </div>
 
     <div class="swipe-btns">
       <div class="swipe-left">
@@ -20,26 +22,38 @@
             <i class="fa-solid fa-forward fa-rotate-180" style="color: #ff5c52;"></i>
           </button>
         </form>
+
       </div>
 
-      <div class="swipe-right">
-        <form action="/users/<%= user.id %>/like" method="post">
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          <button type="submit">
-            <i class="fa-solid fa-forward" style="color: #ff5c52;"></i>
-          </button>
-        </form>
+      <div class="swipe-btns">
+        <div class="swipe-left">
+          <form action="/users/<%= user.id %>/dislike" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <button type="submit">
+              <i class="fa-solid fa-forward fa-rotate-180" style="color: #ff5c52;"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="swipe-right">
+          <form action="/users/<%= user.id %>/like" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <button type="submit">
+              <i class="fa-solid fa-forward" style="color: #ff5c52;"></i>
+            </button>
+          </form>
+        </div>
       </div>
+
+      <h6 class="prompt">On Repeat</h6>
+      <div class="card-section"></div>
+      <h6 class="prompt">All Time Favourite</h6>
+      <div class="card-section"></div>
+      <h6 class="prompt">Go To Karaoke</h6>
+      <div class="card-section"></div>
     </div>
-
-    <h6 class="prompt">On Repeat</h6>
-    <div class="card-section"></div>
-    <h6 class="prompt">All Time Favourite</h6>
-    <div class="card-section"></div>
-    <h6 class="prompt">Go To Karaoke</h6>
-    <div class="card-section"></div>
   </div>
-</div>
+<% end %>
 
 <%# if current_user.swiped_and_liked?(user.id) || current_user.swiped_and_disliked?(user.id) %>
   <%# <p>You have sent the request.</p> %>
