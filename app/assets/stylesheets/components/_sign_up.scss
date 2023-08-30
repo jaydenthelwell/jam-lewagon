@@ -66,3 +66,12 @@ body {
 .password-size {
   font-size: 25px;
 }
+
+.gender-form-style .form-control  {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 5px 0;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
