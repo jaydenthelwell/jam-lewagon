@@ -2,26 +2,38 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="sign-up"
 export default class extends Controller {
-  static targets = ["icon"];
+  static targets = ["input"];
 
   connect() {
-    console.log(this.iconTarget);
+    console.log(this.inputTargets);
+    this.step = 0;
   }
 
-  newContent() {
-    const nameDiv = this.iconTarget;
-    const emailDiv = document.getElementById("page2");
+  nextContent() {
+    console.log(this.inputTargets[this.step])
+    this.inputTargets[this.step].classList.add("d-none")
+    this.step += 1
+    this.inputTargets[this.step].classList.remove("d-none")
+    console.log("testing");
 
-    nameDiv.classList.add("d-none");
-    nameDiv.classList.remove("users_email")
-    // activates the d-none class so you cant see the name
-    // inserts the users_email div
-    // this.iconTarget.classList.remove("d-none");
-    emailDiv.iconTarget.classList.add("users_email");
-    emailDiv.iconTarget.classList.remove("d-none");
+  }
 
-    console.log("testing")
-    // this.iconTarget.classList.remove("d-none");
+  prevContent() {
+    console.log(this.inputTargets[this.step])
+    this.inputTargets[this.step].classList.add("d-none")
+    this.step -= 1
+    this.inputTargets[this.step].classList.remove("d-none")
+    console.log("testing");
 
   }
 }
+// const emailDiv = document.getElementById("page2");
+
+// this.nameTarget.classList.add("d-none");
+// this.nameTarget.classList.remove("users_email");
+
+// emailDiv.style.display = "block";
+// emailDiv.classList.add("users_email");
+
+// this.birthdateTarget.style.display = "";
+// this.birthdateTarget.classList.add("users_birthday");

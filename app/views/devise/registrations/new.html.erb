@@ -5,39 +5,39 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs custom-form-style" data-sign-up-target="icon">
+      <div class="form-inputs custom-form-style" data-sign-up-target="input">
         <%= f.input :name,
                     required: true,
                     label: "What's your first name?",
-                    label_html: { class: "first-name" },
+                    label_html: { class: "label-size" },
                     autofocus: true,
                     input_html: { class: "text-size", autocomplete: "name" },
                     placeholder: "First name"
                     %>
       </div>
 
-      <div class="users_email" style="display: none;" id="page2" class="form-inputs custom-form-style" data-sign-up-target="icon">
+      <div class="users_email d-none"  id="page2" class="form-inputs custom-form-style" data-sign-up-target="input">
         <%= f.input :email,
                     required: true,
                     autofocus: true,
                     label: "What's your email?",
-                    label_html: { class: "users_email" },
+                    label_html: { class: "label-size" },
                     input_html: { class: "text-size", autocomplete: "email" },
                     placeholder: "email@example.com"
                     %>
       </div>
 
-      <div class="form-inputs custom-form-style" style="display: none;" >
+      <div class="users_birthday d-none" class="form-inputs custom-form-style" id="page3" data-sign-up-target="input" >
         <%= f.input :birth_year,
                     # as: :string,
                     required: true,
                     autofocus: true,
                     label: "What's your date of birth?",
-                    label_html: { class: "text-size", autocomplete: "birth_year" },
+                    label_html: { class: "label-size", autocomplete: "birth_year" },
                     input_html: { data: { controller: "flatpickr" } }
                     %>
       </div>
-      <div class="form-inputs custom-form-style" style="display: none;">
+      <div class="form-inputs d-none custom-form-style" id="page4" data-sign-up-target="input" >
         <%= f.input :password,
                     required: true,
                     label: "Create Password",
@@ -51,11 +51,48 @@
                     input_html: { autocomplete: "new-password" } %>
       </div>
 
-      <div class="form-actions" style="display: none;">
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= f.input :location,
+                    required: true,
+                    label: "Please enter your location below.",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: "e.g. London"
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= f.input :gender,
+                    required: true,
+                    label: "Which gender best describes you?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+      </div>
+<%#
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= f.input :gender,
+                    required: true,
+                    label: "Which gender best describes you?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: "e.g London"
+                    %>
+
+
+      <div class="form-actions d-none"  id="page4" data-sign-up-target="input">
         <%= f.button :submit %>
       </div>
 
     <% end %>
-  <i class="fa-solid fa-forward" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#newContent"></i>
+    <div class="d-flex justify-content-between w-100" >
+      <i class="fa-solid fa-backward" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#prevContent"></i>
+
+      <i class="fa-solid fa-forward" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#nextContent"></i>
+    </div>
 </div>
     <%# <%= render "devise/shared/links" %>

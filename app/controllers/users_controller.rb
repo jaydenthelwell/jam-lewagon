@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     if current_user.like(@user.id)
       if @user.swiped_and_liked?(current_user.id)
         @swipe = Swipe.find_by(swiper_id: current_user.id, swipee_id: @user.id)
-        Match.create(swipe_id: @swipe.id)
+        @match = Match.create(swipe_id: @swipe.id)
+        Chatroom.create(match_id: @match.id)
       end
 
       respond_to do |format|
