@@ -1,4 +1,4 @@
-<div class="users-container">
+<div data-user="<%= user.id %>" class="users-container">
   <div class="card">
     <div id="img-artist">
       <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
@@ -22,7 +22,7 @@
       </div>
 
       <div class="swipe-right">
-        <form action="/users/<%= user.id %>/dislike" method="post">
+        <form action="/users/<%= user.id %>/like" method="post">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <button type="submit">
             <i class="fa-solid fa-forward" style="color: #ff5c52;"></i>
@@ -40,11 +40,6 @@
   </div>
 </div>
 
-<ul>
-  <%=  data-user=<%= user.id %>
-    <%= user.name %>
-    <% if current_user.swiped_and_liked?(user.id) ||current_user.swiped_and_disliked?(user.id) %>
-      <p>You have sent the request.</p>
-    <% end %>
-  </li>
-</ul>
+<%# if current_user.swiped_and_liked?(user.id) || current_user.swiped_and_disliked?(user.id) %>
+  <%# <p>You have sent the request.</p> %>
+<%# end %>

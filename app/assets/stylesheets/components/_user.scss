@@ -3,7 +3,6 @@
 }
 
 .card {
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   position: relative;
@@ -56,6 +55,7 @@
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 26px;
   transform: translate(40px, -70px);
+  width: 90%;
 }
 
 .swipe-btns {
