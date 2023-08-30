@@ -41,10 +41,8 @@
 </div>
 
 <ul>
-  <li data-user=<%= user.id %>>
+  <%=  data-user=<%= user.id %>
     <%= user.name %>
-
-
     <% if current_user.swiped_and_liked?(user.id) ||current_user.swiped_and_disliked?(user.id) %>
       <p>You have sent the request.</p>
     <% end %>
