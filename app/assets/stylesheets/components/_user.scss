@@ -1,6 +1,8 @@
+.users-container {
+  // margin: 20px auto;
+}
+
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   position: relative;
@@ -25,7 +27,7 @@
 }
 
 .card-section {
-  border: solid 3px;
+  background-color: lightgray;
   height: 125px;
   width: 100%;
   margin-bottom: 10px;
@@ -44,5 +46,40 @@
 
 .prompt {
   font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
   font-size: medium;
+}
+
+.profile-name {
+  color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 26px;
+  transform: translate(40px, -70px);
+  width: 90%;
+}
+
+.swipe-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0px auto;
+  transform: translateY(-10px);
+
+  i {
+    font-size: 50px;
+  }
+}
+
+.swipe-left {
+  button {
+    border: none;
+    background-color: initial;
+  }
+}
+
+.swipe-right {
+  button {
+    border: none;
+    background-color: initial;
+  }
 }

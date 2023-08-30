@@ -10,7 +10,11 @@ class User < ApplicationRecord
   has_many :swipee_relationships, foreign_key: :swipee_id, class_name: 'Swipe'
   has_many :swipee, through: :swipee_relationships, source: :swipee
 
+
   has_many :messages
+
+  has_many :top_genres
+
 
 
   def like(user_id)

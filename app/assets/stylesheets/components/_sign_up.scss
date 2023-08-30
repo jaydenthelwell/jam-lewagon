@@ -9,10 +9,14 @@ body {
 
 #next-icon {
   color: #83EBEC;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  // position: fixed;
+  // bottom: 20px;
+  // right: 20px;
 }
+
+// h2 {
+//   font-size: 30px;
+// }
 
 // .container {
 //   display: flex;
@@ -51,6 +55,14 @@ body {
   font-size: 30px;
 }
 
-.first-name {
+.label-size {
   font-size: 35px;
+}
+
+.text-size {
+  font-size: 25px;
+}
+
+.password-size {
+  font-size: 25px;
 }
