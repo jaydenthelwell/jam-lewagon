@@ -3,5 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-// Adding a comment
-// Another comment!
+
+import "@rails/actioncable"
+
