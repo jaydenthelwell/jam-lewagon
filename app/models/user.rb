@@ -4,16 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :swiper_relationships, foreign_key: :swiper_id, class_name: 'Swipe'
+  has_many :swiper_relationships, foreign_key: :swiper_id, class_name: 'Swipe', dependent: :destroy
   has_many :swiper, through: :swiper_relationships, source: :swiper
 
-  has_many :swipee_relationships, foreign_key: :swipee_id, class_name: 'Swipe'
+  has_many :swipee_relationships, foreign_key: :swipee_id, class_name: 'Swipe', dependent: :destroy
   has_many :swipee, through: :swipee_relationships, source: :swipee
 
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
-  has_many :top_genres
+  has_many :top_genres, dependent: :destroy
 
   # For cloudinary to work
   has_one_attached :photo
