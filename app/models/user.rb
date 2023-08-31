@@ -47,4 +47,13 @@ class User < ApplicationRecord
     relationship = Swipe.find_by(swiper_id: id, swipee_id: user_id, like: false)
     return true if relationship
   end
+
+  def users_with_same_genres
+    all_users = User.where.not(id: self.id)
+
+    all_users = all_users.sort_by do |user|
+      nr_same_genres = (user.top_genres.pluck(:genre) & self.top_genres.pluck(:genre)).count
+      -nr_same_genres
+    end
+  end
 end

@@ -1,2 +1,4 @@
 <%# <h1>Users:</h1> %>
-<%= render @users %>
+<% @users.each do |user| %>
+  <%= render "user", user: user %>
+<% end %>
