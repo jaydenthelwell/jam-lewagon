@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:like, :dislike]
 
   def index
-    @users = User.where.not(id: current_user.id)
+    @users = current_user.users_with_same_genres
 
     @users = @users.reject do |user|
       current_user.swiped?(user.id)
@@ -13,14 +13,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
-  def create
-    @user = User.new(user_params)
-    @user.save
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   @user.save
+  # end
 
   def like
     if current_user.like(@user.id)
@@ -46,11 +46,42 @@ class UsersController < ApplicationController
     end
   end
 
+
+  # def pair
+  #   @pair = []
+  #   @users = User.all
+  #   @users.each do |user|
+  #       user.genre ==
+
+  #     @pair << user unless @pair.user.include?(user) # make it to only allow two users inside
+  #     # for every attribute of the user that matches with another user we add some points and store it in the above variable
+  #   end
+  # end
+
+  # def users_with_similar_genres
+  #   @ordered_list = []
+  #   # @score = 0
+  #   @users = User.all
+  #   # index = 1
+  #   # cu_genres = current_user.top_genres
+  #   # nu_genres = user.find(index += 1).top_genres
+  #   @users.each_with_index do |user, index|
+  #     if current_user.top_genres == user.find(index += 1).top_genres
+  #       # @score = 5 # Initial score  matching genre
+  #       @ordered_list <<  user
+  #     end
+  #   end
+  # end
+
+
+  # we rank all the other users based on their points towards the current user
+  # we show all the other users based on the above ranking
+
   private
 
-  def user_params
-    params.require(:user).permit(:name, :location, :description, :birth_year, :gender)
-  end
+  # def user_params
+  #   params.require(:user).permit(:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, :photo)
+  # end
 
   def set_user
     @user = User.find(params[:id])

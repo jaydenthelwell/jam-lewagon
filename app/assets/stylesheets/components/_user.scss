@@ -1,18 +1,13 @@
-.users-container {
-  // margin: 20px auto;
-}
-
 .card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
   width: 100%;
   position: relative;
   padding: 30px 20px;
-
-  h6 {
-    text-align: left;
-  }
 }
 
+.h6 {
+  text-align: left;
+}
 .user-image-wrapper {
   height: 450px;
   width: 100%;
@@ -24,13 +19,15 @@
   width: 100%;
   object-position: top;
   object-fit: cover;
+  border: 10px solid rgb(92, 92, 92);
 }
 
 .card-section {
-  background-color: lightgray;
-  height: 125px;
+  border: 0.5px solid black;
+  height: auto;
   width: 100%;
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 #img-artist img {
@@ -46,8 +43,7 @@
 
 .prompt {
   font-family: Arial, Helvetica, sans-serif;
-  font-style: italic;
-  font-size: medium;
+  font-size: 18px;
 }
 
 .profile-name {
@@ -63,7 +59,7 @@
   justify-content: space-between;
   width: 70%;
   margin: 0px auto;
-  transform: translateY(-10px);
+  transform: translateY(-20px);
 
   i {
     font-size: 50px;
