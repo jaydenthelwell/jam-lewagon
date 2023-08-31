@@ -50,7 +50,7 @@ puts "Created #{User.count} Users"
 
 puts "Creating Top Genres"
 
-5.times do
+2.times do
   @users.each do |user|
     top_genre = TopGenre.new(
       genre: Faker::Music.genre,

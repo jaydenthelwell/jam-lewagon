@@ -1,3 +1,4 @@
+
 <div class="cards" data-controller="hide-cards">
   <% users.each do |user| %>
       <div data-user="<%= user.id %>" class="users-container">
@@ -51,12 +52,9 @@
           <div class="card-section">
             <%= user.go_to_karaoke %>
           </div>
-
         </div>
       </div>
   <% end %>
 </div>
 
-<%# if current_user.swiped_and_liked?(user.id) || current_user.swiped_and_disliked?(user.id) %>
-  <%# <p>You have sent the request.</p> %>
-<%# end %>
+
