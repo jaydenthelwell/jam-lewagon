@@ -14,6 +14,20 @@ body {
   // right: 20px;
 }
 
+.transparent {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navigate-btns {
+  position: fixed;
+  bottom: 100px;
+
+  width: 90%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
 // h2 {
 //   font-size: 30px;
 // }
