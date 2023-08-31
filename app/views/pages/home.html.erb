@@ -7,3 +7,5 @@
 <li class="nav-item">
   <%= link_to "Create Account", 'users/sign_up', class: "nav-link" %>
 </li>
+
+<%= cl_image_tag current_user.photo.key %>
