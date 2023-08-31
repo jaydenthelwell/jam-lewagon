@@ -1,5 +1,7 @@
+<div class="cards" data-controller="hide-cards">
 
 
-<% @users.each do |user| %>
-  <%= render "user", user: user %>
-<% end %>
+    <%= render "user", user: @users.first %>
+
+
+</div>
