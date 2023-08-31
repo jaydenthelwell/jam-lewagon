@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
 
 // Connects to data-controller="sign-up"
 export default class extends Controller {
@@ -7,6 +8,12 @@ export default class extends Controller {
   connect() {
     console.log(this.inputTargets);
     this.step = 0;
+
+    // console.log("This is birth input")
+    // const birthInput = document.querySelector(".users_birthday")
+    // console.log(birthInput)
+
+    // flatpickr(birthInput)
   }
 
   nextContent() {
@@ -17,6 +24,8 @@ export default class extends Controller {
     console.log("testing");
 
     this.prevTarget.classList.remove("transparent")
+    // this.nextTarget.classList.remove("transparent")
+
   }
 
   prevContent() {
@@ -30,8 +39,14 @@ export default class extends Controller {
       this.prevTarget.classList.add("transparent")
 
     }
+
+    // if (this.step == 11) {
+    //   this.prevTarget.classList.add("transparent")
+
+    // }
   }
 }
+
 // const emailDiv = document.getElementById("page2");
 
 // this.nameTarget.classList.add("d-none");
