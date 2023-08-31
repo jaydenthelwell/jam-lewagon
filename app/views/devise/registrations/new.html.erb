@@ -37,6 +37,7 @@
                     input_html: { data: { controller: "flatpickr" } }
                     %>
       </div>
+
       <div class="form-inputs d-none custom-form-style" id="page4" data-sign-up-target="input" >
         <%= f.input :password,
                     required: true,
@@ -69,19 +70,9 @@
                     label_html: { class: "label-size" },
                     autofocus: true,
                     input_html: { class: "text-size", autocomplete: "name" },
-                    placeholder: ""
+                    collection: ["Female", "Male", "Non-binary", "Other", "Prefer not to answer"],
+                    placeholder: "Please select one..."
                     %>
-        <form>
-          <label for="gender">Gender:</label>
-          <select name="gender">
-            <option value="">Please select one…</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="non-binary">Non-Binary</option>
-            <option value="other">Other</option>
-            <option value="Prefer not to answer">Perfer not to Answer</option>
-          </select>
-        </form>
       </div>
 
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
@@ -116,6 +107,7 @@
                     placeholder: ""
                     %>
       </div>
+
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
         <%= f.input :description,
                     required: true,
@@ -127,16 +119,28 @@
                     %>
       </div>
 
-
-      <div class="form-actions d-none"  id="page4" data-sign-up-target="input">
-        <%= f.button :submit %>
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= f.input :description,
+                    required: true,
+                    label: "Please add some photos for your profile",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
       </div>
 
+
+    <div class="form-actions d-none"  id="page4" data-sign-up-target="input">
+      <%= f.button :submit %>
+    </div>
     <% end %>
-    <div class="d-flex justify-content-between w-100" >
-      <i class="fa-solid fa-backward" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#prevContent"></i>
+
+    <div class="d-flex justify-content-between navigate-btns" >
+      <i data-sign-up-target="prev" class="fa-solid fa-backward transparent" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#prevContent"></i>
 
       <i class="fa-solid fa-forward" style="color: #83EBEC;" id="next-icon" data-action="click->sign-up#nextContent"></i>
     </div>
+
 </div>
     <%# <%= render "devise/shared/links" %>

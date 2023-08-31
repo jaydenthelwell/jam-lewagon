@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="sign-up"
 export default class extends Controller {
-  static targets = ["input"];
+  static targets = ["input", "prev"];
 
   connect() {
     console.log(this.inputTargets);
@@ -16,6 +16,7 @@ export default class extends Controller {
     this.inputTargets[this.step].classList.remove("d-none")
     console.log("testing");
 
+    this.prevTarget.classList.remove("transparent")
   }
 
   prevContent() {
@@ -25,6 +26,10 @@ export default class extends Controller {
     this.inputTargets[this.step].classList.remove("d-none")
     console.log("testing");
 
+    if (this.step == 0) {
+      this.prevTarget.classList.add("transparent")
+
+    }
   }
 }
 // const emailDiv = document.getElementById("page2");
