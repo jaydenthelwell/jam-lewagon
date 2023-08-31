@@ -10,15 +10,12 @@ class User < ApplicationRecord
   has_many :swipee_relationships, foreign_key: :swipee_id, class_name: 'Swipe', dependent: :destroy
   has_many :swipee, through: :swipee_relationships, source: :swipee
 
-
   has_many :messages, dependent: :destroy
 
   has_many :top_genres, dependent: :destroy
 
   # For cloudinary to work
   has_one_attached :photo
-
-
 
   def like(user_id)
     swiper_relationships.create(swipee_id: user_id, like: true)
