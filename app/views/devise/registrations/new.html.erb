@@ -12,7 +12,7 @@
                     label_html: { class: "label-size" },
                     autofocus: true,
                     input_html: { class: "text-size", autocomplete: "name" },
-                    placeholder: "First name"
+                    placeholder: "Name"
                     %>
       </div>
 
@@ -139,6 +139,7 @@
                     input_html: { class: "text-size", autocomplete: "name" },
                     placeholder: ""
                     %>
+        <%# f.input :photo, as: :file %>
       </div>
 
       <div class="img d-none" data-sign-up-target="input">
@@ -146,18 +147,15 @@
         <%= image_tag "spotify.png", height: 60 %>
       </div>
 
-    <div class="form-actions d-none" data-sign-up-target="input">
-      <%= f.button :submit %>
-    </div>
-
-
+      <div class="form-actions d-none" data-sign-up-target="input">
+        <%= f.button :submit %>
+      </div>
     <% end %>
 
     <div class="d-flex justify-content-between navigate-btns" >
       <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
-
-      <i class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
+      <i  data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
     </div>
-
 </div>
-    <%# <%= render "devise/shared/links" %>
+
+<%# <%= render "devise/shared/links" %>
