@@ -1,6 +1,6 @@
 
 <%# <div class="cards" data-controller="hide-cards"> %>
-
+<% unless @users[-1] == user %>
       <div data-user="<%= user.id %>" class="users-container">
         <div class="card" data-hide-cards-target="cards">
 
@@ -54,5 +54,8 @@
           </div>
         </div>
       </div>
+  <% else %>
+    <h1>no more possible matches, back to home</h1>
 
+<% end %>
 <%# </div> %>
