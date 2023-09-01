@@ -140,12 +140,12 @@
                     placeholder: ""
                     %>
         <%# f.input :photo, as: :file %>
+
         <div class="form-actions spotify" data-sign-up-target="create">
           <%= f.button :submit %>
         </div>
+
       </div>
-
-
     <% end %>
 
       <%= link_to "Login", new_user_session_path, class: "nav-link transparent"  %>
@@ -155,6 +155,7 @@
       <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
       <i data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
       <%# <%= image_tag "Spotify_App_Logo.png" data-sign-up-target="next" style="color: black; font-size: 60px;" data-action="click->sign-up#nextContent"%>
+
     </div>
 </div>
 
