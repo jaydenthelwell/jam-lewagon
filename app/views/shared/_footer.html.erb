@@ -10,8 +10,14 @@
     <% end %>
   </div>
   <div>
-    <%= link_to profile_path(current_user.id) do%>
-    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+    <% if user_signed_in? %>
+      <%= link_to profile_path(current_user.id) do %>
+        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
