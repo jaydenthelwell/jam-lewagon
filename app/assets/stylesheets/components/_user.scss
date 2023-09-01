@@ -1,0 +1,81 @@
+.card {
+  background-color: white;
+  width: 100%;
+  position: relative;
+  padding: 30px 20px;
+}
+
+.h6 {
+  text-align: left;
+}
+.user-image-wrapper {
+  height: 450px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.user-image-wrapper img {
+  height: 450px;
+  width: 100%;
+  object-position: top;
+  object-fit: cover;
+  border: 10px solid rgb(92, 92, 92);
+}
+
+.card-section {
+  border: 0.5px solid black;
+  height: auto;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#img-artist img {
+  height: 55px;
+  width: 55px;
+  object-position: top;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.prompt {
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.profile-name {
+  color: white;
+  font-family: monospace;
+  font-size: 26px;
+  transform: translate(40px, -70px);
+  width: 90%;
+}
+
+.swipe-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0px auto;
+  transform: translateY(-20px);
+
+  i {
+    font-size: 50px;
+  }
+}
+
+.swipe-left {
+  button {
+    border: none;
+    background-color: initial;
+  }
+}
+
+.swipe-right {
+  button {
+    border: none;
+    background-color: initial;
+  }
+}

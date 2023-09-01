@@ -1,5 +1,10 @@
 body {
-  background-color: #F6FCEE;
+  background-color: white;
+  font-family: monospace;
+}
+
+h1, h2, h3, h4, h6 {
+  font-family: monospace;
 }
 
 .container {
@@ -7,24 +12,52 @@ body {
   margin-top: 40%;
 }
 
-#next-icon {
-  color: #83EBEC;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+.empty {
+  margin-top: -40%;
 }
 
-// .container {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   height: 100vh;
-// }
+#next-icon {
+  font-size: 50px;
+}
 
-// .centered-content {
-//   display: flex;
-//   flex-direction: column;
-// }
+.transparent {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navigate-btns {
+  position: fixed;
+  bottom: 100px;
+  opacity: 0.7;
+  width: 80%;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.spotify {
+  position: fixed;
+  bottom: 95px;
+  margin-left: 255px;
+  z-index: 10;
+  background-image: url("Spotify_App_Logo.png");
+  background-size: 65px;
+  width: 65px;
+  height: 70px;
+  background-repeat: no-repeat;
+  animation: throbbing 4s ease-in-out infinite;
+}
+
+@keyframes throbbing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  25%, 75% {
+    transform: scale(1);
+  }
+}
 
 .custom-form-style .form-control {
   border: none;
@@ -38,19 +71,32 @@ body {
   box-sizing: border-box;
 }
 
-.custom-form-style .form-label {
-  display: none;
-
-}
-
-#next-icon {
-  font-size: 80px;
-}
-
-#email-icon {
-  font-size: 30px;
-}
-
-h2 {
+#icon {
   font-size: 35px;
+  padding-bottom: 20px;
+}
+
+.label-size {
+  font-size: 35px;
+}
+
+.text-size {
+  font-size: 17px;
+}
+
+.password-size {
+  font-size: 25px;
+}
+
+.gender-form-style .form-control  {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 5px 0;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.img {
+  margin-left: -7px;
+  box-shadow: 10px;
 }

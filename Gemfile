@@ -47,12 +47,21 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
+# added faker
+gem "faker"
+
+# added cloudinary
+gem "cloudinary"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 gem "bootstrap", "~> 5.2"
+
 gem "autoprefixer-rails"
+
 gem "font-awesome-sass", "~> 6.1"
+
 gem "simple_form", github: "heartcombo/simple_form"
 
 group :development, :test do

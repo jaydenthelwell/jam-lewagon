@@ -1,0 +1,13 @@
+<div class="footer-main d-flex">
+  <div>
+    <%= link_to users_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "messeges", chatrooms_path %>
+  </div>
+  <div>
+    <%= link_to "profile", profile_path(current_user.id) %>
+  </div>
+</div>

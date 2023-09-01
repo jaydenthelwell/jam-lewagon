@@ -70,7 +70,7 @@
     opacity: 0;
     visibility: inherit;
     transition: 0.1s all ease-in-out;
-  
+
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
@@ -122,7 +122,7 @@
     opacity: 0;
     visibility: inherit;
     transition: 0.1s all ease-in-out;
-  
+
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
@@ -195,12 +195,17 @@
       border-radius: 20px;
   }
 
-
     h2 {
       position: relative;
       left: 9px;
       top: 122px;
       width: 120%;
+      position: relative;
+      left: 20px;
+      top: 279px;
+      background-color: white;
+      color: black;
+      border-radius: 20px;
     }
 
     h3 {

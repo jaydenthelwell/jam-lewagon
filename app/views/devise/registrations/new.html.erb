@@ -1,11 +1,9 @@
-<div class="container">
-  <i class="fa-regular fa-envelope" id="email-icon"></i>
+<div class="container" data-controller="sign-up">
   <div class="centered-content">
-
   <h2>What's your email?</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
     <div class="form-inputs custom-form-style">
       <%= f.input :email,
@@ -36,4 +34,158 @@
   <%# <%= render "devise/shared/links" %>
 
 <i class="fa-solid fa-forward" style="color: #83EBEC;" id="next-icon"></i>
+      <div class="form-inputs custom-form-style" data-sign-up-target="input">
+        <i class="fa-regular fa-file-lines" id="icon"></i>
+        <%= f.input :name,
+                    required: true,
+                    label: "What's your first name?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: "Name"
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+          <i class="fa-regular fa-envelope" id="icon"></i>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    label: "What's your email?",
+                    label_html: { class: "label-size" },
+                    input_html: { class: "text-size", autocomplete: "email" },
+                    placeholder: "email@example.com"
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input" >
+        <i class="fa-solid fa-cake-candles" id="icon"></i>
+        <%= f.input :date_of_birth,
+                    # as: :string,
+                    # required: true,
+                    # autofocus: true,
+                    label: "What's your date of birth?",
+                    label_html: { class: "label-size", autocomplete: "birth_year" },
+                    # input_html: { data: { controller: "flatpickr" } }
+                    as: :string,
+                    input_html: { data: { controller: "flatpickr" } }
+                    %>
+      </div>
+
+      <div class="form-inputs d-none custom-form-style" id="page4" data-sign-up-target="input" >
+        <i class="fa-solid fa-lock" id="icon"></i>
+        <%= f.input :password,
+                    required: true,
+                    label: "Create Password",
+                    label_html: { class: "password-size" },
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    label: "Reenter Password",
+                    label_html: { class: "password-size" },
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <i class="fa-solid fa-location-dot" id="icon"></i>
+        <%= f.input :location,
+                    required: true,
+                    label: "Please enter your location below.",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: "e.g. London"
+                    %>
+      </div>
+
+      <div class="form-inputs gender-form-style d-none" data-sign-up-target="input">
+        <i class="fa-regular fa-user" id="icon"></i>
+        <%= f.input :gender,
+                    required: true,
+                    label: "Which gender best describes you?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    collection: ["Female", "Male", "Non-binary", "Other", "Prefer not to answer"],
+                    placeholder: "Please select one..."
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <i class="fa-solid fa-music" id="icon"></i>
+        <%= f.input :on_repeat,
+                    required: true,
+                    label: "What song could you listen to on repeat?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <i class="fa-solid fa-volume-high" id="icon"></i>
+        <%= f.input :all_time_favorite,
+                    required: true,
+                    label: "If your life had a theme song, what would it be?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= image_tag "microphone.png", height: 35%>
+        <%= f.input :go_to_karaoke,
+                    required: true,
+                    label: "What's your go-to karaoke tune?",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <i class="fa-solid fa-ellipsis" id="icon" style="font-size: 30px;" ></i>
+        <%= f.input :description,
+                    required: true,
+                    label: "Tell us a little about yourself",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+      </div>
+
+      <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
+        <%= f.input :photo, as: :file,
+                    required: true,
+                    label: "Pick your photos for your profile",
+                    label_html: { class: "label-size" },
+                    autofocus: true,
+                    input_html: { class: "text-size", autocomplete: "name" },
+                    placeholder: ""
+                    %>
+        <%# f.input :photo, as: :file %>
+
+        <div class="form-actions spotify" data-sign-up-target="create">
+          <%= f.button :submit, value: "" %>
+        </div>
+
+      </div>
+    <% end %>
+
+      <%= link_to "Login", new_user_session_path, class: "nav-link transparent"  %>
+
+
+    <div class="d-flex justify-content-between navigate-btns" >
+      <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
+      <i data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
+      <%# <%= image_tag "Spotify_App_Logo.png" data-sign-up-target="next" style="color: black; font-size: 60px;" data-action="click->sign-up#nextContent"%>
+    </div>
 </div>
+
+<%# <%= render "devise/shared/links" %>

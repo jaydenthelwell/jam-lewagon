@@ -1,0 +1,49 @@
+<%# overall container of navbar %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<%# container for the home logo, inside the logo is a link_to root path %>
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <% end %>
+
+
+<%# this is the drop down of the navbar using javascript to make collapsable %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <%# THIS IS ALL DROPDOWN CODE  %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+            <%# if statement to protect whether a user is logged in or not %>
+              <% if user_signed_in? %>
+              <%# this 'active' here is a class added for when the navbar item is clicked %>
+                <li class="nav-item active">
+                <%# items in the nav bar - this is the link to home( currently not wired in) %>
+                  <%= link_to "Home", "#", class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Messages", "#", class: "nav-link" %>
+                </li>
+
+                <li class="nav-item dropdown">
+                <%# this is the dropdown in the  %>
+                  <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.name %></a>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <%= link_to "Action", "#", class: "dropdown-item" %>
+                    <%= link_to "Another action", "#", class: "dropdown-item" %>
+                    <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                  </div>
+                </li>
+              <% else %>
+
+                <li class="nav-item">
+                  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+
+
+  </div>
+</div>
