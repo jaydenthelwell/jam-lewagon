@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @users = @users.reject do |user|
       current_user.swiped?(user.id)
     end
+
+    @users = User.all
   end
 
   def show
@@ -46,7 +48,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   # def pair
   #   @pair = []
   #   @users = User.all
@@ -72,7 +73,6 @@ class UsersController < ApplicationController
   #     end
   #   end
   # end
-
 
   # we rank all the other users based on their points towards the current user
   # we show all the other users based on the above ranking
