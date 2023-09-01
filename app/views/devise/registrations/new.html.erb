@@ -140,21 +140,21 @@
                     placeholder: ""
                     %>
         <%# f.input :photo, as: :file %>
+        <div class="form-actions spotify" data-sign-up-target="create">
+          <%= f.button :submit %>
+        </div>
       </div>
 
-      <div class="img d-none" data-sign-up-target="input">
-        <h1>Sign in to spotify to see your matches...</h1>
-        <%= image_tag "spotify.png", height: 60 %>
-      </div>
 
-      <div class="form-actions d-none" data-sign-up-target="input">
-        <%= f.button :submit %>
-      </div>
     <% end %>
+
+      <%= link_to "Login", new_user_session_path, class: "nav-link transparent"  %>
+
 
     <div class="d-flex justify-content-between navigate-btns" >
       <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
-      <i  data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
+      <i data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
+      <%# <%= image_tag "Spotify_App_Logo.png" data-sign-up-target="next" style="color: black; font-size: 60px;" data-action="click->sign-up#nextContent"%>
     </div>
 </div>
 

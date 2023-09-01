@@ -30,7 +30,7 @@ export default class extends Controller {
 
     if (this.step == 10) {
       this.nextTarget.classList.add("transparent")
-      this.inputTargets[12].classList.remove("d-none")
+    this.inputTargets[10].classList.remove("d-none")
 
     }
 
