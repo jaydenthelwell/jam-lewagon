@@ -1,4 +1,7 @@
+<h1>Inbox</h1>
 
-<%= @chatrooms.each do |chatroom|%>
-<%= chatroom.match %>
-<% end %>
+<div class="card" id = "card-in">
+    <% @chatrooms.each do |chatroom|%>
+    <a class = "name-of"href= "<%= chatroom_path(chatroom) %>"><%= User.find(chatroom.match.swipe.swipee_id).name%></a>
+    <% end %>
+</div>
