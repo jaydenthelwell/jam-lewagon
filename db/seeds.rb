@@ -8,6 +8,7 @@
 require "open-uri"
 
 puts "Cleaning the database"
+Profile.destroy_all
 User.destroy_all
 TopGenre.destroy_all
 
@@ -25,7 +26,7 @@ PICTURES = [
   "https://images.unsplash.com/photo-1664575599736-c5197c684128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
 ]
 
-puts "Creating users"
+puts "Creating Users ..."
 
 30.times do
   user = User.new(
@@ -43,14 +44,20 @@ puts "Creating users"
   file = URI.open(PICTURES.sample)
   user.photo.attach(io: file, filename: "banana.png", content_type: "image/png")
   user.save!
+  puts "Created User: #{user.id}"
+
+  profile = Profile.new(user: user)
+  profile.save!
+  puts "Created Profile: #{user.id}"
 end
+
 puts "Created #{User.count} Users"
 
 @users = User.all
 
 puts "Creating Top Genres"
 
-5.times do
+2.times do
   @users.each do |user|
     top_genre = TopGenre.new(
       genre: Faker::Music.genre,
@@ -59,4 +66,5 @@ puts "Creating Top Genres"
     top_genre.save!
   end
 end
+
 puts "Created #{TopGenre.count} Top Genres"

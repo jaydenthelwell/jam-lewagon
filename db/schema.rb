@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_08_30_153604) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +69,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_153604) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "swipes", force: :cascade do |t|
     t.bigint "swiper_id"
     t.bigint "swipee_id"
@@ -109,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_153604) do
   add_foreign_key "matches", "swipes"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "swipes", "users", column: "swipee_id"
   add_foreign_key "swipes", "users", column: "swiper_id"
   add_foreign_key "top_genres", "users"
