@@ -9,9 +9,6 @@ body {
 
 #next-icon {
   font-size: 50px;
-  // position: fixed;
-  // bottom: 20px;
-  // right: 20px;
 }
 
 .transparent {
@@ -28,21 +25,30 @@ body {
   transform: translateX(50%);
 }
 
-// h2 {
-//   font-size: 30px;
-// }
+.spotify {
+  position: fixed;
+  bottom: 95px;
+  margin-left: 255px;
+  z-index: 10;
+  background-image: url("Spotify_App_Logo.png");
+  background-size: 65px;
+  width: 65px;
+  height: 70px;
+  background-repeat: no-repeat;
+  animation: throbbing 4s ease-in-out infinite;
+}
 
-// .container {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   height: 100vh;
-// }
-
-// .centered-content {
-//   display: flex;
-//   flex-direction: column;
-// }
+@keyframes throbbing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  25%, 75% {
+    transform: scale(1);
+  }
+}
 
 .custom-form-style .form-control {
   border: none;
@@ -55,15 +61,6 @@ body {
   margin: 10px 0;
   box-sizing: border-box;
 }
-
-// .custom-form-style .form-label {
-//   // display: none;
-
-// }
-
-// #next-icon {
-//   font-size: 50px;
-// }
 
 #icon {
   font-size: 35px;
