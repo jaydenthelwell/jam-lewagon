@@ -4,7 +4,8 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @match = Match.find(params[:id])
+    @chatroom = Chatroom.find(params[:id])
+    @match = Match.find(@chatroom.match_id)
 
     if ![@match.swipe.swiper, @match.swipe.swipee].include?(current_user)
       redirect_to root_path, notice: "You are not in the chat"

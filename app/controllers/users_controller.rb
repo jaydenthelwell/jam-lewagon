@@ -7,8 +7,6 @@ class UsersController < ApplicationController
     @users = @users.reject do |user|
       current_user.swiped?(user.id)
     end
-
-    @users = User.all
   end
 
   def show
