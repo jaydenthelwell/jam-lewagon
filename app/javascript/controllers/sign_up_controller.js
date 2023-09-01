@@ -3,7 +3,7 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="sign-up"
 export default class extends Controller {
-  static targets = ["input", "prev"];
+  static targets = ["input", "prev", "next"];
 
   connect() {
     console.log(this.inputTargets);
@@ -26,6 +26,15 @@ export default class extends Controller {
     this.prevTarget.classList.remove("transparent")
     // this.nextTarget.classList.remove("transparent")
 
+    console.log(this.step)
+
+    if (this.step == 10) {
+      this.nextTarget.classList.add("transparent")
+    this.inputTargets[10].classList.remove("d-none")
+
+    }
+
+
   }
 
   prevContent() {
@@ -40,10 +49,6 @@ export default class extends Controller {
 
     }
 
-    // if (this.step == 11) {
-    //   this.prevTarget.classList.add("transparent")
-
-    // }
   }
 }
 
