@@ -9,9 +9,22 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id])
+  def edit
+    @user = current_user
   end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:notices] = ["Your profile was successfully updated"]
+      redirect_to profile_path(@user.profile)
+    else
+      flash[:notices] = ["Your profile could not be updated"]
+      render 'edit'
+    end
+  end
+
+
 
   # def new
   #   @user = User.new
@@ -77,9 +90,9 @@ class UsersController < ApplicationController
 
   private
 
-  # def user_params
-  #   params.require(:user).permit(:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, :photo)
-  # end
+  def user_params
+    params.require(:user).permit(:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, :photo)
+  end
 
   def set_user
     @user = User.find(params[:id])

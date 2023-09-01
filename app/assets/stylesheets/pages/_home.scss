@@ -34,7 +34,7 @@
 .landing-page-typed {
     color: rgb(255, 255, 255);
     font-size: 72px;
-    font-family: akzindex-grotesk; 
+    font-family: monospace;
     margin: 0 auto;
     position: fixed;
     top: 50%;
@@ -67,8 +67,8 @@
     transform: translate(-50%, -50%);
     z-index: 888;
     opacity: 0;
-    
-    
+
+
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
@@ -77,7 +77,7 @@
         border-radius: 20px;
         color: black;
         background-color: rgb(255, 255, 255);
-    
+
     }
 }
 
@@ -117,7 +117,7 @@
     transform: translate(-50%, -50%);
     z-index: 888;
     opacity: 0;
-    
+
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
@@ -179,7 +179,7 @@
         background-color: white;
         color: black;
         border-radius: 20px;
-        
+
     }
 }
 
@@ -201,5 +201,3 @@
 .down {
     top: 100vh;
 }
- 
-    
