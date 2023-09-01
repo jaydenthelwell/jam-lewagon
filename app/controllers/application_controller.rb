@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, :photo])
   end
 
+
+  # def after_sign_in_path_for(resource_or_scope)
+  #   Profile.create(user: current_user)
+  #   '/top_genres/new'
+  # end
+
 end

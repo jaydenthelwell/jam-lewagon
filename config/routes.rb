@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   # Defines the root path route ("/")
   # root "articles#index"
