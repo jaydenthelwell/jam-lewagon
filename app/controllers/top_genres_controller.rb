@@ -12,8 +12,12 @@ class TopGenresController < ApplicationController
         @top_genre.save!
       end
     end
-
-    redirect_to root_path
-
+    redirect_to users_path
   end
+
+  # def edit
+  # end
+
+  # def update
+  # end
 end
