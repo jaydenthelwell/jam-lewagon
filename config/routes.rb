@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html  
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -23,10 +23,10 @@ Rails.application.routes.draw do
 
   resources :users, except: [:index]
 
-  resources :matches, only: [:index] do
-    resources :chatrooms, only: :show do
+  resources :matches, only: [:index]
+
+  resources :chatrooms, only: [:index, :show] do
       resources :messages, only: :create
-    end
   end
 
   resources :top_genres, only: [:new, :create]

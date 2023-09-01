@@ -48,7 +48,7 @@ class User < ApplicationRecord
   def users_with_same_genres
     all_users = User.where.not(id: self.id)
 
-    all_users = all_users.sort_by do |user|
+    all_users.sort_by do |user|
       nr_same_genres = (user.top_genres.pluck(:genre) & self.top_genres.pluck(:genre)).count
       -nr_same_genres
     end
