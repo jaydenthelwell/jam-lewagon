@@ -1,0 +1,9 @@
+<h1>My Top Genres</h1>
+<br>
+<h3>My 5 favorite genres:</h3>
+<%# need to populate input with existing top_genre entries for current user %>
+
+<%= simple_form_for(@top_genre) do |f| %>
+  <%= f.input :genre, collection: TopGenre.all.pluck(:genre).uniq, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
+  <%= f.submit "Add my top genres" %>
+<% end %>
