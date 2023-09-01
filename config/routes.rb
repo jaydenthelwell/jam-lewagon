@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   # Defines the root path route ("/")
   # root "articles#index"
@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   resources :matches, only: [:index]
 
   resources :chatrooms, only: [:index, :show] do
-    resources :messages, only: :create
+
+  resources :messages, only: :create
+
   end
 
   resources :top_genres, only: [:new, :create]
