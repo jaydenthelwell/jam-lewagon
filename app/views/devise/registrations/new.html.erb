@@ -1,13 +1,11 @@
 <div class="container" data-controller="sign-up">
   <div class="centered-content">
-  <h2>What's your email?</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
     <div class="form-inputs custom-form-style">
 
-<i class="fa-solid fa-forward" style="color: #83EBEC;" id="next-icon"></i>
       <div class="form-inputs custom-form-style" data-sign-up-target="input">
         <i class="fa-regular fa-file-lines" id="icon"></i>
         <%= f.input :name,

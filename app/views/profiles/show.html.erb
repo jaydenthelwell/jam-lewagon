@@ -34,5 +34,13 @@
       <%= @profile.user.go_to_karaoke %>
     </div>
 
+    <h6 class="prompt">Top Genres</h6>
+    <div class="card-section">
+      <% @profile.user.top_genres.each do |genre| %>
+        <p><%= genre.genre %></p>
+      <% end %>
+    </div>
+
     <%= link_to "Edit My Profile 📝 ", edit_user_path(@profile.user) %>
   </div>
+<%= render 'shared/footer' %>
