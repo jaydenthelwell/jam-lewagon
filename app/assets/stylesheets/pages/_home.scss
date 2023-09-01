@@ -1,1 +1,205 @@
 // Specific CSS for your home-page
+.landing-page img {
+    height: 100vh;
+    transform: translateX(-100px);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.landing-page-animation img {
+    height: 150vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+
+    animation-name: blackSlide;
+    animation-duration: 5250ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blackSlide {
+    0%{
+    top: 0px;
+    }
+    25%{
+    top: 0px;
+    }
+    100%{
+    top: -1600px;
+    }
+  }
+
+.landing-page-typed {
+    color: rgb(255, 255, 255);
+    font-size: 72px;
+    font-family: akzindex-grotesk; 
+    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    animation-name: jamSlide;
+    animation-duration: 4500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes jamSlide{
+    0%{
+    top: 50%;
+    }
+    50%{
+    top: 50%;
+    }
+    100%{
+    top: 10%;
+    }
+}
+
+.login-signup-button {
+    margin: 0 auto;
+    position: fixed;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 888;
+    opacity: 0;
+    
+    
+    animation-name: showButton;
+    animation-duration: 5470ms;
+    animation-fill-mode: forwards;
+
+    .btn {
+        border-radius: 20px;
+        color: black;
+        background-color: rgb(255, 255, 255);
+    
+    }
+}
+
+.scroll-down-btn {
+    position: fixed;
+    top: 95%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 888;
+    opacity: 0;
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+
+    animation-name: showButton;
+    animation-duration: 5470ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showButton{
+    0%{
+    opacity: 0;
+    }
+    70%{
+    opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+}
+
+.login-button {
+    margin: 0 auto;
+    position: fixed;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 888;
+    opacity: 0;
+    
+    animation-name: showButton;
+    animation-duration: 5470ms;
+    animation-fill-mode: forwards;
+
+    .btn {
+        border-radius: 20px;
+        color: black;
+        background-color: white;
+    }
+}
+
+@keyframes showButton{
+    0%{
+    opacity: 0;
+    }
+    70%{
+    opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+}
+
+.second-page-bg {
+    position: absolute;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.second-page-bg img {
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(0px);
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: saturate(50%);
+}
+
+.second-page-content {
+    position: absolute;
+    z-index: 999;
+    color: aliceblue;
+
+    .jam-text{
+        position: relative;
+        left: 50px;
+        top: 50px;
+        width: 300px;
+    }
+
+    .scroll-up-btn {
+        position: relative;
+        left: 20px;
+        top: 279px;
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+        
+    }
+}
+
+.second-page {
+    transition: 0.5s all ease-in-out;
+}
+
+.second-page {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    transition: 1s all ease-in-out;
+}
+
+.up {
+    top: 0px;
+}
+
+.down {
+    top: 100vh;
+}
+ 
+    

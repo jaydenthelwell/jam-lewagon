@@ -1,11 +1,39 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="landing-pages" data-controller="landing-page-scroll">
+  <div class="landing-page">
+    <%= image_tag "Jam Image.jpeg" %>
 
-<li class="nav-item">
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-</li>
-<li class="nav-item">
-  <%= link_to "Create Account", 'users/sign_up', class: "nav-link" %>
-</li>
+    <div class="landing-page-typed" data-controller="typedjs">
+    </div>
+
+    <div class="login-signup-button">
+      <%= link_to "Sign Up", new_user_registration_path, class: "sign-up-button btn btn-primary" %>
+    </div>
+
+    <div class="login-button">
+        <%= link_to "Log In", new_user_session_path, class: "log-in-button btn btn-primary" %>
+    </div>
+
+    <button class="btn btn-primary scroll-down-btn" data-action="click->landing-page-scroll#scrollDown">Scroll Down<button>
+  </div>
+
+  <div class="landing-page-animation">
+    <%= image_tag "black image.png" %>
+  </div>
+
+  <div class="landing-page second-page" data-landing-page-scroll-target="secondPage">
+    <div class="second-page-bg">
+      <%= image_tag "jam second.jpeg"%>
+    </div>
+    <div class="second-page-content">
+      <h1>About Us</h1>
+      <h2>"Notes of connection in every swipe"</h2>
+      <h3> Melodic Approach:</h3>
+      <div class="jam-text">
+        <h4>Jam is rooted in the belief that everyone in search of love should have the chance to find it. Our platform utilises a renowned algorithm, enabling us to excel in setting up meaningful dates, all while connecting you with individuals who share your music preferences, freeing you from endless app usage.</h3>
+      </div>
+      <button class="btn btn-primary scroll-up-btn" data-action="click->landing-page-scroll#scrollUp">Scroll Up<button>
+    </div>
+  </div>
+</div>
 
 <%# <%= cl_image_tag current_user.photo.key %>
