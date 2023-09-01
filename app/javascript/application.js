@@ -3,5 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-
-// import "@rails/actioncable"
+// importmap "@rails/actioncable" --from jsdelivr
+import "@rails/actioncable"
