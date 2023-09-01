@@ -59,9 +59,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.serve_static_files = false
+  config.assets.compile = true
 
-  # config.action_view.preload_links_header = false
+  # config.serve_static_files = true
+
+  config.serve_static_files = false
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
