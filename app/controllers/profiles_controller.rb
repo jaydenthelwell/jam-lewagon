@@ -6,21 +6,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
-  def edit
-    @profile = Profile.find_by(user_id: current_user.id)
-  end
-
-  def update
-    @profile = Profile.find_by(user_id: current_user.id)
-    if @profile.update(profile_params)
-      flash[:notices] = ["Your profile was successfully updated"]
-      render 'show'
-    else
-      flash[:notices] = ["Your profile could not be updated"]
-      render 'edit'
-    end
-  end
-
   private
 
   def profile_params
