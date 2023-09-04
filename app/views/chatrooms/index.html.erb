@@ -3,7 +3,13 @@
 
   <div class="card" id = "card-in">
       <% @chatrooms.each do |chatroom|%>
-      <a class = "name-of"href= "<%= chatroom_path(chatroom) %>"><%= User.find(chatroom.match.swipe.swipee_id).name%></a>
+      <a class = "name-of"href= "<%= chatroom_path(chatroom) %>">
+        <% if User.find(chatroom.match.swipe.swiper_id) == current_user %>
+          <%= User.find(chatroom.match.swipe.swipee_id).name %>
+        <% else %>
+          <%= User.find(chatroom.match.swipe.swiper_id).name %>
+        <% end %>
+      </a>
       <% end %>
   </div>
 </div>
