@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
 
   # For cloudinary to work
-  has_one_attached :photo
+  has_many_attached :photos
 
   def like(user_id)
     swiper_relationships.create(swipee_id: user_id, like: true)

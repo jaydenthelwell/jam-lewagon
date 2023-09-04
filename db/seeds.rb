@@ -9,10 +9,10 @@ require "open-uri"
 
 puts "Cleaning the database"
 TopGenre.destroy_all
-User.destroy_all
 Match.destroy_all
 Swipe.destroy_all
 Profile.destroy_all
+User.destroy_all
 
 # User.create(email: "luke@luke.com", password: "123456", name: "Luke", location:"London", description: "I am Luke from London", birth_year: 1990, gender: "male", on_repeat: "Don't Stop Me Now", all_time_favorite: "", go_to_karaoke: "")
 # User.create(email: "mary@mary.com", password: "123456", name: "Mary", location:"Paris", description: "I am Mary from Paris", birth_year: 1992, gender: "female", on_repeat: "Don't Stop Me Now", all_time_favorite: "", go_to_karaoke: "")
@@ -30,7 +30,7 @@ PICTURES = [
 
 puts "Creating Users ..."
 
-30.times do
+10.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -43,8 +43,10 @@ puts "Creating Users ..."
     all_time_favorite: Faker::Music::Prince.song,
     go_to_karaoke: Faker::Music::RockBand.song
   )
-  file = URI.open(PICTURES.sample)
-  user.photo.attach(io: file, filename: "banana.png", content_type: "image/png")
+  3.times do
+    file = URI.open(PICTURES.sample)
+    user.photos.attach(io: file, filename: "banana.png", content_type: "image/png")
+  end
   user.save!
   puts "Created User: #{user.id}"
 
