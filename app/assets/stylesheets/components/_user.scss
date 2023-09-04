@@ -79,3 +79,48 @@
     background-color: initial;
   }
 }
+
+.alert {
+  background-color: #aeaeffe4;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  img {
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 10px solid rgb(92, 92, 92);
+  }
+
+  h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: white;
+    font-size: 30px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(19, 2, 34);
+  }
+
+  .profile-name-match {
+    color: white;
+    font-family: monospace;
+    font-size: 26px;
+  }
+
+}
