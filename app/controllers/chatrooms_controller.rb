@@ -1,6 +1,12 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all
+
+    @chatrooms.map do |chatroom|
+      chatroom if ![chatroom.match.swipe.swiper, chatroom.match.swipe.swipee].include?(current_user)
+    end
+
+    # raise
   end
 
   def show
