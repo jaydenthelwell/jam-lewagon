@@ -1,0 +1,98 @@
+  <div class="card" data-hide-cards-target="cards" data-controller="spotify-auth">
+
+    <div id="img-artist">
+      <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
+    </div>
+
+    <div class="user-image-wrapper">
+      <%= cl_image_tag current_user.photo.key %>
+    </div>
+
+    <div class="profile-name">
+      <%= current_user.name %>
+    </div>
+
+    <div class="description">
+      <h4>A little about me...</h1>
+      <div class="card-section">
+        <%= current_user.description %>
+      </div>
+    </div>
+
+    <h6 class="prompt">On Repeat</h6>
+    <div class="card-section">
+      <%= current_user.on_repeat %>
+    </div>
+
+    <h6 class="prompt">Theme Song</h6>
+    <div class="card-section">
+      <%= current_user.all_time_favorite %>
+    </div>
+
+    <h6 class="prompt">Go To Karaoke</h6>
+    <div class="card-section">
+      <%= current_user.go_to_karaoke %>
+    </div>
+
+    <h6 class="prompt">Top Genres</h6>
+    <div class="card-section">
+      <% current_user.top_genres.each do |genre| %>
+        <p><%= genre.genre %></p>
+      <% end %>
+    </div>
+
+    <section class="spotify-auth mt-5" data-controller="spotify-auth">
+      <div
+        class="spotify-env"
+        data-client-id="<%= ENV["client_id"] %>"
+        data-client-secret="<%= ENV["client_secret"] %>"
+        <%# data-spotify-auth-client-id-value="testing" %>
+      ></div>
+
+      <h5>Connect My Account to Spotify</h5>
+      <div
+        class="btn btn-success my-2"
+        data-action="click->spotify-auth#linkToSpotify"
+      >Connect to Spotify</div>
+
+      <div class="spotify-user-data">
+        <div class="top-genres mt-5">
+          <h5>My Top 5 Genres</h5>
+          <div
+            class="btn btn-success my-2"
+            data-action="click->spotify-auth#getTopGenres"
+          >Update My Genres</div>
+          <div class="top-genres-list mt-2">
+            <% current_user.top_genres.each do |genre| %>
+              <p><%= genre.genre %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="top-artists mt-5">
+          <h5>My Top 5 Artists</h5>
+          <div
+            class="btn btn-success my-2"
+            data-action="click->spotify-auth#getTopArtists"
+          >Get My Artists</div>
+        </div>
+        <div class="top-tracks mt-5">
+          <h5>My Top 5 Tracks</h5>
+          <div
+            class="btn btn-success my-2"
+            data-action="click->spotify-auth#getTopTracks"
+          >
+            Get My Tracks</div>
+        </div>
+        <div class="my-devices mt-5">
+          <%# <h5>My Devices</h5> %>
+        </div>
+      </div>
+    </section>
+
+    <%= link_to "Edit My Profile 📝 ", edit_user_path(current_user) %>
+  </div>
+
+
+
+
+<%= render 'shared/footer' %>

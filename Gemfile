@@ -50,6 +50,13 @@ gem "sassc-rails"
 # added faker
 gem "faker"
 
+gem "rails-ujs"
+
+# spotify api
+# gem 'rack-cors'
+# gem 'active_model_serializers'
+# gem 'rspotify'
+
 # added cloudinary
 gem "cloudinary"
 
