@@ -143,15 +143,16 @@
                     %>
         <%# f.input :photo, as: :file %>
 
-        <div class="form-actions spotify" data-sign-up-target="create">
-          <%= f.button :submit, value: "" %>
+        <div class="form-actions c-profile" data-sign-up-target="create">
+          <%= button_tag type: 'submit', class: "register-button" do %>
+            <i class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon"></i>
+          <% end %>
         </div>
 
       </div>
     <% end %>
 
       <%= link_to "Login", new_user_session_path, class: "nav-link transparent"  %>
-
 
     <div class="d-flex justify-content-between navigate-btns" >
       <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
