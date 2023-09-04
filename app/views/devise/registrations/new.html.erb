@@ -133,12 +133,12 @@
       </div>
 
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
-        <%= f.input :photo, as: :file,
+        <%= f.input :photos, as: :file,
                     required: true,
                     label: "Pick your photos for your profile",
                     label_html: { class: "label-size" },
                     autofocus: true,
-                    input_html: { class: "text-size", autocomplete: "name" },
+                    input_html: { class: "text-size", multiple: true, autocomplete: "name" },
                     placeholder: ""
                     %>
         <%# f.input :photo, as: :file %>
