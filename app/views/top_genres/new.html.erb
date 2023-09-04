@@ -4,6 +4,6 @@
 
     <%= simple_form_for(@top_genre) do |f| %>
       <%= f.input :genre, collection: TopGenre.all.pluck(:genre).uniq, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
-      <%= f.submit "Add my top genres", class: "btn btn-primary" %>
+      <%= f.submit "Create profile", class: "btn btn-primary" %>
     <% end %>
 </div>
