@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
 
+  get "profile", to: "users#profile"
+
   resources :users, only: [:index] do
     member do
       post :like
