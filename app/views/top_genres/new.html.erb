@@ -6,7 +6,7 @@
       <%= f.submit "Create profile", class: "btn btn-primary" %>
     <% end %>
 
-   <section class="spotify-auth mt-5" data-controller="spotify-auth">
+    <section class="spotify-auth mt-5" data-controller="spotify-auth">
       <div
         class="spotify-env"
         data-client-id="<%= ENV["client_id"] %>"
@@ -14,11 +14,26 @@
         <%# data-spotify-auth-client-id-value="testing" %>
       ></div>
 
-      <h5>Connect My Account to Spotify</h5>
-      <div
-        class="btn btn-success my-2"
-        data-action="click->spotify-auth#linkToSpotify"
-      >Connect to Spotify</div>
+      <div class="spotify-auth d-none" data-spotify-auth-target="auth">
+        <h5>Connect My Account to Spotify</h5>
+        <div
+          class="btn btn-success my-2"
+          data-action="click->spotify-auth#linkToSpotify"
+          <%# click->spotify-auth#submitForm MAYBE ADD TO THE ABOVE LISTENERS REMEMBER TO UNCOMMENT IN THE SPOTIFY-AUTH AS WELL %>
+        >Connect to Spotify</div>
+      </div>
 
-</section>
+      <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
+        <%# <h5>My Top 5 Genres</h5> %>
+        <div
+          class="btn btn-success my-2"
+          data-action="click->spotify-auth#getTopGenres"
+        >Get Your Top 5 Genres from Spotify</div>
+        <div class="top-genres-list mt-2">
+          <% current_user.top_genres.each do |genre| %>
+            <p><%= genre.genre %></p>
+          <% end %>
+        </div>
+      </div>
+    </section>
 </div>

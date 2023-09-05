@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable
 
   has_many :swiper_relationships, foreign_key: :swiper_id, class_name: 'Swipe', dependent: :destroy
   has_many :swiper, through: :swiper_relationships, source: :swiper
@@ -54,7 +54,7 @@ class User < ApplicationRecord
   def users_with_same_genres
     all_users = User.where.not(id: self.id)
 
-    all_users.sort_by do |user|
+    nr_same_genres = all_users.sort_by do |user|
       nr_same_genres = (user.top_genres.pluck(:genre) & self.top_genres.pluck(:genre)).count
       -nr_same_genres
     end

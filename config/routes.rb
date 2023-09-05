@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   end
 
   resources :top_genres, only: [:new, :create]
+
+  delete '/genres/destroy_all', to: 'top_genres#destroy_all'
 end

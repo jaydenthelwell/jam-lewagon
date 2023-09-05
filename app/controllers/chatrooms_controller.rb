@@ -40,6 +40,7 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+
     @swipe = Swipe.find(@chatroom.swipe_id)
 
     if @swipe.swiper == current_user

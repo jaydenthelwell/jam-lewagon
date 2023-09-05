@@ -28,14 +28,14 @@ class UsersController < ApplicationController
   def profile
   end
 
-  # def new
-  #   @user = User.new
-  # end
+  def new
+    @user = User.new
+  end
 
-  # def create
-  #   @user = User.new(user_params)
-  #   @user.save
-  # end
+  def create
+    @user = User.new(user_params)
+    @user.save
+  end
 
   def like
       if current_user.swiped?(User.find(params[:id]))
