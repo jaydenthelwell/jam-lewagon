@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MatchTest < ActiveSupport::TestCase
+class SwipesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

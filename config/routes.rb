@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :socials, only: [:index, :show, :create]
   end
 
-  resources :matches, only: [:index]
+  # resources :matches, only: [:index]
 
   resources :chatrooms, only: [:index, :show] do
 

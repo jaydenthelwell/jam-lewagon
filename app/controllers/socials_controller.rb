@@ -31,19 +31,6 @@ class SocialsController < ApplicationController
     # end
   end
 
-  # def destroy
-  #   if @social.user == current_user
-  #     if @social.destroy
-  #       flash[:notice] = "post deleted!"
-  #     else
-  #       flash[:alert] = "Something went wrong ..."
-  #     end
-  #   else
-  #     flash[:notice] = "You don't have permission"
-  #   end
-  #   redirect_to root_path
-  # end
-
   private
 
   def social_params

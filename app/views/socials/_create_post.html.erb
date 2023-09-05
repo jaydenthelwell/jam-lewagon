@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <%= simple_form_for [@user, @social] do |f| %>
+    <%= simple_form_for [current_user, @social] do |f| %>
       <%= f.input :photo, as: :file,
                   required: true
                   %>

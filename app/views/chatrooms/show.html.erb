@@ -1,4 +1,4 @@
-  <% if @chatroom.match.swipe.swiper_id = current_user || @chatroom.match.swipe.swipee_id = current_user %>
+  <% if @chatroom.swipe.swiper_id = current_user || @chatroom.swipe.swipee_id = current_user %>
     <div class="container chatroom"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id%>">
