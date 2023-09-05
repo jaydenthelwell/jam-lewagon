@@ -29,12 +29,14 @@
       <%= simple_form_for [@chatroom, @message],
         html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
       %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Message",
-        wrapper_html: { class: "flex-grow-1 margin-send" }
-      %>
-      <%= f.submit "Send", class: "btn btn-primary" %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Message",
+          wrapper_html: { class: "flex-grow-1 margin-send" }
+        %>
+        <%= button_tag type: 'submit', class: 'btn-icon-message' do %>
+          <i class="fa-solid fa-paper-plane"></i>
+        <% end %>
       <% end %>
       </div>
     <% else %>
