@@ -21,13 +21,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, except: [:index]
+  resources :users, except: [:index] do
+    resources :socials, only: [:index, :show, :create]
+  end
 
   resources :matches, only: [:index]
 
   resources :chatrooms, only: [:index, :show] do
 
   resources :messages, only: :create
+
 
   end
 

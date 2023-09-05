@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
+  has_many :socials, dependent: :destroy
+
   has_many :top_genres, dependent: :destroy
   has_one :profile, dependent: :destroy
 

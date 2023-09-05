@@ -1,5 +1,3 @@
-
-
   <% if @chatroom.match.swipe.swiper_id = current_user || @chatroom.match.swipe.swipee_id = current_user %>
     <div class="container chatroom"
     data-controller="chatroom-subscription"
@@ -24,4 +22,3 @@
     </div>
     <% else %>
   <% end %>
-<%= render 'shared/footer' %>
