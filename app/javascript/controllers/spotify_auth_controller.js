@@ -4,15 +4,28 @@ import Rails from "@rails/ujs";
 // Connects to data-controller="spotify-auth"
 export default class extends Controller {
   // static values = { clientId: String };
+  static targets = ['auth', 'genres']
 
   connect() {
     console.log("This is from Connect Spotify Stimulus");
+
+    let access_token = localStorage.getItem("access_token");
+
+    if (access_token !== null) {
+      // console.log("Spotify Account Authozised")
+      // console.log(this.authTarget)
+
+      console.log(this.genresTarget)
+      this.genresTarget.classList.remove("d-none")
+    } else {
+      this.authTarget.classList.remove("d-none")
+    }
 
     // Check if there's any params in the URL, if yes, will call #handleRedirect() to clean up the URL
     if (window.location.search.length > 0) {
       this.#handleRedirect();
     } else {
-      let access_token = localStorage.getItem("access_token");
+      // let access_token = localStorage.getItem("access_token");
     }
 
     // let client_id = document.querySelector(".spotify-env").dataset.clientId;
@@ -29,6 +42,7 @@ export default class extends Controller {
 
   // ! (1) An Event Listener for Connecting Spotify API
   linkToSpotify(e) {
+    e.preventDefault()
     console.log("This is linkToSpotify");
 
     this.#requestAuthorization(e);
@@ -217,7 +231,9 @@ export default class extends Controller {
         if (topFiveGenres.length >= 5) {
           console.log("Deleting current top genres");
 
-          const topGenres = document.querySelector(".top-genres-list");
+          // const topGenres = document.querySelector(".top-genres-list");
+          // topGenres.innerHTML = "";
+          const topGenres = document.querySelector(".genres-list");
           topGenres.innerHTML = "";
 
           fetch("/genres/destroy_all", {
@@ -230,7 +246,7 @@ export default class extends Controller {
               if (!response.ok) {
                 throw new Error("Network response was not ok");
               }
-              return response.json();
+              return response;
             })
             .then((data) => {
               console.log(data);
@@ -253,12 +269,13 @@ export default class extends Controller {
                 if (!response.ok) {
                   throw new Error("Network response was not ok");
                 }
-                return response.json();
+                console.log(response);
               })
               .then((data) => {
                 console.log("Genre instance created:", data);
 
-                const topGenres = document.querySelector(".top-genres-list");
+                // const topGenres = document.querySelector(".top-genres-list");
+                const topGenres = document.querySelector(".genres-list");
 
                 topGenres.insertAdjacentHTML("beforeend", `<p>${genre}</p>`);
               })
@@ -271,6 +288,15 @@ export default class extends Controller {
       .catch((error) => {
         // Handle error
       });
+
+      let redirectLink = "http://localhost:3000/profile"
+
+      const currentUrl = window.location.href;
+      console.log(currentUrl)
+
+      if (currentUrl !==  redirectLink) {
+        window.location.href = redirectLink;
+      }
   }
 
   #topNMostFrequentElements(array, n) {
@@ -451,4 +477,9 @@ export default class extends Controller {
       // console.error(error);
     }
   }
+
+  // submitForm() {
+  //   const form = document.querySelector('form[data-controller="spotify-auth"]');
+  //   form.submit();
+  // }
 }
