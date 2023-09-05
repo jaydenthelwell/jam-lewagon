@@ -53,4 +53,8 @@ class User < ApplicationRecord
       -nr_same_genres
     end
   end
+
+  def self.chatroom_user(match_id)
+    User.find(match_id)
+  end
 end
