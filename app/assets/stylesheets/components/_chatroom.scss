@@ -61,7 +61,7 @@
   }
 
   .simple_form {
-    background: rgb(238, 255, 206);
+    background: rgb(208, 208, 208);
   }
 
   #new_message {
@@ -72,6 +72,15 @@
       margin-bottom: 0;
     }
   }
+
+}
+
+.btn-icon-message {
+  border: none;
+  background-color: #4c4c4c;
+  i {
+    color: #ffffff;
+  };
 }
 
 .chatrooms-container {

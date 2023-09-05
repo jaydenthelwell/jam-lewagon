@@ -5,14 +5,18 @@ class ChatroomsController < ApplicationController
     @chatrooms.map do |chatroom|
       chatroom if ![chatroom.match.swipe.swiper, chatroom.match.swipe.swipee].include?(current_user)
     end
-
-    # raise
   end
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @match = Match.find(@chatroom.match_id)
-    @other_user = User.chatroom_user(@match.id)
+    @swipe = Swipe.find(@match.swipe_id)
+    # @other_user = User.chatroom_user(@match.id)
+    if current_user.id == @swipe.swipee_id
+      @other_user = User.chatroom_user(@swipe.swiper_id)
+    else
+      @other_user = User.chatroom_user(@swipe.swipee_id)
+    end
     @other_user_profile = @other_user.profile
 
     if ![@match.swipe.swiper, @match.swipe.swipee].include?(current_user)
