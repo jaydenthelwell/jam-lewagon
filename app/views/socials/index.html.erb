@@ -1,0 +1,38 @@
+<div class="" data-controller="socials">
+  <div class="socials" data-socials-target="input">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <% @socials.each_with_index do |social, index| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="active" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+      <div class="carousel-inner">
+        <div class="username">
+          <%# <%= cl_image_tag(@other_user.photos.[0].key) %>
+
+          <%# <%= image_tag "profile_1.jpeg"
+              style: "position: absolute;
+              height: "%
+          <%# photo of user  %>
+          <%# time til post is deleted %>
+          <h1><%= @user.name %></h1>
+        </div>
+        <% @socials.each do |social| %>
+          <% if social.photo.attached? %>
+            <div class="carousel-item active">
+              <%= cl_image_tag social.photo.key, height: 845, width: 400, crop: :fill %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>

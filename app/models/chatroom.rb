@@ -1,5 +1,4 @@
 class Chatroom < ApplicationRecord
-  belongs_to :match
+  belongs_to :swipe
   has_many :messages
-
 end

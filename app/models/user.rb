@@ -12,26 +12,32 @@ class User < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
+  has_many :socials, dependent: :destroy
+
   has_many :top_genres, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   # For cloudinary to work
   has_many_attached :photos
 
-  def like(user_id)
-    swiper_relationships.create(swipee_id: user_id, like: true)
-  end
-
   def dislike(user_id)
     swiper_relationships.create(swipee_id: user_id, like: false)
   end
 
+  def matches
+    swipes = Swipe.where(swiper_id: self.id).or(Swipe.where(swipee_id: self.id)).and(Swipe.where(status: "accepted"))
+  end
   # def unswipe(user_id)
   #   swipee_relationships.find_by(swipee_id: user_id).destroy
   # end
 
-  def swiped?(user_id)
-    relationship = Swipe.find_by(swiper_id: id, swipee_id: user_id)
+  def swiped?(user)
+    relationship = Swipe.find_by(swiper_id: user, swipee_id: self.id)
+    return true if relationship
+  end
+
+  def i_swipe(user)
+    relationship = Swipe.find_by(swiper_id: self.id, swipee_id: user.id)
     return true if relationship
   end
 

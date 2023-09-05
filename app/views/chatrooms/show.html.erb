@@ -1,8 +1,10 @@
-<% if @chatroom.match.swipe.swiper_id = current_user || @chatroom.match.swipe.swipee_id = current_user %>
-  <div class="chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id%>"
-  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+
+  <% if @chatroom.swipe.swiper_id = current_user || @chatroom.swipe.swipee_id = current_user %>
+    <div class="chatroom"
+    data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id%>"
+    data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+
     <div class="d-flex chatbar back-btn align-items-center">
     <span><%= link_to chatrooms_path do%>
       <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
@@ -10,13 +12,14 @@
     </span>
       <div class="chat-user">
         <span>
-          <%= link_to profile_path(@other_user_profile), class: 'matched-p' do %>
+          <%= link_to profile_path(@other_user.id), class: 'matched-p' do %>
             <%= cl_image_tag(@other_user.photos[0].key, width: 50, height: 50, crop: :thumb, gravity: :face) %>
           <% end %>
         </span>
         <span class="name"> <%= @other_user.name %> </span>
       </div>
     </div>
+
       <div class="messages" data-chatroom-subscription-target= "messages">
         <% @chatroom.messages.each do |message| %>
           <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -40,7 +43,7 @@
       <% end %>
       </div>
     <% else %>
-    <% end %>
+<% end %>
 
 <%# render 'shared/footer' %>
 
