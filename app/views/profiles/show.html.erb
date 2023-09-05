@@ -1,0 +1,51 @@
+  <div class="card" data-hide-cards-target="cards">
+
+    <div id="img-artist">
+      <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
+    </div>
+
+    <% @profile.user.photos.each do |photo| %>
+      <div class="user-image-wrapper">
+        <%= cl_image_tag photo.key %>
+      </div>
+    <% end %>
+    <div class="profile-name">
+      <%= @profile.user.name %>
+    </div>
+
+    <div class="description">
+      <h4>A little about me...</h1>
+      <div class="card-section">
+        <%= @profile.user.description %>
+      </div>
+    </div>
+
+    <h6 class="prompt">On Repeat</h6>
+    <div class="card-section">
+      <%= @profile.user.on_repeat %>
+    </div>
+
+    <h6 class="prompt">Theme Song</h6>
+    <div class="card-section">
+      <%= @profile.user.all_time_favorite %>
+    </div>
+
+    <h6 class="prompt">Go To Karaoke</h6>
+    <div class="card-section">
+      <%= @profile.user.go_to_karaoke %>
+    </div>
+
+    <h6 class="prompt">Top Genres</h6>
+    <div class="card-section">
+      <% @profile.user.top_genres.each do |genre| %>
+        <p><%= genre.genre %></p>
+      <% end %>
+    </div>
+
+    <%= link_to "Edit My Profile 📝 ", edit_user_path(@profile.user) %>
+  </div>
+
+
+
+
+<%= render 'shared/footer' %>

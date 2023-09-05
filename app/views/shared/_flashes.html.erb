@@ -1,0 +1,23 @@
+<% if notice %>
+  <% if notice["id"] == "You are not in the chat" %>
+  <% user = User.find(notice["id"]) %>
+    <div class="alert alert-info fade show p-3" role="alert">
+      <div class="d-flex justify-content-between">
+        <h1>WOOP WOOP!</h1>
+        <a data-bs-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+      <br><h2>
+        You matched with <%= user.name %>
+      </h2>
+      <br>
+      <div class="user-image-wrapper mt-4 d-flex flex-column">
+        <%= cl_image_tag user.photo.key %>
+        <div class="profile-name-match btn btn-light">
+          <%= link_to "Chat with #{user.name}", chatroom_path(Chatroom.find_by(match_id: Match.last.id)) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

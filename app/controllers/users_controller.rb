@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def profile
+  end
 
   # def new
   #   @user = User.new
@@ -42,16 +43,21 @@ class UsersController < ApplicationController
         @swipe.accepted!
         chatroom = Chatroom.create(swipe_id: @swipe.id)
 
-        respond_to do |format|
-          format.html { redirect_to users_path }
+        redirect_to users_path
+
+        # respond_to do |format|
+        #   format.html { redirect_to users_path }
           # format.js
-        end
+        # end
       else
         Swipe.create(swiper_id: current_user.id, swipee_id: params[:id])
-        respond_to do |format|
-          format.html { redirect_to users_path }
+
+        redirect_to users_path
+
+        # respond_to do |format|
+          # format.html { redirect_to users_path }
           # format.js
-        end
+        # end
       end
   end
 
@@ -105,7 +111,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, :photo)
+    params.require(:user).permit(:name, :date_of_birth, :location, :gender, :on_repeat, :all_time_favorite, :go_to_karaoke, :description, photos: [])
   end
 
   def set_user

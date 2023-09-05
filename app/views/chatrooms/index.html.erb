@@ -1,10 +1,10 @@
 <div class="chatrooms-container">
 
   <h1>My matches</h1>
-    <%= render 'socials/create_post' %>
+    <%# <%= render 'socials/create_post' %>
     <%# view all your matches current posts %>
   <div class="card" id = "card-in">
-      <% @chatrooms.each do |chatroom|%>
+      <% @chatrooms.each do |chatroom| %>
 
         <%# <div class="socials"> %>
           <%# <% @socials.each do |social| %>
@@ -21,7 +21,12 @@
               <%# end %>
             <%# end %>
 
-        <a class = "name-of"href= "<%= chatroom_path(chatroom) %>"><%= User.find(chatroom.swipe.swipee_id).name%></a>
+        <% if User.find(chatroom.swipe.swiper_id) == current_user %>
+          <%= link_to User.find(chatroom.swipe.swipee_id).name, chatroom_path(chatroom) %>
+        <% else %>
+          <%= link_to User.find(chatroom.swipe.swiper_id).name, chatroom_path(chatroom) %>
+        <% end %>
+
       <% end %>
   </div>
 </div>

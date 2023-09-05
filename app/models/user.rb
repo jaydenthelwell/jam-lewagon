@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
 
   # For cloudinary to work
-  has_one_attached :photo
+  has_many_attached :photos
 
   def dislike(user_id)
     swiper_relationships.create(swipee_id: user_id, like: false)
@@ -58,5 +58,9 @@ class User < ApplicationRecord
       nr_same_genres = (user.top_genres.pluck(:genre) & self.top_genres.pluck(:genre)).count
       -nr_same_genres
     end
+  end
+
+  def self.chatroom_user(match_id)
+    User.find(match_id)
   end
 end

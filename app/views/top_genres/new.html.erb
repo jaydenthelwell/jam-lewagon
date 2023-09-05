@@ -3,6 +3,22 @@
 
     <%= simple_form_for(@top_genre) do |f| %>
       <%= f.input :genre, collection: TopGenre.all.pluck(:genre).uniq, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
-      <%= f.submit "Add my top genres", class: "btn btn-primary" %>
+      <%= f.submit "Create profile", class: "btn btn-primary" %>
     <% end %>
+
+   <section class="spotify-auth mt-5" data-controller="spotify-auth">
+      <div
+        class="spotify-env"
+        data-client-id="<%= ENV["client_id"] %>"
+        data-client-secret="<%= ENV["client_secret"] %>"
+        <%# data-spotify-auth-client-id-value="testing" %>
+      ></div>
+
+      <h5>Connect My Account to Spotify</h5>
+      <div
+        class="btn btn-success my-2"
+        data-action="click->spotify-auth#linkToSpotify"
+      >Connect to Spotify</div>
+
+</section>
 </div>

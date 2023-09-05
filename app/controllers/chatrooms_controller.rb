@@ -1,12 +1,12 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms_data = Chatroom.all
     @social = Social.new
     @socials = []
 
     # Check if current_user is the swiper
 
-    @chatrooms.each do |chatroom|
+    @chatrooms_data.each do |chatroom|
       user_is_swiper = false
 
       socials_hash = {}
@@ -23,16 +23,33 @@ class ChatroomsController < ApplicationController
       else
         other_user = chatroom.swipe.swiper
       end
+
       socials_hash[other_user] = other_user.socials
       @socials.push(socials_hash)
-    end
 
-    # raise
+      @chatrooms = []
+
+      @chatrooms_data.map do |chatroom|
+        if [chatroom.swipe.swiper, chatroom.swipe.swipee].include?(current_user)
+          @chatrooms << chatroom
+        end
+        # raise
+      end
+    end
   end
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @swipe = Swipe.find(@chatroom.swipe_id)
+
+    if @swipe.swiper == current_user
+      @other_user = @swipe.swipee
+      # @other_user_profile = @other_user.profile
+    else
+      @other_user = @swipe.swiper
+    end
+
+    # raise
 
     if ![@swipe.swiper, @swipe.swipee].include?(current_user)
       redirect_to root_path, notice: "You are not in the chat"
