@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
 
-  get "profile", to: "users#profile"
+  get "profile", to: "users#profile", as: :user_profile
 
   resources :users, only: [:index] do
     member do
@@ -29,13 +29,12 @@ Rails.application.routes.draw do
   # resources :matches, only: [:index]
 
   resources :chatrooms, only: [:index, :show] do
-
-  resources :messages, only: :create
-
-
+    resources :messages, only: :create
   end
 
   resources :top_genres, only: [:new, :create]
+
+  get "/top_genres/spotify", to: "top_genres#spotify"
 
   delete '/genres/destroy_all', to: 'top_genres#destroy_all'
 end
