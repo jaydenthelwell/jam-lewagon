@@ -1,0 +1,8 @@
+<div class="feed">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h3><%= post.user.name %></h3>
+      <p><%= post.content %></p>
+    </div>
+  <% end %>
+</div>

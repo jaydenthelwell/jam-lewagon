@@ -24,6 +24,10 @@ class User < ApplicationRecord
     swiper_relationships.create(swipee_id: user_id, like: false)
   end
 
+  def matched
+    matched_ids = (self.matches.pluck(:swiper_id) + self.matches.pluck(:swipee_id)).uniq.filter { |id| id != self.id }
+  end
+
   def matches
     swipes = Swipe.where(swiper_id: self.id).or(Swipe.where(swipee_id: self.id)).and(Swipe.where(status: "accepted"))
   end

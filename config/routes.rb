@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:index] do
-    resources :socials, only: [:index, :show, :create]
+    resources :socials, only: [:show, :create, :new]
   end
+
+  resources :socials, only: [:index]
 
   # resources :matches, only: [:index]
 
