@@ -9,9 +9,9 @@ require "open-uri"
 
 puts "Cleaning the database"
 TopGenre.destroy_all
-Swipe.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
+Swipe.destroy_all
 Profile.destroy_all
 User.destroy_all
 
