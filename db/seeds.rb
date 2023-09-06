@@ -26,7 +26,14 @@ PICTURES = [
   "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2662&q=80",
   "https://images.unsplash.com/photo-1628015081036-0747ec8f077a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z2lybHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
   "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3164&q=80",
-  "https://images.unsplash.com/photo-1664575599736-c5197c684128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
+  "https://images.unsplash.com/photo-1664575599736-c5197c684128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+  "https://plus.unsplash.com/premium_photo-1674777843203-da3ebb9fbca0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
 ]
 
 puts "Creating Users ..."
@@ -36,9 +43,9 @@ puts "Creating Users ..."
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: "123456",
-    location: Faker::Address.city,
+    location: ["London", "Brighton", "Manchester"].sample,
     description: Faker::Hipster.sentence,
-    date_of_birth: Faker::Date.between(from: '1900-09-23', to: '2005-08-28'),
+    date_of_birth: Faker::Date.between(from: '1960-09-23', to: '2005-08-28'),
     gender: ["male", "female", "other"].sample,
     on_repeat: Faker::Music::PearlJam.song,
     all_time_favorite: Faker::Music::Prince.song,
@@ -62,17 +69,6 @@ puts "Created #{User.count} Users"
 
 puts "Creating Top Genres"
 
-2.times do
-  @users.each do |user|
-    top_genre = TopGenre.new(
-      genre: all_genres.sample,
-      user_id: user.id
-    )
-    top_genre.save!
-  end
-end
-
-puts "Created #{TopGenre.count} Top Genres"
 
 
 all_genres = [
@@ -203,3 +199,15 @@ all_genres = [
   "work-out",
   "world-music"
 ]
+
+5.times do
+  @users.each do |user|
+    top_genre = TopGenre.new(
+      genre: all_genres.sample,
+      user_id: user.id
+    )
+    top_genre.save!
+  end
+end
+
+puts "Created #{TopGenre.count} Top Genres"
