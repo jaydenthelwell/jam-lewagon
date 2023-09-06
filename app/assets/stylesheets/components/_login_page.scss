@@ -1,0 +1,73 @@
+.login-page {
+    font-family: lobster, cursive;
+}
+
+.login-page-wrapper {
+    h2 {
+        font-family: lobster, cursive;
+        font-size: 40px;
+        margin-bottom: 150px;
+    }
+    
+    .container {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        height: 50px;
+    }
+
+    label {
+        font-family: lobster, cursive;
+        font-size: 20px;
+
+        
+    }
+
+    .form-actions {
+        margin-bottom: 120px;
+        font-family: lobster, cursive;
+    
+
+    }
+
+    .form-check-label {
+        color: #d2aeff
+
+    }
+
+    .form-check-input {
+        color: #d2aeff
+    }
+
+    .auth-links {
+        a {
+            font-size: 20px;
+            font-family: lobster, cursive;
+            color:#00e4ff
+
+        }
+    }
+    
+    
+
+    .sign-up {
+        // position: relative;
+        // top: 382px;
+        font-size: 20px;
+        font-family: lobster, cursive;
+        left: 11px;
+    
+    }
+    
+    
+    .forgot-your-password {
+        // position: relative;
+        // top: 424px;
+        left: 21px;
+        font-family: lobster, cursive;
+        font-size: 23px;
+
+    
+    }
+}
