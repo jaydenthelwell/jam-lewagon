@@ -1,15 +1,32 @@
 <div class="chatrooms-container">
-  <h1>My matches</h1>
 
+  <h1>My matches</h1>
+    <%# <%= render 'socials/create_post' %>
+    <%# view all your matches current posts %>
   <div class="card" id = "card-in">
-      <% @chatrooms.each do |chatroom|%>
-      <a class = "name-of"href= "<%= chatroom_path(chatroom) %>">
-        <% if User.find(chatroom.match.swipe.swiper_id) == current_user %>
-          <%= User.find(chatroom.match.swipe.swipee_id).name %>
+      <% @chatrooms.each do |chatroom| %>
+
+        <%# <div class="socials"> %>
+          <%# <% @socials.each do |social| %>
+            <%# <% social.keys.each do |user| %>
+              <%# <%= link_to user.name, user_socials_path(user) %>
+            <%# <% end %>
+          <%# <% end %>
+        <%# </div> %>
+            <%# social[chatroom.match.swipe.swipee].length %>
+            <%# social[chatroom.match.swipe.swipee].each do |photo| %>
+              <%# link_to photo.user.name, user_socials_path(photo.user) %>
+              <%# if photo.photo.attached? %>
+                <%# cl_image_tag photo.photo.key %>
+              <%# end %>
+            <%# end %>
+
+        <% if User.find(chatroom.swipe.swiper_id) == current_user %>
+          <%= link_to User.find(chatroom.swipe.swipee_id).name, chatroom_path(chatroom) %>
         <% else %>
-          <%= User.find(chatroom.match.swipe.swiper_id).name %>
+          <%= link_to User.find(chatroom.swipe.swiper_id).name, chatroom_path(chatroom) %>
         <% end %>
-      </a>
+
       <% end %>
   </div>
 </div>

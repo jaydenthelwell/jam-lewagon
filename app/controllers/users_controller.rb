@@ -5,8 +5,9 @@ class UsersController < ApplicationController
     @users = current_user.users_with_same_genres
 
     @users = @users.reject do |user|
-      current_user.swiped?(user.id)
+      current_user.i_swipe(user)
     end
+    @users
   end
 
   def edit
@@ -27,37 +28,50 @@ class UsersController < ApplicationController
   def profile
   end
 
-  # def new
-  #   @user = User.new
-  # end
+  def new
+    @user = User.new
+  end
 
-  # def create
-  #   @user = User.new(user_params)
-  #   @user.save
-  # end
+  def create
+    @user = User.new(user_params)
+    @user.save
+  end
 
   def like
-    if current_user.like(@user.id)
-      if @user.swiped_and_liked?(current_user.id)
-        @swipe = Swipe.find_by(swiper_id: current_user.id, swipee_id: @user.id)
-        @match = Match.create(swipe_id: @swipe.id)
-        Chatroom.create(match_id: @match.id)
+      if current_user.swiped?(User.find(params[:id]))
+        @swipe = Swipe.find_by(swipee_id: current_user.id, swiper_id: params[:id])
+        @swipe.accepted!
+        chatroom = Chatroom.create(swipe_id: @swipe.id)
 
-        respond_to do |format|
-          format.html { redirect_to users_path, notice: @user }
+        redirect_to users_path
+
+        # respond_to do |format|
+        #   format.html { redirect_to users_path }
           # format.js
-        end
+        # end
       else
-        respond_to do |format|
-          format.html { redirect_to users_path }
+        Swipe.create(swiper_id: current_user.id, swipee_id: params[:id])
+
+        redirect_to users_path
+
+        # respond_to do |format|
+          # format.html { redirect_to users_path }
           # format.js
-        end
+        # end
       end
-    end
   end
 
   def dislike
-    if current_user.dislike(@user.id)
+    if current_user.dislike(User.find(params[:id]))
+      swipe = Swipe.find_by(swipee_id: current_user.id, swiper_id: params[:id])
+      unless swipe
+        swipe = Swipe.create(swiper_id: current_user.id, swipee_id: params[:id])
+        swipe.declined!
+        swipe.save
+      else
+        swipe.declined!
+        swipe.save
+      end
       respond_to do |format|
         format.html { redirect_to users_path }
         # format.js { render action: :swipe }
