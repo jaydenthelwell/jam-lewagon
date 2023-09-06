@@ -1,6 +1,4 @@
 <div class="chatrooms-container">
-
-<h1>My matches</h1>
     <%# view all your matches current posts %>
   <%# <div class="card" id = "card-in">
       <% @chatrooms.each do |chatroom| %>
@@ -12,17 +10,7 @@
           <%# <% end %>
           <%# <% end %>
         <%# </div> %>
-  <div class="card" id = "card-in">
-      <% @chatrooms.each do |chatroom| %>
-        <div class="socials">
-          <% @socials.each do |social| %>
-            <% social.keys.each do |user| %>
-              <%= link_to user.name, user_socials_path(user) %>
-            <% end %>
-          <% end %>
-        </div>
   <h1 class="my-matches">My matches</h1>
-
   <div class="card" id = "card-in">
       <% @chatrooms.each do |chatroom| %>
         <div class="recipient-info">
