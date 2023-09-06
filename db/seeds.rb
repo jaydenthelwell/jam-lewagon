@@ -176,34 +176,32 @@ puts "Creating Users ..."
     all_time_favorite: Faker::Music::Prince.song,
     go_to_karaoke: Faker::Music::RockBand.song
   )
-end
   3.times do
     file = URI.open(PICTURES.sample)
     user.photos.attach(io: file, filename: "banana.png", content_type: "image/png")
-  user.save!
+    user.save!
   end
-  puts "Created User: #{user.id}"
 
+  puts "Created User: #{user.id}"
   profile = Profile.new(user: user)
   profile.save!
+
+  puts "Created Profile: #{user.id}"
+
+  puts "Created #{User.count} Users"
+
+  @users = User.all
+
+  puts "Creating Top Genres"
 end
 
-puts "Created Profile: #{user.id}"
-
-puts "Created #{User.count} Users"
-
-@users = User.all
-
-puts "Creating Top Genres"
-
-5.times do
-  @users.each do |user|
-    top_genre = TopGenre.new(
-      genre: all_genres.sample,
-      user_id: user.id
-    )
-    top_genre.save!
+  5.times do
+    @users.each do |user|
+      top_genre = TopGenre.new(
+        genre: all_genres.sample,
+        user_id: user.id
+      )
+      top_genre.save!
+    end
   end
-end
-;
 puts "Created #{TopGenre.count} Top Genres"
