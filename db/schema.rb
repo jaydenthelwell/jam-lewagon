@@ -49,11 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_100256) do
     t.index ["swipe_id"], name: "index_chatrooms_on_swipe_id"
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
