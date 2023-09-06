@@ -2,7 +2,7 @@
   background-color: white;
   width: 100%;
   position: relative;
-  padding: 30px 20px;
+// padding: 30px 20px;
 }
 
 .h6 {
@@ -19,11 +19,12 @@
   width: 100%;
   object-position: top;
   object-fit: cover;
-  border: 10px solid rgb(92, 92, 92);
+  border: 15px solid #a6deff;
 }
 
 .card-section {
   border: 0.5px solid black;
+  font-family: "Nunito", "Helvetica", "sans-serif";
   height: auto;
   width: 100%;
   margin-bottom: 10px;
@@ -43,16 +44,19 @@
 }
 
 .prompt {
-  font-family: monospace;
+  // font-family: monospace;
+  font-family: "lobster", cursive;
   font-size: 18px;
 }
 
 .profile-name {
   color: white;
-  font-family: monospace;
-  font-size: 26px;
+
+  // font-family: monospace;
+  font-size: 30px;
   transform: translate(40px, -70px);
   width: 90%;
+  text-shadow: 2px 2px #d372ff;
 }
 
 .swipe-btns {
@@ -120,8 +124,12 @@
 
   .profile-name-match {
     color: white;
-    font-family: monospace;
+    // font-family: monospace;
     font-size: 26px;
   }
 
+}
+
+.padding {
+  padding: 30px 20px;
 }

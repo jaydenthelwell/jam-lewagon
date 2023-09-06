@@ -16,7 +16,7 @@
   </div>
   <div>
     <% if user_signed_in? %>
-      <%= link_to profile_path(current_user.id) do %>
+      <%= link_to user_profile_path do %>
         <i class="fa-solid fa-user" style="color: #ffffff;"></i>
       <% end %>
     <% else %>
