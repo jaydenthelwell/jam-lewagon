@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .landing-pages {
-  font-family: 'Lobster', cursive;
+  font-family: "lobster", cursive;
 }
 
 .landing-page img {
@@ -10,7 +10,7 @@
     height: 100vh;
     transform: translateX(-100px);
   }
-  
+
   .landing-page-animation img {
     position: fixed;
     top: 0;
@@ -19,7 +19,7 @@
     height: 100vh;
     width: 100vw;
     transform: translateX(0px);
-  
+
     animation-name: blackSlide;
     animation-duration: 4250ms;
     animation-fill-mode: forwards;
@@ -32,14 +32,14 @@
     // width: 50px;
     color: white;
     h1 {
-      
-      font-family: "Lobster", cursive;
+
+      font-family: "lobster", cursive;
       margin-top: 90px;
       position: relative;
       right: 16px;
     }
   }
-  
+
   @keyframes blackSlide {
     0% {
       top: 0px;
@@ -51,7 +51,7 @@
       top: -100vh;
     }
   }
-  
+
   .landing-page-typed {
     position: absolute;
     top: 50%;
@@ -61,13 +61,13 @@
     margin: 0 auto;
     color: rgb(255, 255, 255);
     font-size: 74px;
-    font-family: Lobster, cursive;
-  
+    font-family: "lobster", cursive;
+
     animation-name: jamSlide;
     animation-duration: 4500ms;
     animation-fill-mode: forwards;
   }
-  
+
   @keyframes jamSlide {
     0% {
       top: 50%;
@@ -79,7 +79,7 @@
       top: 10%;
     }
   }
-  
+
   .signup-button {
     position: fixed;
     top: 73%;
@@ -93,7 +93,7 @@
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
-  
+
     .btn {
       border-radius: 100px;
       color: #000000;
@@ -104,7 +104,7 @@
       border-color: white;
     }
   }
-  
+
   .scroll-down-btn {
     position: fixed;
     top: 95%;
@@ -117,12 +117,12 @@
     background-color: white;
     border-radius: 20px;
     transition: 0.5s all ease-in-out;
-  
+
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
   }
-  
+
   @keyframes showButton {
     0% {
       opacity: 0;
@@ -134,7 +134,7 @@
       opacity: 1;
     }
   }
-  
+
   .login-button {
     margin: 0 auto;
     position: fixed;
@@ -149,7 +149,7 @@
     animation-name: showButton;
     animation-duration: 5470ms;
     animation-fill-mode: forwards;
-  
+
     .btn {
       border-radius: 100px;
       color: #000000;
@@ -161,7 +161,7 @@
 
     }
   }
-  
+
   @keyframes showButton {
     0% {
       opacity: 0;
@@ -173,7 +173,7 @@
       opacity: 1;
     }
   }
-  
+
   .second-page {
     position: fixed;
     top: 100vh;
@@ -181,7 +181,7 @@
     transition: 1s all ease-in-out;
     z-index: 299;
   }
-  
+
   .second-page-bg {
     position: fixed;
     z-index: 299;
@@ -189,7 +189,7 @@
     height: 100vh;
     background-color: white;
   }
-  
+
   .second-page-bg img {
     position: absolute;
     top: 0;
@@ -201,19 +201,19 @@
     object-fit: cover;
     filter: saturate(50%);
   }
-  
+
   .second-page-content {
     position: absolute;
     z-index: 299;
     color: white;
-  
+
     .jam-text {
       position: relative;
       left: 50px;
       top: 50px;
       width: 300px;
     }
-  
+
     .scroll-up-btn {
       position: relative;
       left: 17px;
@@ -249,19 +249,16 @@
       width: 80%;
     }
   }
-  
+
   .up {
     top: 0px;
   }
-  
+
   .down {
     top: 100vh;
   }
-  
+
   .hide {
     opacity: 0;
     visibility: hidden;
   }
-
-
-  
