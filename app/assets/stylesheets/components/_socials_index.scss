@@ -5,12 +5,12 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.username h1 {
+.carousel-item h1 {
   position: absolute;
   transform: translate(-50%, -50%);
   font-size: 18px;
-  top: 3%;
-  left: 10%;
+  top: 5%;
+  left: 30%;
   z-index: 10;
   color: white;
   font-family: sans-serif;
@@ -21,5 +21,23 @@
   transform: translate(-50%, -50%);
   top: 3%;
   left: 10%;
+  z-index: 10;
+}
+
+.fa-xmark {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 5%;
+  font-size: 40px;
+  left: 90%;
+  z-index: 10;
+  color: white;
+}
+
+.post-button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 90%;
+  left: 50%;
   z-index: 10;
 }

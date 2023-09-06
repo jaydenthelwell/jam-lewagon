@@ -1,9 +1,16 @@
 class SocialsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
     @social = Social.new
-    @socials = Social.where(user: @user)
-    # raise
+    # @socials = Social.where(user: @user).order(created_at: :desc)
+    @matched_ids = current_user.matched
+    @my_socials = current_user.socials.order(created_at: :desc)
+    @socials = Social.where(user: @matched_ids).order(created_at: :desc)
+    @all_socials = @my_socials + @socials
+  end
+
+  def new
+    @social = Social.new
   end
 
   def show
@@ -11,24 +18,15 @@ class SocialsController < ApplicationController
   end
 
   def create
-    # @social = current_user.socials.build(social_params)
-
     @social = Social.new(social_params)
     @social.user = current_user
     @social.save
-
-    # if @social.save
-    #   if params[:images]
-    #     params[:images].each do |img|
-    #       @social.photos.create(image: params[:images][img])
-    #     end
-    #   end
-    #   redirect_to socials_path
-    #   flash[:notice] = "Saved ..."
-    # else
-    #   flash[:alert] = "Something went wrong ..."
-    #   redirect_to socials_path
-    # end
+    if @social.save
+      redirect_to socials_path, notice: "Social post created successfully"
+    else
+      flash.now[:alert] = "There were errors in your submission."
+      render :new
+    end
   end
 
   private
@@ -45,3 +43,15 @@ end
 # when the other users see my social / i see the others
 # be able to switch between social posts - only if youre matched
 # be able to send a message to user who posted
+
+# if @social.save
+#   if params[:images]
+#     params[:images].each do |img|
+#       @social.photos.create(image: params[:images][img])
+#     end
+#   end
+#   redirect_to socials_path
+#   flash[:notice] = "Saved ..."
+# else
+#   flash[:alert] = "Something went wrong ..."
+#   redirect_to socials_path
