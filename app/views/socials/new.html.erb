@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="card-header">
+<div class="container">
+  <div class="card-header" style="font-size: 30px;">
     Add a new post
   </div>
 
@@ -8,7 +8,7 @@
       <%= f.input :photo, as: :file,
                   required: true
                   %>
-      <%= f.submit "Post", class: "btn btn-primary" %>
+      <%= f.submit "Post", class: "btn-create" %>
     <% end %>
   </div>
 </div>
