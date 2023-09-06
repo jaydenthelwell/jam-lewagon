@@ -29,13 +29,23 @@ class SocialsController < ApplicationController
     end
   end
 
+  def destroy
+    @social = Social.find(params[:id])
+      if @social.user == current_user
+        @social.destroy
+        flash[:notice] = "Successfully deleted"
+      else
+        flash[:alert] = "You are not authorized to delete this post"
+      end
+      redirect_to socials_path
+  end
+
   private
 
   def social_params
     params.require(:social).permit(:photo)
   end
 end
-
 # when I create my social
 # be able to add a snippet of a song
 # be able to add filters to your posts
