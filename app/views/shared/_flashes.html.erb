@@ -1,4 +1,5 @@
 <% if notice %>
+  <% if notice.class == "String" %>
   <% user = User.find(notice["id"]) %>
   <% if user %>
     <div class="alert alert-info fade show p-3" role="alert">
@@ -20,5 +21,6 @@
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 <% end %>
