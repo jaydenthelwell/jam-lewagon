@@ -149,6 +149,8 @@ all_genres = [
   "world-music"
 ]
 
+
+5.times do
 PICTURES = [
   "https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3088&q=80",
   "https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3136&q=80",
@@ -191,7 +193,7 @@ puts "Created #{User.count} Users"
 
 puts "Creating Top Genres"
 
-2.times do
+.times do
   @users.each do |user|
     top_genre = TopGenre.new(
       genre: all_genres.sample,
