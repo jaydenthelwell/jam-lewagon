@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
         # respond_to do |format|
         #   format.html { redirect_to users_path }
-          # format.js
+        # format.js
         # end
       else
         Swipe.create(swiper_id: current_user.id, swipee_id: params[:id])
