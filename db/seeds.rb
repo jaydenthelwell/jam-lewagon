@@ -193,7 +193,7 @@ puts "Created #{User.count} Users"
 
 puts "Creating Top Genres"
 
-.times do
+5.times do
   @users.each do |user|
     top_genre = TopGenre.new(
       genre: all_genres.sample,
