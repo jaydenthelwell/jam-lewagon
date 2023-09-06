@@ -177,11 +177,11 @@ puts "Creating Users ..."
     go_to_karaoke: Faker::Music::RockBand.song
   )
 end
-
-3.times do
-  file = URI.open(PICTURES.sample)
-  user.photos.attach(io: file, filename: "banana.png", content_type: "image/png")
+  3.times do
+    file = URI.open(PICTURES.sample)
+    user.photos.attach(io: file, filename: "banana.png", content_type: "image/png")
   user.save!
+  end
   puts "Created User: #{user.id}"
 
   profile = Profile.new(user: user)
@@ -205,5 +205,5 @@ puts "Creating Top Genres"
     top_genre.save!
   end
 end
-
+;
 puts "Created #{TopGenre.count} Top Genres"
