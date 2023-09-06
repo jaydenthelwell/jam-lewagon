@@ -1,13 +1,18 @@
-<div class="landing-pages" data-controller="landing-page-scroll">
-  <div class="landing-page">
-    <%= image_tag "Jam Image.jpg" %>
+<div class="landing-pages d-flex justify-content-center" data-controller="landing-page-scroll">
 
-    <div class="landing-page-typed" data-controller="typedjs">
+  <div class="video-container">
+    <video style="z-index-1"width="100%" height="100%" data-controller="landing-video" src="<%= video_url "girlgrooving.mp4" %>" autoplay="true" muted="muted" loop>
+    </video>
+  </div>
+
+  <div class="landing-page-typed" data-controller="typedjs">
+  </div>
+
+    <div class="slogan text-center">
+      <h1 style="margin-top: 90px; ">Where music meets new connections</h1>
     </div>
 
-    <%# <div class="landing-page-typed"> %>
-      <%# video_tag "jam_logo_animation.mp4", autoplay: true %>
-    <%# </div> %>
+
 
     <div class="signup-button">
       <%= link_to "Sign Up", new_user_registration_path, class: "sign-up-button btn btn-primary" %>
@@ -20,6 +25,8 @@
         <%= link_to "Log In", new_user_session_path, class: "log-in-button btn btn-primary" %>
       <% end %>
     </div>
+
+    
 
     <%# <button class="btn scroll-down-btn" data-action="click->landing-page-scroll#scrollDown">Go Down<button> %>
 

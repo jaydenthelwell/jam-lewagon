@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+.landing-pages {
+  font-family: 'Lobster', cursive;
+}
+
 .landing-page img {
     position: fixed;
     top: 0;
@@ -19,6 +23,18 @@
     animation-name: blackSlide;
     animation-duration: 4250ms;
     animation-fill-mode: forwards;
+  }
+
+  .slogan {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    // width: 50px;
+    color: white;
+    h1 {
+      
+      font-family: "Lobster", cursive;
+    }
   }
   
   @keyframes blackSlide {
@@ -41,8 +57,8 @@
     z-index: 199;
     margin: 0 auto;
     color: rgb(255, 255, 255);
-    font-size: 72px;
-    // font-family: akzindex-grotesk;
+    font-size: 74px;
+    font-family: Lobster, cursive;
   
     animation-name: jamSlide;
     animation-duration: 4500ms;
@@ -76,9 +92,13 @@
     animation-fill-mode: forwards;
   
     .btn {
-      border-radius: 20px;
-      color: black;
-      background-color: rgb(255, 255, 255);
+      border-radius: 100px;
+      color: #000000;
+      background-color: purple;
+      background-color: #ffffff;
+      padding: 7px;
+      font-size: 25px;
+      border-color: white;
     }
   }
   
@@ -115,7 +135,7 @@
   .login-button {
     margin: 0 auto;
     position: fixed;
-    top: 78%;
+    top: 81%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
@@ -128,9 +148,14 @@
     animation-fill-mode: forwards;
   
     .btn {
-      border-radius: 20px;
-      color: black;
-      background-color: white;
+      border-radius: 100px;
+      color: #000000;
+      background-color: purple;
+      background-color: #ffffff;
+      padding: 7px;
+      font-size: 25px;
+      border-color: white;
+
     }
   }
   
