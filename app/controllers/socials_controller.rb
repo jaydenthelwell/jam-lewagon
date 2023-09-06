@@ -5,8 +5,11 @@ class SocialsController < ApplicationController
     # @socials = Social.where(user: @user).order(created_at: :desc)
     @matched_ids = current_user.matched
     @my_socials = current_user.socials.order(created_at: :desc)
+
     @socials = Social.where(user: @matched_ids).order(created_at: :desc)
+
     @all_socials = @my_socials + @socials
+    # raise
   end
 
   def new

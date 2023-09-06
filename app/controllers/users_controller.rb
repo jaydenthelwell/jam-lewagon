@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = current_user.users_with_same_genres
+    # @users = User.where
 
     @users = @users.reject do |user|
       current_user.i_swipe(user)
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    # raise
   end
 
   def new
@@ -38,27 +40,22 @@ class UsersController < ApplicationController
   end
 
   def like
-      if current_user.swiped?(User.find(params[:id]))
-        @swipe = Swipe.find_by(swipee_id: current_user.id, swiper_id: params[:id])
-        @swipe.accepted!
-        chatroom = Chatroom.create(swipe_id: @swipe.id)
+    Swipe.create(swiper_id: current_user.id, swipee_id: params[:id], like: true)
 
-        redirect_to users_path
+    @swipe = Swipe.find_by(swipee_id: current_user.id, swiper_id: params[:id], like: true)
 
-        # respond_to do |format|
-        #   format.html { redirect_to users_path }
+    if @swipe != nil
+      @swipe.accepted!
+      @chatroom = Chatroom.create(swipe_id: @swipe.id)
+      # raise
+
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: @user }
         # format.js
-        # end
-      else
-        Swipe.create(swiper_id: current_user.id, swipee_id: params[:id])
-
-        redirect_to users_path
-
-        # respond_to do |format|
-          # format.html { redirect_to users_path }
-          # format.js
-        # end
       end
+    else
+      redirect_to users_path
+    end
   end
 
   def dislike

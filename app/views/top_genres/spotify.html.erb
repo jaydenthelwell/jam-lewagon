@@ -1,5 +1,3 @@
-
-
 <div class="container mt-5">
     <h1 style="font-family:monospace">Get the music matchmaking started!</h1>
 
@@ -150,7 +148,7 @@
       <h3 class="mb-4" style="font-family:monospace">Connect via Spotify</h3>
       <h5 class="mb-2" style="font-family:monospace">We'll take your faves and find people that share a similar taste.</h5>
 
-  <div class="spotify-auth" data-spotify-auth-target="auth">
+  <div class="spotify-auth d-none" data-spotify-auth-target="auth">
         <h5>Connect My Account to Spotify</h5>
         <div
           class="btn btn-success my-2"
@@ -159,17 +157,17 @@
         > <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="Spotify connect" style="width:100px;border-radius:5px;"></div>
       </div>
 
-      <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
+      <div class="top-genres mt-5" data-spotify-auth-target="genres">
         <%# <h5>My Top 5 Genres</h5> %>
         <div
           class="btn btn-success my-2"
           data-action="click->spotify-auth#getTopGenres"
         >Get Your Top 5 Genres from Spotify</div>
-        <div class="top-genres-list mt-2">
-          <% current_user.top_genres.each do |genre| %>
-            <p><%= genre.genre %></p>
-          <% end %>
-        </div>
+        <%# <div class="top-genres-list mt-2"> %>
+          <%# current_user.top_genres.each do |genre| %>
+            <p><%# genre.genre %></p>
+          <%# end %>
+        <%# </div> %>
       </div>
 
     </div>
