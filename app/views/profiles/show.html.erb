@@ -1,46 +1,72 @@
-  <div class="card" data-hide-cards-target="cards">
+<div class="d-flex navigation justify-content-between">
+  <%= link_to edit_user_path(@profile.user) do %>
+    <i class="fa-solid fa-pen" style="color: #4c4c4c;"></i>
+  <% end %>
+  <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+    <i class="fa-solid fa-power-off" style="color: #4c4c4c;"></i>
+  <% end %>
+</div>
+<div class="card" data-hide-cards-target="cards">
 
-    <div id="img-artist">
-      <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
-    </div>
+  <div id="img-artist">
+    <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
+  </div>
 
-    <div class="user-image-wrapper">
-      <%= cl_image_tag @profile.user.photo.key %>
-    </div>
 
-    <div class="profile-name">
-      <%= @profile.user.name %>
-    </div>
 
-    <div class="description">
-      <h4>A little about me...</h1>
-      <div class="card-section">
-        <%= @profile.user.description %>
-      </div>
-    </div>
-
-    <h6 class="prompt">On Repeat</h6>
-    <div class="card-section">
-      <%= @profile.user.on_repeat %>
-    </div>
-
-    <h6 class="prompt">Theme Song</h6>
-    <div class="card-section">
-      <%= @profile.user.all_time_favorite %>
-    </div>
-
-    <h6 class="prompt">Go To Karaoke</h6>
-    <div class="card-section">
-      <%= @profile.user.go_to_karaoke %>
-    </div>
-
-    <h6 class="prompt">Top Genres</h6>
-    <div class="card-section">
-      <% @profile.user.top_genres.each do |genre| %>
-        <p><%= genre.genre %></p>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @profile.user.photos.each_with_index do |photo, index| %>
+        <div class="user-image-wrapper carousel-item <%= "active" if index == 0 %>">
+          <%= cl_image_tag photo.key, class: "d-block" %>
+        </div>
       <% end %>
     </div>
-
-    <%= link_to "Edit My Profile 📝 ", edit_user_path(@profile.user) %>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+
+  <div class="profile-name">
+    <%= @profile.user.name %>
+  </div>
+
+  <div class="description">
+    <h4>A little about me...</h1>
+    <div class="card-section">
+      <%= @profile.user.description %>
+    </div>
+  </div>
+
+  <h6 class="prompt">On Repeat</h6>
+  <div class="card-section">
+    <%= @profile.user.on_repeat %>
+  </div>
+
+  <h6 class="prompt">Theme Song</h6>
+  <div class="card-section">
+    <%= @profile.user.all_time_favorite %>
+  </div>
+
+  <h6 class="prompt">Go To Karaoke</h6>
+  <div class="card-section">
+    <%= @profile.user.go_to_karaoke %>
+  </div>
+
+  <h6 class="prompt">Top Genres</h6>
+  <div class="card-section">
+    <% @profile.user.top_genres.each do |genre| %>
+      <p><%= genre.genre %></p>
+    <% end %>
+  </div>
+
+</div>
+
+
+
 <%= render 'shared/footer' %>

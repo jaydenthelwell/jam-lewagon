@@ -1,14 +1,27 @@
 <%# <div class="cards" data-controller="hide-cards"> %>
 <% unless @users[-1] == user %>
+
       <div data-user="<%= user.id %>" class="users-container">
         <div class="card" data-hide-cards-target="cards">
-
-          <div id="img-artist">
+          <%# <div id="img-artist">
             <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
-          </div>
-
-          <div class="user-image-wrapper">
-            <%= cl_image_tag user.photo.key %>
+          </div> %>
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% user.photos.each_with_index do |photo, index| %>
+                <div class="user-image-wrapper carousel-item <%= "active" if index == 0 %>">
+                  <%= cl_image_tag photo.key, class: "d-block" %>
+                </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
 
           <div class="profile-name">
@@ -16,7 +29,6 @@
           </div>
 
           <div class="swipe-btns">
-
             <div class="swipe-left">
               <form action="/users/<%= user.id %>/dislike" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -25,16 +37,14 @@
                 </button>
               </form>
             </div>
-
             <div class="swipe-right">
               <form action="/users/<%= user.id %>/like" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-forward" style="color: black; opacity:0.7;" ></i>
+                  <i class="fa-solid fa-forward" style="color: #4c4c4c;"></i>
                 </button>
               </form>
             </div>
-
           </div>
 
           <h6 class="prompt">On Repeat</h6>
@@ -56,4 +66,7 @@
       <% else %>
          <h1>No more possible matches, back to home</h1>
     <% end %>
+
+
+
         <%# <%= render 'shared/footer' %>

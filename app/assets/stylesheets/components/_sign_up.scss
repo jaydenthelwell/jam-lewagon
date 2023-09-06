@@ -1,11 +1,11 @@
 body {
   background-color: white;
-  font-family: monospace;
+  font-family: "lobster", cursive;
 }
 
-h1, h2, h3, h4, h6 {
-  font-family: monospace;
-}
+// h1, h2, h3, h4, h6 {
+//   font-family: monospace;
+// }
 
 .container {
   padding: 30px;
@@ -34,17 +34,30 @@ h1, h2, h3, h4, h6 {
   transform: translateX(50%);
 }
 
-.spotify {
+// .spotify {
+//   position: fixed;
+//   bottom: 95px;
+//   margin-left: 255px;
+//   z-index: 10;
+//   background-image: url("Spotify_App_Logo.png");
+//   background-size: 65px;
+//   width: 65px;
+//   height: 70px;
+//   background-repeat: no-repeat;
+//   animation: throbbing 4s ease-in-out infinite;
+// }
+
+.c-profile {
   position: fixed;
-  bottom: 95px;
-  margin-left: 255px;
+  bottom: 100px;
+  right: 31px;
   z-index: 10;
-  background-image: url("Spotify_App_Logo.png");
-  background-size: 65px;
-  width: 65px;
-  height: 70px;
-  background-repeat: no-repeat;
-  animation: throbbing 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.register-button {
+  background-color: transparent;
+  border: none;
 }
 
 @keyframes throbbing {

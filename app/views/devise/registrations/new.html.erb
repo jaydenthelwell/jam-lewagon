@@ -1,4 +1,5 @@
-<div class="container" data-controller="sign-up">
+<div data-controller="sign-up">
+<div class="container">
   <div class="centered-content">
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -16,6 +17,8 @@
                     input_html: { class: "text-size", autocomplete: "name" },
                     placeholder: "Name"
                     %>
+
+
       </div>
 
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
@@ -28,6 +31,9 @@
                     input_html: { class: "text-size", autocomplete: "email" },
                     placeholder: "email@example.com"
                     %>
+
+
+
       </div>
 
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input" >
@@ -133,18 +139,20 @@
       </div>
 
       <div class="form-inputs custom-form-style d-none" data-sign-up-target="input">
-        <%= f.input :photo, as: :file,
+        <%= f.input :photos, as: :file,
                     required: true,
                     label: "Pick your photos for your profile",
                     label_html: { class: "label-size" },
                     autofocus: true,
-                    input_html: { class: "text-size", autocomplete: "name" },
+                    input_html: { class: "text-size", multiple: true, autocomplete: "name" },
                     placeholder: ""
                     %>
         <%# f.input :photo, as: :file %>
 
-        <div class="form-actions spotify" data-sign-up-target="create">
-          <%= f.button :submit, value: "" %>
+        <div class="form-actions c-profile" data-sign-up-target="create">
+          <%= button_tag type: 'submit', class: "register-button" do %>
+            <i class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon"></i>
+          <% end %>
         </div>
 
       </div>
@@ -152,12 +160,15 @@
 
       <%= link_to "Login", new_user_session_path, class: "nav-link transparent"  %>
 
-
     <div class="d-flex justify-content-between navigate-btns" >
       <i data-sign-up-target="prev" class="fa-regular fa-circle-play fa-rotate-180 transparent" style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#prevContent"></i>
       <i data-sign-up-target="next" class="fa-regular fa-circle-play " style="color: black; font-size: 60px;" id="next-icon" data-action="click->sign-up#nextContent"></i>
       <%# <%= image_tag "Spotify_App_Logo.png" data-sign-up-target="next" style="color: black; font-size: 60px;" data-action="click->sign-up#nextContent"%>
     </div>
 </div>
+</div>
+</div>
 
+<%# <div class="bg-info col-2" data-sign-up-target="loadBar"> - </div>
+</div> %>
 <%# <%= render "devise/shared/links" %>

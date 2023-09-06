@@ -1,9 +1,189 @@
 
-<div class="container">
-    <h4 style="font-family:monospace">Select your top 5 genres to get the magic matchmaking started...</h4>
 
-    <%= simple_form_for(@top_genre) do |f| %>
-      <%= f.input :genre, collection: TopGenre.all.pluck(:genre).uniq, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
-      <%= f.submit "Add my top genres", class: "btn btn-primary" %>
-    <% end %>
+<div class="container mt-5">
+    <h1 style="font-family:monospace">Get the music matchmaking started!</h1>
+
+  <% all_genres = [
+  "acoustic",
+  "afrobeat",
+  "alt-rock",
+  "alternative",
+  "ambient",
+  "anime",
+  "black-metal",
+  "bluegrass",
+  "blues",
+  "bossanova",
+  "brazil",
+  "breakbeat",
+  "british",
+  "cantopop",
+  "chicago-house",
+  "children",
+  "chill",
+  "classical",
+  "club",
+  "comedy",
+  "country",
+  "dance",
+  "dancehall",
+  "death-metal",
+  "deep-house",
+  "detroit-techno",
+  "disco",
+  "disney",
+  "drum-and-bass",
+  "dub",
+  "dubstep",
+  "edm",
+  "electro",
+  "electronic",
+  "emo",
+  "folk",
+  "forro",
+  "french",
+  "funk",
+  "garage",
+  "german",
+  "gospel",
+  "goth",
+  "grindcore",
+  "groove",
+  "grunge",
+  "guitar",
+  "happy",
+  "hard-rock",
+  "hardcore",
+  "hardstyle",
+  "heavy-metal",
+  "hip-hop",
+  "holidays",
+  "honky-tonk",
+  "house",
+  "idm",
+  "indian",
+  "indie",
+  "indie-pop",
+  "industrial",
+  "iranian",
+  "j-dance",
+  "j-idol",
+  "j-pop",
+  "j-rock",
+  "jazz",
+  "k-pop",
+  "kids",
+  "latin",
+  "latino",
+  "malay",
+  "mandopop",
+  "metal",
+  "metal-misc",
+  "metalcore",
+  "minimal-techno",
+  "movies",
+  "mpb",
+  "new-age",
+  "new-release",
+  "opera",
+  "pagode",
+  "party",
+  "philippines-opm",
+  "piano",
+  "pop",
+  "pop-film",
+  "post-dubstep",
+  "power-pop",
+  "progressive-house",
+  "psych-rock",
+  "punk",
+  "punk-rock",
+  "r-n-b",
+  "rainy-day",
+  "reggae",
+  "reggaeton",
+  "road-trip",
+  "rock",
+  "rock-n-roll",
+  "rockabilly",
+  "romance",
+  "sad",
+  "salsa",
+  "samba",
+  "sertanejo",
+  "show-tunes",
+  "singer-songwriter",
+  "ska",
+  "sleep",
+  "songwriter",
+  "soul",
+  "soundtracks",
+  "spanish",
+  "study",
+  "summer",
+  "swedish",
+  "synth-pop",
+  "tango",
+  "techno",
+  "trance",
+  "trip-hop",
+  "turkish",
+  "work-out",
+  "world-music"
+]
+ %>
+   <section class="spotify-auth mt-5" data-controller="spotify-auth">
+    <div>
+
+<div class="container">
+
+
+    <section class="spotify-auth mt-5" data-controller="spotify-auth">
+
+      <div
+        class="spotify-env"
+        data-client-id="<%= ENV["client_id"] %>"
+        data-client-secret="<%= ENV["client_secret"] %>"
+        <%# data-spotify-auth-client-id-value="testing" %>
+      ></div>
+
+      <h3 class="mb-4" style="font-family:monospace">Connect via Spotify</h3>
+      <h5 class="mb-2" style="font-family:monospace">We'll take your faves and find people that share a similar taste.</h5>
+
+  <div class="spotify-auth" data-spotify-auth-target="auth">
+        <h5>Connect My Account to Spotify</h5>
+        <div
+          class="btn btn-success my-2"
+          data-action="click->spotify-auth#linkToSpotify"
+          <%# click->spotify-auth#submitForm MAYBE ADD TO THE ABOVE LISTENERS REMEMBER TO UNCOMMENT IN THE SPOTIFY-AUTH AS WELL %>
+        > <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="Spotify connect" style="width:100px;border-radius:5px;"></div>
+      </div>
+
+      <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
+        <%# <h5>My Top 5 Genres</h5> %>
+        <div
+          class="btn btn-success my-2"
+          data-action="click->spotify-auth#getTopGenres"
+        >Get Your Top 5 Genres from Spotify</div>
+        <div class="top-genres-list mt-2">
+          <% current_user.top_genres.each do |genre| %>
+            <p><%= genre.genre %></p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-5 p-2" style="background-color:#aeaeffe4;color:white" data-controller="toggle-genre">
+      <h5 style="font-family:monospace">Don't have a Spotify account?</h5>
+      <button class="btn btn-light mt-2" data-action="click->toggle-genre#toggleForm">Select your favorite genres</button>
+      <div data-toggle-genre-target="genreForm" class="d-none">
+        <h5 class="mt-4"style="font-family:monospace">Select your top 5 genres to get the magic matchmaking started instead</h5>
+        <%= simple_form_for(@top_genre) do |f| %>
+          <%= f.input :genre, collection: all_genres, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
+          <%= f.submit "Create profile", class: "btn btn-dark" %>
+        <% end %>
+      </div>
+    </div>
+
+    </section>
 </div>
