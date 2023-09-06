@@ -33,7 +33,7 @@
               <form action="/users/<%= user.id %>/dislike" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-forward fa-rotate-180" style="color: black; opacity: 0.7;"></i>
+                  <i class="fa-solid fa-forward fa-rotate-180" style="color: black;"></i>
                 </button>
               </form>
             </div>
@@ -41,12 +41,12 @@
               <form action="/users/<%= user.id %>/like" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-forward" style="color: #4c4c4c;"></i>
+                  <i class="fa-solid fa-forward"></i>
                 </button>
               </form>
             </div>
           </div>
-
+        <div class="padding">
           <h6 class="prompt">On Repeat</h6>
           <div class="card-section">
             <%= user.on_repeat %>
@@ -61,6 +61,7 @@
           <div class="card-section">
             <%= user.go_to_karaoke %>
           </div>
+        </div>
          </div>
         </div>
       <% else %>
