@@ -5,6 +5,10 @@ class TopGenresController < ApplicationController
     @top_genre = TopGenre.new
   end
 
+  def spotify
+    @top_genre = TopGenre.new
+  end
+
   def create
     @top_genre = TopGenre.new(genre: params[:top_genre][:genre])
     @top_genre.user = current_user

@@ -6,42 +6,43 @@
     data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
 
     <div class="d-flex chatbar back-btn align-items-center">
-    <span><%= link_to chatrooms_path do%>
-      <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
-    <% end %>
-    </span>
+      <span><%= link_to chatrooms_path do%>
+        <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
+      <% end %>
+      </span>
       <div class="chat-user">
         <span>
           <%= link_to profile_path(@other_user.id), class: 'matched-p' do %>
             <%= cl_image_tag(@other_user.photos[0].key, width: 50, height: 50, crop: :thumb, gravity: :face) %>
           <% end %>
         </span>
-        <span class="name"> <%= @other_user.name %> </span>
+        <span class="name"> <%= @other_user.name %>
+        </span>
       </div>
     </div>
 
-      <div class="messages" data-chatroom-subscription-target= "messages">
-        <% @chatroom.messages.each do |message| %>
-          <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-            <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-              <%= render "messages/message", message: message %>
-            </div>
+    <div class="messages" data-chatroom-subscription-target= "messages">
+      <% @chatroom.messages.each do |message| %>
+        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
           </div>
-        <% end %>
-      </div>
-      <%= simple_form_for [@chatroom, @message],
-        html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
-      %>
-        <%= f.input :content,
-          label: false,
-          placeholder: "Message",
-          wrapper_html: { class: "flex-grow-1 margin-send" }
-        %>
-        <%= button_tag type: 'submit', class: 'btn-icon-message' do %>
-          <i class="fa-solid fa-paper-plane"></i>
-        <% end %>
+        </div>
       <% end %>
-      </div>
+    </div>
+    <%= simple_form_for [@chatroom, @message],
+      html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
+    %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message",
+        wrapper_html: { class: "flex-grow-1 margin-send" }
+      %>
+      <%= button_tag type: 'submit', class: 'btn-icon-message' do %>
+        <i class="fa-solid fa-paper-plane"></i>
+      <% end %>
+      <% end %>
+    </div>
     <% else %>
 <% end %>
 

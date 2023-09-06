@@ -16,9 +16,9 @@ export default class extends Controller {
       // console.log(this.authTarget)
 
       console.log(this.genresTarget)
-      this.genresTarget.classList.remove("d-none")
+      // this.genresTarget.classList.remove("d-none")
     } else {
-      this.authTarget.classList.remove("d-none")
+      // this.authTarget.classList.remove("d-none")
     }
 
     // Check if there's any params in the URL, if yes, will call #handleRedirect() to clean up the URL
@@ -63,7 +63,7 @@ export default class extends Controller {
 
     // Your redirect uri
     // let redirect_uri = "https://lfc-sandbox-c15f95ad1922.herokuapp.com/profile";
-    let redirect_uri = "http://localhost:3000/top_genres/new";
+    let redirect_uri = "http://localhost:3000/profile";
 
     localStorage.setItem("client_id", client_id);
     localStorage.setItem("client_secret", client_secret);
@@ -256,6 +256,8 @@ export default class extends Controller {
             });
 
           topFiveGenres.forEach((genre) => {
+            // this.saveTopGenres(genre);
+
             fetch("/top_genres", {
               method: "POST",
               headers: {
@@ -475,6 +477,35 @@ export default class extends Controller {
     } catch (error) {
       // Handle error
       // console.error(error);
+    }
+  }
+
+  async saveTopGenres(genre) {
+    try {
+      const response = await fetch("/top_genres", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": Rails.csrfToken(),
+          // You might need to include other headers, like authorization headers
+        },
+        body: JSON.stringify({ genre: genre }), // Assuming your genre data is an object
+      })
+
+      if (!response.ok) {
+        throw new Error("Request failed with status: " + response.status);
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      console.log("Genre instance created:", data);
+
+      // const topGenres = document.querySelector(".top-genres-list");
+      const topGenres = document.querySelector(".genres-list");
+      topGenres.insertAdjacentHTML("beforeend", `<p>${genre}</p>`);
+    } catch (error) {
+      console.log(error)
     }
   }
 
