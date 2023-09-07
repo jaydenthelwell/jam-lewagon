@@ -1,11 +1,3 @@
-.edit-btn {
-  font-size: 25px;
-}
-
-.log-out {
-  font-size: 60px;
-}
-
 .spotify-user-data {
   display: flex;
   flex-direction: column;
@@ -47,7 +39,14 @@
   }
 }
 
-.edit-profile {
-  text-align: center;
-  margin-top: 20px;
+.edit-logout {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+}
+
+.decoration-color {
+  text-decoration: none;
+  color: #b99cfc;
 }

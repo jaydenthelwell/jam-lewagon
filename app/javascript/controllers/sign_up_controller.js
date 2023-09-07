@@ -28,11 +28,11 @@ export default class extends Controller {
 
     console.log(this.step)
 
-    this.loadBarTarget.classList.add(`col-${this.step}`)
-    if (this.step == 10) {
-      this.nextTarget.classList.add("transparent")
-      this.inputTargets[10].classList.remove("d-none")
-    }
+    // this.loadBarTarget.classList.add(`col-${this.step}`)
+    // if (this.step == 10) {
+    //   this.nextTarget.classList.add("transparent")
+    //   this.inputTargets[10].classList.remove("d-none")
+    // }
   }
 
   prevContent() {

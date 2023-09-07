@@ -204,4 +204,5 @@ end
       top_genre.save!
     end
   end
+
 puts "Created #{TopGenre.count} Top Genres"

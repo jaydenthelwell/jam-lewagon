@@ -7,6 +7,11 @@ body {
 //   font-family: monospace;
 // }
 
+.my-container {
+  padding: 30px;
+  margin-top: 25%;
+}
+
 .container {
   padding: 30px;
   margin-top: 40%;
@@ -58,6 +63,9 @@ body {
 .register-button {
   background-color: transparent;
   border: none;
+  z-index: 10;
+  opacity: 0;
+  position: relative;
 }
 
 @keyframes throbbing {
@@ -82,6 +90,8 @@ body {
   padding: 5px 0;
   margin: 10px 0;
   box-sizing: border-box;
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
 #icon {
@@ -113,3 +123,23 @@ body {
   margin-left: -7px;
   box-shadow: 10px;
 }
+
+
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: var(--bs-secondary-color);
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.user_password_confirmation  {
+  margin-top: 40px
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+    position: relative;
+    bottom: 90px;
+}
+
