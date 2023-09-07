@@ -6,22 +6,22 @@
   </div>
   <div>
     <%= link_to chatrooms_path do %>
-      <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+      <i class="fa-solid fa-envelope" style="color: black;"></i>
     <% end %>
   </div>
   <div>
     <%= link_to socials_path do %>
-      <i class="fa-solid fa-icons" style="color: #ffffff;"></i>
+      <i class="fa-solid fa-icons" style="color: black;"></i>
     <% end %>
   </div>
   <div>
     <% if user_signed_in? %>
       <%= link_to user_profile_path do %>
-        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-user" style="color: black;"></i>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-user" style="color: black;"></i>
       <% end %>
     <% end %>
   </div>

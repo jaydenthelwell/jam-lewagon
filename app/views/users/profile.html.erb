@@ -10,10 +10,11 @@
       <% end %>
     </div>
 
-    <div class="profile-name">
-      <%= current_user.name %>
-    </div>
-    <div class="padding">
+
+    <div class="padding profile-content">
+        <div class="profile-name">
+          <%= current_user.name %>
+        </div>
         <div>
           <h4 class="prompt">A little about me...</h4>
           <div class="card-section">
@@ -61,7 +62,7 @@
       <div data-spotify-auth-target="genres"></div>
 
       <div class="spotify-user-data spotify">
-        <div class="top-genres mt-5">
+        <div class="top-genres mt-2">
           <%# <h5>My Top 5 Genres</h5> %>
           <div
             class="btn my-2"
@@ -73,21 +74,21 @@
             <% end %>
           </div>
         </div>
-        <div class="top-artists mt-5">
-          <h5>My Top 5 Artists</h5>
+        <div class="top-artists mt-3">
+          <h5>My top 5 artists</h5>
           <div
             class="btn my-2"
             data-action="click->spotify-auth#getTopArtists"
           >Get My Artists</div>
         </div>
-        <div class="top-tracks mt-5">
-          <h5>My Top 5 Tracks</h5>
+        <div class="top-tracks mt-3">
+          <h5>My top 5 tracks</h5>
           <div
             class="btn my-2"
             data-action="click->spotify-auth#getTopTracks"
           >Get My Tracks</div>
         </div>
-        <div class="my-devices mt-5">
+        <div class="my-devices mt-3">
           <%# <h5>My Devices</h5> %>
         </div>
       </div>

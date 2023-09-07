@@ -1,6 +1,7 @@
 .card {
   background-color: white;
   width: 100%;
+  // position: relative;
   position: relative;
 }
 
@@ -18,7 +19,7 @@
   width: 100%;
   object-position: top;
   object-fit: cover;
-  border: 15px solid #a6deff;
+  border: 15px solid #b99cfc;
 }
 
 .card-section {
@@ -42,6 +43,16 @@
   left: 10px;
 }
 
+.padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.profile-content {
+  position: relative;
+  top: -80px;
+}
+
 .prompt {
   // font-family: monospace;
   font-family: "lobster", cursive;
@@ -51,9 +62,11 @@
 .profile-name {
   color: white;
   font-size: 30px;
-  transform: translate(40px, -70px);
+  // transform: translate(40px, -70px);
   width: 90%;
   text-shadow: 2px 2px #d372ff;
+  margin-bottom: 50px;
+  margin-left: 15px;
 }
 
 .swipe-btns {
@@ -127,8 +140,4 @@
 
   }
 
-}
-
-.padding {
-  padding: 30px 20px;
 }
