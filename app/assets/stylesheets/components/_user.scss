@@ -89,6 +89,21 @@
   margin-top: -148px;
 }
 
+.profile-namea{
+  position: absolute;
+  z-index: 999;
+  color: white;
+  font-size: 30px;
+  // transform: translate(40px, -70px);
+  width: 90%;
+  text-shadow: 2px 2px #d372ff;
+  // margin-bottom: 50px;
+  margin-left: 15px;
+  margin-top: 315px;
+
+
+}
+
 .swipe-btns {
   display: flex;
   justify-content: space-between;
@@ -101,6 +116,7 @@
 
   i {
     font-size: 50px;
+    color: black;
   }
 }
 
