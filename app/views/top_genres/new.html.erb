@@ -6,7 +6,7 @@
       <span>100%</span>
     </div>
   </div>
-  <h1 style="font-family:monospace">Get the music matchmaking started!</h1>
+  <h1 style="font-family:lobster; font-size:40px;">Get the music matchmaking started!</h1>
 
   <% all_genres = [
   "acoustic",
@@ -137,7 +137,7 @@
   "world-music"
 ]
  %>
-    <section class="spotify-auth mt-5" data-controller="spotify-auth">
+    <section class="mt-5" data-controller="spotify-auth">
       <div
         class="spotify-env"
         data-client-id="<%= ENV["client_id"] %>"
@@ -145,15 +145,15 @@
         <%# data-spotify-auth-client-id-value="testing" %>
       ></div>
 
-      <h3 class="mb-4" style="font-family:lobster">Connect via Spotify</h3>
-      <h5 class="mb-2" style="font-family:lobster">We'll take your faves and find people that share a similar taste.</h5>
+      <h3 class="mb-4" style="font-family:raleway">Connect via Spotify</h3>
+      <h5 class="mb-2" style="font-family:raleway">We'll take your faves and find people that share a similar taste.</h5>
 
-    <div class="spotify-auth" data-spotify-auth-target="auth">
-        <div
-          class="btn btn-success my-2"
-          data-action="click->spotify-auth#linkToSpotify"
-          <%# click->spotify-auth#submitForm MAYBE ADD TO THE ABOVE LISTENERS REMEMBER TO UNCOMMENT IN THE SPOTIFY-AUTH AS WELL %>
-        > <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="Spotify connect" style="width:100px;border-radius:5px;"></div>
+      <div data-spotify-auth-target="auth">
+          <div
+            class="btn btn-success my-2"
+            data-action="click->spotify-auth#linkToSpotify"
+            <%# click->spotify-auth#submitForm MAYBE ADD TO THE ABOVE LISTENERS REMEMBER TO UNCOMMENT IN THE SPOTIFY-AUTH AS WELL %>
+          > <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_White.png" alt="Spotify connect" style="width:100px;border-radius:5px;"></div>
       </div>
 
       <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
@@ -168,19 +168,17 @@
           <% end %>
         </div>
       </div>
-
-    </div>
-    <div class="mt-5 p-2" style="background-color:#aeaeffe4;color:white" data-controller="toggle-genre">
-      <h5 style="font-family:monospace">Don't have a Spotify account?</h5>
-      <button class="btn btn-light mt-2" data-action="click->toggle-genre#toggleForm">Select your favorite genres</button>
-      <div data-toggle-genre-target="genreForm" class="d-none">
-        <h5 class="mt-4"style="font-family:lobster">Select your top 5 genres to get the magic matchmaking started instead</h5>
-        <%= simple_form_for(@top_genre) do |f| %>
-          <%= f.input :genre, collection: all_genres, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
-          <%= f.submit "Create profile", class: "btn btn-dark" %>
-        <% end %>
+      <div class="mt-5 p-2" style="background-color:#aeaeffe4;color:white; font-family:raleway;" data-controller="toggle-genre">
+        <strong><h5>Don't have a Spotify account?</h5></strong>
+        <button class="btn btn-light mt-2" data-action="click->toggle-genre#toggleForm">Select your favorite genres</button>
+        <div data-toggle-genre-target="genreForm" class="d-none">
+          <h5 class="mt-4" style="font-family:raleway">Select your top 5 genres to get the magic matchmaking started instead</h5>
+          <%= simple_form_for(@top_genre) do |f| %>
+            <%= f.input :genre, collection: all_genres, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
+            <%= f.submit "Create profile", class: "btn btn-dark" %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
     </section>
 </div>
