@@ -16,28 +16,28 @@
           <%= current_user.name %>
         </div>
         <div>
-          <h4 class="prompt">A little about me...</h4>
+          <h2 class="prompt">A little about me...</h2>
           <div class="card-section">
             <%= current_user.description %>
           </div>
         </div>
 
-        <h6 class="prompt">On Repeat</h6>
+        <h4 class="prompt">On Repeat</h4>
         <div class="card-section">
           <%= current_user.on_repeat %>
         </div>
 
-        <h6 class="prompt">Theme Song</h6>
+        <h4 class="prompt">Theme Song</h4>
         <div class="card-section">
           <%= current_user.all_time_favorite %>
         </div>
 
-        <h6 class="prompt">Go To Karaoke</h6>
+        <h4 class="prompt">Go To Karaoke</h4>
         <div class="card-section">
           <%= current_user.go_to_karaoke %>
         </div>
 
-        <h6 class="prompt">Top Genres</h6>
+        <h4 class="prompt">Top Genres</h4>
         <div class="card-section genres-list">
           <% current_user.top_genres.each do |genre| %>
             <p><%= genre.genre %></p>
@@ -56,8 +56,7 @@
         <h5>Connect My Account to Spotify</h5>
         <div
           class="btn my-2"
-          data-action="click->spotify-auth#linkToSpotify"
-        >Connect to Spotify</div>
+          data-action="click->spotify-auth#linkToSpotify">Connect to Spotify</div>
       </div>
       <div data-spotify-auth-target="genres"></div>
 
@@ -75,18 +74,16 @@
           </div>
         </div>
         <div class="top-artists mt-3">
-          <h5>My top 5 artists</h5>
           <div
             class="btn my-2"
             data-action="click->spotify-auth#getTopArtists"
-          >Get My Artists</div>
+          >My Top 5 Artists</div>
         </div>
         <div class="top-tracks mt-3">
-          <h5>My top 5 tracks</h5>
           <div
             class="btn my-2"
             data-action="click->spotify-auth#getTopTracks"
-          >Get My Tracks</div>
+          >My Top 5 Tracks</div>
         </div>
         <div class="my-devices mt-3">
           <%# <h5>My Devices</h5> %>
