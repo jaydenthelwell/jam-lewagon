@@ -69,7 +69,7 @@
     <h5>My Top 5 Tracks</h5>
     <div
       class="btn btn-success my-2"
-      data-action="click->spotify-auth#getTopTracks"
+      <%# data-action="click->spotify-auth#getTopTracks" %>
     >
       See Tracks</div>
       <% @profile.user.top_tracks.each do |track| %>
