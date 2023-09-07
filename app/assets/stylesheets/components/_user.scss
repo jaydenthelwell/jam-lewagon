@@ -22,15 +22,16 @@
   border: 15px solid #a6deff ;
 }
 
-.card-section {
+.card-section{
   border: 0.5px solid black;
-  font-family: "sans-serif";
+  font-family: "p";
   height: auto;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
+  border: solid black 2px;
+  padding: 5px;
 }
-
 #img-artist img {
   z-index: 10;
   position: absolute;
