@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_094548) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_103013) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,16 +45,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_094548) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "swipe_id"
     t.index ["swipe_id"], name: "index_chatrooms_on_swipe_id"
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
@@ -104,6 +104,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_094548) do
     t.index ["user_id"], name: "index_top_genres_on_user_id"
   end
 
+  create_table "top_tracks", force: :cascade do |t|
+    t.string "track"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "spotify_ref"
+    t.index ["user_id"], name: "index_top_tracks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -135,4 +144,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_094548) do
   add_foreign_key "swipes", "users", column: "swipee_id"
   add_foreign_key "swipes", "users", column: "swiper_id"
   add_foreign_key "top_genres", "users"
+  add_foreign_key "top_tracks", "users"
 end
