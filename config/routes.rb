@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :socials, only: [:show, :create, :new]
   end
 
-  resources :socials, only: [:index]
+  resources :socials, only: [:index, :destroy]
 
   # resources :matches, only: [:index]
 
