@@ -150,3 +150,21 @@
 .users-index {
   height: calc(100vh - 70px);
 }
+
+.match-end-card {
+  color: black;
+  background: #a6ffce;
+  box-shadow: 6px 6px 0 #4c4c4c;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+
+  p {
+    margin: 20px;
+    font-family: "lobster", cursive;
+    font-size: 30px;
+    text-align: center;
+    // border: 2px dashed black;
+  }
+}
