@@ -5,7 +5,9 @@
     </div> %>
 
     <div class="user-image-wrapper">
-      <%= cl_image_tag current_user.photos[0].key %>
+      <% if current_user.photos.any? %>
+        <%= cl_image_tag current_user.photos[0].key %>
+      <% end %>
     </div>
 
     <div class="profile-name">
