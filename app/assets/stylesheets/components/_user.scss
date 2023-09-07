@@ -19,19 +19,34 @@
   width: 100%;
   object-position: top;
   object-fit: cover;
-  border: 15px solid #a6deff ;
+  border: 15px solid #b99cfc ;
 }
 
 .card-section{
-  border: 0.5px solid black;
-  font-family: "p";
-  height: auto;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: solid black 2px;
-  padding: 5px;
-}
+    position: relative;
+    background: #4bc1e4;
+    border-radius: 0.4em;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+
+    .card-section:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: #00aabb;
+      border-bottom: 0;
+      margin-left: -20px;
+      margin-bottom: -20px;
+    }
+  }
+
 #img-artist img {
   z-index: 10;
   position: absolute;
