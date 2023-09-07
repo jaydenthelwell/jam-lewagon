@@ -13,6 +13,8 @@ class TopGenresController < ApplicationController
     @top_genre = TopGenre.new(genre: params[:top_genre][:genre])
     @top_genre.user = current_user
     @top_genre.save!
+
+    redirect_to profile_path(current_user)
   end
 
   def destroy_all
