@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get "profile", to: "users#profile", as: :user_profile
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :update] do
     member do
       post :like
       post :dislike
