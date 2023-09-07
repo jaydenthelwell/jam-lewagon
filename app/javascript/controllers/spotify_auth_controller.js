@@ -345,12 +345,10 @@ export default class extends Controller {
           tracks = tracks.concat(track.name);
           spotify_ref = spotify_ref.concat(track.id);
 
-          data.items.forEach((track) => {
             topTracks.insertAdjacentHTML(
               "beforeend",
               `<p><div class="d-flex"><div data-action="click->spotify-auth#playTrack" data-track-id="${track.id}" class="btn btn-primary">${track.name}</div><div data-action="click->spotify-auth#pauseTrack" class="btn btn-danger mx-3">Stop</div></div></p>`
             );
-          });
 
           fetch("/top_tracks", {
             method: "POST",
