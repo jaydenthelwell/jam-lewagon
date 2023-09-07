@@ -1,6 +1,6 @@
 <% if notice %>
   <%# <% if notice.class == "String" %>
-  <% user = User.find(notice["id"]) %>
+  <%# user = User.find(notice["id"]) %>
   <%# <% if user %>
     <div class="alert alert-info fade show p-3" role="alert">
       <div class="d-flex justify-content-between">
@@ -10,14 +10,14 @@
         </a>
       </div>
       <br><h2>
-        You matched with <%= user.name %>
+        You matched with <%# user.name %>
       </h2>
       <br>
       <div class="user-image-wrapper mt-4 d-flex flex-column">
-        <%= cl_image_tag user.photos[0].key %>
+        <%# cl_image_tag user.photos[0].key %>
         <div class="profile-name-match btn btn-light pb-2">
-            <% chatroom_id = Chatroom.find_by(swipe_id: Swipe.last.id) %>
-          <%= link_to "Chat with #{user.name}", chatrooms_path(user.id) %>
+            <%# chatroom_id = Chatroom.find_by(swipe_id: Swipe.last.id) %>
+          <%# link_to "Chat with #{user.name}", chatrooms_path(user.id) %>
         </div>
       </div>
     </div>
