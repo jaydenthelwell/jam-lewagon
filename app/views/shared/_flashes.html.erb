@@ -1,7 +1,7 @@
 <% if notice %>
-  <% if notice.class == "String" %>
+  <%# <% if notice.class == "String" %>
   <% user = User.find(notice["id"]) %>
-  <% if user %>
+  <%# <% if user %>
     <div class="alert alert-info fade show p-3" role="alert">
       <div class="d-flex justify-content-between">
         <h1>WOOP WOOP!</h1>
@@ -15,12 +15,12 @@
       <br>
       <div class="user-image-wrapper mt-4 d-flex flex-column">
         <%= cl_image_tag user.photos[0].key %>
-        <div class="profile-name-match btn btn-light">
-            <%# chatroom_id = Chatroom.find_by(swipe_id: Swipe.last.id) %>
-          <%# link_to "Chat with #{user.name}", chatroom_path(chatroom_id) %>
+        <div class="profile-name-match btn btn-light pb-2">
+            <% chatroom_id = Chatroom.find_by(swipe_id: Swipe.last.id) %>
+          <%= link_to "Chat with #{user.name}", chatrooms_path(user.id) %>
         </div>
       </div>
     </div>
-  <% end %>
-  <% end %>
+  <%# <% end %>
+  <%# <% end %>
 <% end %>

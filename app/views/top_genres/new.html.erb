@@ -137,7 +137,6 @@
   "world-music"
 ]
  %>
-
     <section class="spotify-auth mt-5" data-controller="spotify-auth">
       <div
         class="spotify-env"
@@ -146,8 +145,8 @@
         <%# data-spotify-auth-client-id-value="testing" %>
       ></div>
 
-      <h3 class="mb-4" style="font-family:monospace">Connect via Spotify</h3>
-      <h5 class="mb-2" style="font-family:monospace">We'll take your faves and find people that share a similar taste.</h5>
+      <h3 class="mb-4" style="font-family:lobster">Connect via Spotify</h3>
+      <h5 class="mb-2" style="font-family:lobster">We'll take your faves and find people that share a similar taste.</h5>
 
     <div class="spotify-auth" data-spotify-auth-target="auth">
         <h5>Connect My Account to Spotify</h5>
@@ -159,7 +158,7 @@
       </div>
 
       <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
-        <%# <h5>My Top 5 Genres</h5> %>
+        <h5>My Top 5 Genres</h5>
         <div
           class="btn btn-success my-2"
           data-action="click->spotify-auth#getTopGenres"
@@ -176,7 +175,7 @@
       <h5 style="font-family:monospace">Don't have a Spotify account?</h5>
       <button class="btn btn-light mt-2" data-action="click->toggle-genre#toggleForm">Select your favorite genres</button>
       <div data-toggle-genre-target="genreForm" class="d-none">
-        <h5 class="mt-4"style="font-family:monospace">Select your top 5 genres to get the magic matchmaking started instead</h5>
+        <h5 class="mt-4"style="font-family:lobster">Select your top 5 genres to get the magic matchmaking started instead</h5>
         <%= simple_form_for(@top_genre) do |f| %>
           <%= f.input :genre, collection: all_genres, input_html: {multiple: true, data: {controller: "tom-select", tom_select_options_value: { maxItems: 5 } }} %>
           <%= f.submit "Create profile", class: "btn btn-dark" %>
