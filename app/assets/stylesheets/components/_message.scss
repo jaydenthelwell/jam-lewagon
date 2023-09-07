@@ -18,3 +18,51 @@
 .receiver-style {
   background-color: lightblue;
 }
+
+.chatroom-send-message {
+  position: fixed;
+  bottom: 0;
+}
+
+.message-notifications {
+  width: 300px;
+  height: 100px;
+  background-color: rgb(197, 250, 230);
+  border-radius: 25px;
+  margin: 0 auto;
+  box-shadow: 2px 2px 1px rgba(80, 80, 80, 0.1);
+
+  p {
+    margin-top: 10px;
+    margin-left: 30px;
+    color: black;
+    text-decoration: none;
+  }
+
+  position: fixed;
+  z-index: 999;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    top: -150px;
+  }
+
+  20% {
+    top: 60px;
+  }
+
+  80% {
+    top: 60px;
+  }
+
+  to {
+    top: -150px;
+  }
+}

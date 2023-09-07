@@ -94,7 +94,7 @@ export default class extends Controller {
 
     // Your redirect uri
     // let redirect_uri = "https://lfc-sandbox-c15f95ad1922.herokuapp.com/profile";
-    // let redirect_uri = "http://www.jamwithme.site/profile";
+    // let redirect_uri = "http://localhost:3000/profile";
 
     let redirect_uri = localStorage.getItem("redirect_url");
 
@@ -301,25 +301,6 @@ export default class extends Controller {
       }
   }
 
-  #topNMostFrequentElements(array, n) {
-    const frequencyMap = new Map();
-
-    // Count the frequency of each element
-    array.forEach((element) => {
-      frequencyMap.set(element, (frequencyMap.get(element) || 0) + 1);
-    });
-
-    // Sort elements by frequency in descending order
-    const sortedElements = Array.from(frequencyMap.entries()).sort(
-      (a, b) => b[1] - a[1]
-    );
-
-    // Get the top N most frequent elements
-    const topN = sortedElements.slice(0, n).map((entry) => entry[0]);
-
-    return topN;
-  }
-
   getTopTracks() {
     console.log("This is getTopTracks Stimulus");
 
@@ -336,15 +317,88 @@ export default class extends Controller {
       .then((data) => {
         console.log(data);
 
+        let tracks = [];
+        let spotify_ref = []
+
         const topTracks = document.querySelector(".top-tracks");
 
+        fetch("/tracks/destroy_all", {
+          method: "DELETE",
+          headers: {
+            "X-CSRF-Token": Rails.csrfToken(),
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response;
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error creating track instance:", error);
+          });
+
         data.items.forEach((track) => {
-          topTracks.insertAdjacentHTML(
-            "beforeend",
-            `<p><div class="d-flex"><div data-action="click->spotify-auth#playTrack" data-track-id="${track.id}" class="btn btn-primary">${track.name}</div><div data-action="click->spotify-auth#pauseTrack" class="btn btn-danger mx-3">Stop</div></div></p>`
-          );
+          tracks = tracks.concat(track.name);
+          spotify_ref = spotify_ref.concat(track.id);
+
+          data.items.forEach((track) => {
+            topTracks.insertAdjacentHTML(
+              "beforeend",
+              `<p><div class="d-flex"><div data-action="click->spotify-auth#playTrack" data-track-id="${track.id}" class="btn btn-primary">${track.name}</div><div data-action="click->spotify-auth#pauseTrack" class="btn btn-danger mx-3">Stop</div></div></p>`
+            );
+          });
+
+          fetch("/top_tracks", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": Rails.csrfToken(),
+              // You might need to include other headers, like authorization headers
+            },
+            body: JSON.stringify({ track: track.name, spotify_ref: track.id }), // Assuming your genre data is an object
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              console.log(response);
+            })
+            .then((data) => {
+              console.log("Genre instance created:", data);
+
+              // const topGenres = document.querySelector(".top-genres-list");
+              const topTracks = document.querySelector(".tracks-list");
+
+              topTracks.insertAdjacentHTML("beforeend", `<p>${track}</p>`);
+            })
+            .catch((error) => {
+              console.error("Error creating genre instance:", error);
+            });
+
         });
-      });
+
+        console.log(tracks);
+        console.log(spotify_ref);
+
+        const topTracksDiv = document.querySelector(".tracks-list");
+        topTracksDiv.innerHTML = "";
+        })
+        .catch((error) => {
+          // Handle error
+        });
+
+        let redirectLink = "http://www.jamwithme.site/profile"
+
+        const currentUrl = window.location.href;
+        console.log(currentUrl)
+
+        if (currentUrl !==  redirectLink) {
+          window.location.href = redirectLink;
+        }
   }
 
   playTrack(e) {
@@ -508,6 +562,25 @@ export default class extends Controller {
       console.log(error)
     }
   }
+
+    #topNMostFrequentElements(array, n) {
+      const frequencyMap = new Map();
+
+      // Count the frequency of each element
+      array.forEach((element) => {
+        frequencyMap.set(element, (frequencyMap.get(element) || 0) + 1);
+      });
+
+      // Sort elements by frequency in descending order
+      const sortedElements = Array.from(frequencyMap.entries()).sort(
+        (a, b) => b[1] - a[1]
+      );
+
+      // Get the top N most frequent elements
+      const topN = sortedElements.slice(0, n).map((entry) => entry[0]);
+
+      return topN;
+    }
 
   // submitForm() {
   //   const form = document.querySelector('form[data-controller="spotify-auth"]');

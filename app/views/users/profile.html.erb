@@ -5,7 +5,9 @@
     </div> %>
 
     <div class="user-image-wrapper">
-      <%= cl_image_tag current_user.photos[0].key %>
+      <% if current_user.photos.any? %>
+        <%= cl_image_tag current_user.photos[0].key %>
+      <% end %>
     </div>
 
 
@@ -92,6 +94,7 @@
       </div>
     </section>
     <div class="edit-logout d-flex justify-content-between">
+        <%= link_to "Connect Spotify", top_genre_new_path, class: "decoration-color" %>
         <%= link_to "Edit profile", edit_user_path(current_user), class: "decoration-color" %>
         <%= link_to "Log out", destroy_user_session_path, class: "decoration-color", data: {turbo_method: :delete} %>
     </div>

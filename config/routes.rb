@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :socials, only: [:show, :create, :new]
   end
 
-  resources :socials, only: [:index]
+  resources :socials, only: [:index, :destroy]
 
   # resources :matches, only: [:index]
 
@@ -33,8 +33,15 @@ Rails.application.routes.draw do
   end
 
   resources :top_genres, only: [:new, :create]
+  resources :top_tracks, only: [:new, :create]
 
   get "/top_genres/spotify", to: "top_genres#spotify"
+  get "/top_tracks/spotify", to: "top_tracks#spotify"
 
   delete '/genres/destroy_all', to: 'top_genres#destroy_all'
+  get "/user/chatrooms", to: "chatrooms#user_chatrooms"
+
+
+  delete '/tracks/destroy_all', to: 'top_tracks#destroy_all'
+
 end
