@@ -91,7 +91,7 @@
       </div>
     </section>
     <div class="edit-logout d-flex justify-content-between">
-        <%= link_to "Connect Spotify", top_genres_path, class: "decoration-color" %>
+        <%= link_to "Reconnect Spotify", new_user_registration_path, class: "decoration-color" %>
         <%= link_to "Edit profile", edit_user_path(current_user), class: "decoration-color" %>
         <%= link_to "Log out", destroy_user_session_path, class: "decoration-color", data: {turbo_method: :delete} %>
     </div>
