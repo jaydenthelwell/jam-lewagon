@@ -77,6 +77,8 @@
   width: 70%;
   margin: 0px auto;
   transform: translateY(-20px);
+  position: relative;
+  z-index: 999;
 
   i {
     font-size: 50px;
