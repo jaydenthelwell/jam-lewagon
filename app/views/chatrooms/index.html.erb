@@ -1,4 +1,5 @@
 <div class="chatrooms-container">
+
     <%# view all your matches current posts %>
   <%# <div class="card" id = "card-in">
       <% @chatrooms.each do |chatroom| %>
@@ -10,24 +11,27 @@
           <%# <% end %>
           <%# <% end %>
         <%# </div> %>
+
   <h1 class="my-matches">My matches 🎶</h1>
-  <div class="card" id = "card-in">
-    <% @chatrooms.each do |chatroom| %>
-      <div class="recipient-info">
-        <% if User.find(chatroom.swipe.swiper_id) == current_user %>
-          <%= cl_image_tag User.find(chatroom.swipe.swipee_id).photos[0].key, class: 'recipient-img' %>
-          <%= link_to User.find(chatroom.swipe.swipee_id).name, chatroom_path(chatroom) %>
-        <% else %>
-        <%= cl_image_tag User.find(chatroom.swipe.swipee_id).photos[0].key, class: 'recipient-img' %>
-          <%= link_to User.find(chatroom.swipe.swiper_id).name, chatroom_path(chatroom) %>
-        <% end %>
-        <% if !chatroom.messages.empty? %>
-          <p class='last-message'>
-            <%=  chatroom.messages.last.content.first(20) %>
-          </p>
-        <% end %>
-      </div>
-    <% end %>
+
+  <div class="card" id="card-in">
+      <% @chatrooms.each do |chatroom| %>
+        <div class="recipient-info">
+          <% if User.find(chatroom.swipe.swiper_id) == current_user %>
+            <%= cl_image_tag User.find(chatroom.swipe.swipee_id).photos[0].key, class: 'recipient-img' %>
+            <%= link_to User.find(chatroom.swipe.swipee_id).name, chatroom_path(chatroom) %>
+          <% else %>
+          <%= cl_image_tag User.find(chatroom.swipe.swiper_id).photos[0].key, class: 'recipient-img' %>
+            <%= link_to User.find(chatroom.swipe.swiper_id).name, chatroom_path(chatroom) %>
+          <% end %>
+          <% if !chatroom.messages.empty? %>
+            <p class='last-message'>
+              <%=  chatroom.messages.last.content.first(20) %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+
   </div>
 </div>
 

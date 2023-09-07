@@ -15,7 +15,7 @@
 }
 
 .user-image-wrapper img {
-  height: 450px;
+  height: 380px;
   width: 100%;
   object-position: top;
   object-fit: cover;
@@ -51,7 +51,7 @@
 
 .profile-content {
   position: relative;
-  top: -80px;
+  // top: -80px;
 }
 
 .prompt {
@@ -61,12 +61,14 @@
 }
 
 .profile-name {
+  position: absolute;
+  top: -80px;
   color: white;
   font-size: 30px;
   // transform: translate(40px, -70px);
   width: 90%;
   text-shadow: 2px 2px #d372ff;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   margin-left: 15px;
 }
 
@@ -141,4 +143,8 @@
 
   }
 
+}
+
+.users-index {
+  height: calc(100vh - 70px);
 }
