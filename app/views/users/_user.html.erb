@@ -33,7 +33,7 @@
               <form action="/users/<%= user.id %>/dislike" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-forward fa-rotate-180" style="color: black;"></i>
+                  <i class="fa-solid fa-xmark" style="font-size: 50px;"></i>
                 </button>
               </form>
             </div>
@@ -41,7 +41,7 @@
               <form action="/users/<%= user.id %>/like" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-forward" style="color: black; position: relative; z-index:999;"></i>
+                  <i class="fa-regular fa-heart"></i>
                 </button>
               </form>
             </div>
