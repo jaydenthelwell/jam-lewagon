@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .landing-pages {
   font-family: "lobster", cursive;
-  
+
 }
 
 .landing-page img {
@@ -11,7 +11,7 @@
     height: 100vh;
     transform: translateX(-100px);
 }
-  
+
 .landing-page-animation img {
   position: fixed;
   top: 0;
@@ -37,17 +37,17 @@
   // width: 50px;
   color: white;
   h1 {
-    font-family: "Noto Sans New Tai Lue";
+    font-family: 'raleway', sans-serif;
     margin-top: 90px;
     top: 47px;
     position: relative;
     right: 13px;
     margin-top: 90px;
     font-size: 23px;
-    text-shadow: 0.5px 0.5px 1px black;
+    // text-shadow: 0.5px 0.5px 1px black;
   }
 }
-  
+
 
 
   @keyframes blackSlide {
