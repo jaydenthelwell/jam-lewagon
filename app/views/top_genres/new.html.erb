@@ -137,7 +137,6 @@
   "world-music"
 ]
  %>
-
     <section class="spotify-auth mt-5" data-controller="spotify-auth">
       <div
         class="spotify-env"
@@ -159,7 +158,7 @@
       </div>
 
       <div class="top-genres mt-5 d-none" data-spotify-auth-target="genres">
-        <%# <h5>My Top 5 Genres</h5> %>
+        <h5>My Top 5 Genres</h5>
         <div
           class="btn btn-success my-2"
           data-action="click->spotify-auth#getTopGenres"
