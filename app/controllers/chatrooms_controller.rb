@@ -7,6 +7,7 @@ class ChatroomsController < ApplicationController
     # Check if current_user is the swiper
 
     @chatrooms = []
+
     @chatrooms_data.each do |chatroom|
       user_is_swiper = false
 
@@ -29,13 +30,12 @@ class ChatroomsController < ApplicationController
       @socials.push(socials_hash)
 
 
-      @chatrooms_data.map do |chatroom|
-        if [chatroom.swipe.swiper, chatroom.swipe.swipee].include?(current_user)
-          @chatrooms << chatroom
-        end
-        # raise
+      @chatrooms = @chatrooms_data.select do |chatroom|
+        [chatroom.swipe.swiper, chatroom.swipe.swipee].include?(current_user)
       end
     end
+
+    @chatrooms = @chatrooms.sort_by { |chatroom| chatroom.updated_at }.reverse
     # raise
   end
 
