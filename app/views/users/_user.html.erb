@@ -33,7 +33,7 @@
               <form action="/users/<%= user.id %>/dislike" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-xmark" style="font-size: 50px; position: relative; z-index: 999"></i>
+                  <i class="fa-solid fa-xmark" id="swipe-left-button" style="font-size: 50px; position: relative; z-index: 999"></i>
                 </button>
               </form>
             </div>
@@ -41,31 +41,30 @@
               <form action="/users/<%= user.id %>/like" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-regular fa-heart" style="position: relative; z-index: 999"></i>
+                  <i class="fa-regular fa-heart" id="swipe-left-button" style="position: relative; z-index: 999"></i>
                 </button>
               </form>
             </div>
           </div>
         <div class="padding">
-          <h4 class="prompt">On Repeat</h4>
+          <h4 class="prompt"> <i class="fa-solid fa-headphones" style="color: #0e00ff; font-size: 30px;"></i>                  The song thats on repeat for me</h4>
           <div class="card-section">
             <%= user.on_repeat %>
           </div>
-
-          <h4 class="prompt">Theme Song</h4>
+          <h4 class="prompt"><i class="fa-solid fa-music" style="color: #a061ff; font-size: 30px;"></i>                 If my life had a theme song...</h4>
           <div class="card-section">
             <%= user.all_time_favorite %>
           </div>
 
-          <h4 class="prompt">Go To Karaoke</h4>
+          <h4 class="prompt">🎤          My go to karaoke song</h4>
           <div class="card-section">
             <%= user.go_to_karaoke %>
           </div>
         </div>
-         </div>
+        </div>
         </div>
       <% else %>
-         <div class="match-end-card"><p>No more matches available. Sorry ! 😶</p></div>
+        <div class="match-end-card"><p>No more matches available. Sorry ! 😶</p></div>
     <% end %>
 
 
