@@ -6,6 +6,7 @@ class ChatroomsController < ApplicationController
 
     # Check if current_user is the swiper
 
+    @chatrooms = []
     @chatrooms_data.each do |chatroom|
       user_is_swiper = false
 
@@ -27,7 +28,6 @@ class ChatroomsController < ApplicationController
       socials_hash[other_user] = other_user.socials
       @socials.push(socials_hash)
 
-      @chatrooms = []
 
       @chatrooms_data.map do |chatroom|
         if [chatroom.swipe.swiper, chatroom.swipe.swipee].include?(current_user)
