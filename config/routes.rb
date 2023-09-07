@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   get "/top_genres/spotify", to: "top_genres#spotify"
 
   delete '/genres/destroy_all', to: 'top_genres#destroy_all'
+  get "/user/chatrooms", to: "chatrooms#user_chatrooms"
+
 end

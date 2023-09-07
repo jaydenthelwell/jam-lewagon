@@ -60,4 +60,12 @@ class ChatroomsController < ApplicationController
     # @chatroom = Chatroom.find(params[:id])
     @message = Message.new
   end
+
+  def user_chatrooms
+    @chatrooms_ids = Chatroom.all.map do |chatroom|
+      chatroom.id if chatroom.swipe.swiper == current_user || chatroom.swipe.swipee == current_user
+    end
+    render json: { chatrooms: @chatrooms_ids, user_id: current_user.id }
+  end
+
 end
