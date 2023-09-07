@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :socials, dependent: :destroy
 
   has_many :top_genres, dependent: :destroy
+  has_many :top_tracks, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   # For cloudinary to work
