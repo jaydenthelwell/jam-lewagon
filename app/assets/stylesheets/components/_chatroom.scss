@@ -85,7 +85,7 @@
 }
 
 .chatrooms-container {
-  height: 100vh;
+  height: calc(100vh - 70px);
 
   .card {
   }
@@ -99,7 +99,7 @@
     border-radius: 50%;
   }
   .my-matches {
-    height: 100vh;
+    // height: 100vh;
     font-family: "lobster", cursive;
 
   }
