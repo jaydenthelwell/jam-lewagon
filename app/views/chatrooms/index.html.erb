@@ -16,7 +16,7 @@
 
   <div class="card" id="card-in">
       <% @chatrooms.each do |chatroom| %>
-        <div class="recipient-info">
+        <div class="recipient-info" style="margin-top: 20px;">
           <% if User.find(chatroom.swipe.swiper_id) == current_user %>
             <%= cl_image_tag User.find(chatroom.swipe.swipee_id).photos[0].key, class: 'recipient-img' %>
             <%= link_to User.find(chatroom.swipe.swipee_id).name, chatroom_path(chatroom) %>
@@ -31,8 +31,10 @@
           <% end %>
         </div>
       <% end %>
+</div>
+    <div class="match-end-card d-flex" >
+      <p style="font-family: raleway">Don't have many matches to chat to?😶</p></div>
 
   </div>
-</div>
 
 <%= render 'shared/footer' %>

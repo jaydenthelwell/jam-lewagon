@@ -15,8 +15,16 @@
   background-color: lightcoral;
 }
 
+.sender-style p {
+  font-family: "raleway";
+}
+
 .receiver-style {
   background-color: lightblue;
+}
+
+.receiver-style p{
+  font-family: "raleway";
 }
 
 .chatroom-send-message {
@@ -37,6 +45,8 @@
     margin-left: 30px;
     color: black;
     text-decoration: none;
+    font-family: "raleway";
+
   }
 
   position: fixed;

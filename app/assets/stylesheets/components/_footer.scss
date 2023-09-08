@@ -1,7 +1,7 @@
 .footer-main {
   width: 100vw;
   height: 70px;
-  background-color: #b99cfc;
+  background-color: black;
   // position: sticky;
   position: fixed;
   bottom: 0px;
@@ -9,6 +9,7 @@
   align-items: center;
   .fa-solid {
     font-size: 28px;
+    color:black;
   }
 }
 

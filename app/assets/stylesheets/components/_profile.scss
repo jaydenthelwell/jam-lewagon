@@ -1,3 +1,9 @@
+.profile-page {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .spotify-user-data {
   display: flex;
   flex-direction: column;
@@ -55,12 +61,24 @@
   font-size: 20px;
   text-decoration: none;
   color: #1198ec;
-
 }
 
+.profilename {
+  position: absolute;
+  z-index: 999;
+  color: white;
+  font-size: 36px;
+  width: 90%;
+  text-shadow: 2px 2px #d372ff;
+  margin-left: 20px;
+}
+
+.profilename {
+  font-size: 30px;
+  margin-top: -100px;
+}
 
 // .spotify-auth {
 //   // position: relative;
 //   // top: -80px;
 // }
-

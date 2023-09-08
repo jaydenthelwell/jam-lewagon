@@ -38,7 +38,7 @@
     text-decoration: none;
 
   img {
-     border-radius: 50%;
+    border-radius: 50%;
     //  padding-top: 7.5px;
     //  padding-bottom: 7.5px;
   }
@@ -86,12 +86,19 @@
 
 .chatrooms-container {
   height: calc(100vh - 70px);
+  margin: 30px;
 
   .card {
+    border-color: rgb(211, 114, 255);
+    border-left-style: none;
+    border-right-style: none;
   }
   .last-message {
     padding-top: 12px;
+    font-family: "raleway";
+
   }
+
 
   .recipient-img {
     width: 40px;
@@ -100,7 +107,7 @@
   }
   .my-matches {
     // height: 100vh;
-    font-family: "lobster", cursive;
+    font-family: "raleway";
 
   }
 }
@@ -108,12 +115,10 @@
 .recipient-info {
   // padding-left: 21px;
   a {
-    font-size: 24px;
+    font-size: 22px;
     padding-left: 5px;
-    text-decoration: none;
+    text-decoration: none !important;
+    color: #000;
   }
 
-  img {
-
-  }
 }

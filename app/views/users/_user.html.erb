@@ -24,7 +24,7 @@
             </button>
           </div>
 
-          <div class="profile-namea">
+          <div class="profile-name">
             <%= user.name %>
           </div>
 
@@ -33,7 +33,13 @@
               <form action="/users/<%= user.id %>/dislike" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-solid fa-xmark" id="swipe-left-button" style="font-size: 50px; position: relative; z-index: 999"></i>
+                  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/hrqwmuhr.json"
+                      trigger="click"
+                      colors="primary:#121331,secondary:#blue"
+                      style="width:70px;height:70px">
+                  </lord-icon>
                 </button>
               </form>
             </div>
@@ -41,26 +47,40 @@
               <form action="/users/<%= user.id %>/like" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <button type="submit">
-                  <i class="fa-regular fa-heart" id="swipe-left-button" style="position: relative; z-index: 999"></i>
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/rjzlnunf.json"
+                      trigger="click"
+                      colors="primary:#121331,secondary:#e8308c"
+                      <%# state="morph-two-hearts" %>
+                      style="width:70px;height:70px">
+                  </lord-icon>
+                  <%# <i class="fa-regular fa-heart" id="swipe-left-button" style="position: relative; z-index: 999"></i> %>
                 </button>
               </form>
             </div>
           </div>
-        <div class="padding">
-          <h4 class="prompt"> <i class="fa-solid fa-headphones" style="color: #0e00ff; font-size: 30px;"></i>                  The song thats on repeat for me</h4>
-          <div class="card-section">
-            <%= user.on_repeat %>
-          </div>
-          <h4 class="prompt"><i class="fa-solid fa-music" style="color: #a061ff; font-size: 30px;"></i>                 If my life had a theme song...</h4>
-          <div class="card-section">
-            <%= user.all_time_favorite %>
-          </div>
-
-          <h4 class="prompt">🎤          My go to karaoke song</h4>
-          <div class="card-section">
-            <%= user.go_to_karaoke %>
-          </div>
         </div>
+
+          <div class="padding">
+              <h2 class="prompt">A little about me...</h2>
+              <div class="card-section">
+                <%= current_user.description %>
+            </div>
+            <h4 class="prompt"> <i class="fa-solid fa-headphones" style="color: #f44141; font-size: 30px;"></i>                  Currently on repeat:</h4>
+            <div class="card-section">
+              <%= user.on_repeat %>
+            </div>
+            <h4 class="prompt"><i class="fa-solid fa-music" style="color: #34d4eb; font-size: 30px;"></i>                 If my life had a theme song...</h4>
+            <div class="card-section">
+              <%= user.all_time_favorite %>
+            </div>
+
+            <h4 class="prompt">🎤          My go to karaoke song</h4>
+            <div class="card-section">
+              <%= user.go_to_karaoke %>
+            </div>
+          </div>
         </div>
         </div>
       <% else %>
