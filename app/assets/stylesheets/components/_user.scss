@@ -50,7 +50,7 @@
 .prompt + .card-section {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 5px solid #3153ab;
+  border-top: 5px solid #6757ff;
   font-size: 25px;
   font-family: 'raleway', sans-serif;
 }
@@ -58,13 +58,14 @@
   // .card-section {
   //   border: 1px solid #e0e0e0; /* Add a light border around the card sections */
   // }
-    .prompt + .card-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
-    font-size: 25px;
-    font-family: 'raleway', sans-serif;
-  }
+
+  //   .prompt + .card-section {
+  //   margin-top: 20px;
+  //   padding-top: 20px;
+  //   border-top: 1px solid #e0e0e0;
+  //   font-size: 25px;
+  //   font-family: 'raleway', sans-serif;
+  // }
 
 #img-artist img {
   z-index: 10;
