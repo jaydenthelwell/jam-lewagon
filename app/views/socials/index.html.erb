@@ -14,16 +14,21 @@
             <i class="fa-solid fa-xmark exit"></i>
           <% end %>
         </div>
-        <% @all_socials.each do |social| %>
+
+        <% @all_socials.each_with_index do |social, index| %>
           <% if social.photo.attached? %>
-            <div class="carousel-item active">
+            <% if index == 0 %>
+              <div class="carousel-item active">
+            <% else %>
+              <div class="carousel-item">
+            <% end %>
               <div class="name-cont d-flex">
                 <%= cl_image_tag social.user.photos[0].key, class: 'recipient-img' %>
                 <h3 class="social-name" style="margin-top: 20px; margin-left: 10px;"><%= social.user.name %></h3>
               </div>
               <%= cl_image_tag social.photo.key, height: 845, width: 400, crop: :fill %>
               <% if social.user == current_user %>
-                <%= link_to social_path(social), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } do %>
+                <%= link_to social_path(social), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this post?"} do %>
                   <i class="fa-solid fa-trash"></i>
                 <% end %>
               <% end %>
