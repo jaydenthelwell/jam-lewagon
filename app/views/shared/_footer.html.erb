@@ -1,27 +1,28 @@
 <div class="footer-main d-flex">
   <div>
     <%=  link_to users_path do %>
-    <%= image_tag "jam-logo.png", class: "f-logo" %>
+    <%# <%= image_tag "jam-logo.png", class: "f-logo" %>
+      <i class="fa-solid fa-house-fire" style="color: white;"></i>
     <% end %>
   </div>
   <div>
     <%= link_to chatrooms_path do %>
-      <i class="fa-solid fa-envelope" style="color: black;"></i>
+      <i class="fa-solid fa-envelope" style="color: white;"></i>
     <% end %>
   </div>
   <div>
     <%= link_to socials_path do %>
-      <i class="fa-solid fa-icons" style="color: black;"></i>
+      <i class="fa-solid fa-icons" style="color: white;"></i>
     <% end %>
   </div>
   <div>
     <% if user_signed_in? %>
       <%= link_to user_profile_path do %>
-        <i class="fa-solid fa-user" style="color: black;"></i>
+        <i class="fa-solid fa-user" style="color: white;"></i>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <i class="fa-solid fa-user" style="color: black;"></i>
+        <i class="fa-solid fa-user" style="color: white;"></i>
       <% end %>
     <% end %>
   </div>
