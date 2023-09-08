@@ -165,7 +165,7 @@ puts "Creating Users ..."
 
 10.times do
   user = User.new(
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "123456",
     location: Faker::Address.city,

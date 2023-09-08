@@ -2,11 +2,20 @@
   background-color: white;
   width: 100%;
   border-radius: 10px;
+  // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   max-height: 100vh;
   overflow-y: auto;
 }
 
+// .parent-element {
+//   overflow: scroll;
+// }
+
+// .page-content {
+//   max-height: 100vh; /* Set a maximum height equal to the viewport height */
+//   overflow-y: auto; /* Enable vertical scrolling if needed */
+// }
 .h6 {
   text-align: left;
 }
@@ -14,7 +23,11 @@
 .user-image-wrapper {
   height: 450px;
   width: 100%;
-  margin-bottom: -20px;
+  margin-bottom: 10px;
+//   object-fit: cover;
+//   object-position: center;
+//   border-radius: 50%;
+//   border: 5px solid #b99cfc;
 }
 
 .user-image-wrapper img {
@@ -31,6 +44,7 @@
   margin: 15px 0;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .prompt + .card-section {
@@ -40,6 +54,17 @@
   font-size: 25px;
   font-family: 'raleway', sans-serif;
 }
+
+  // .card-section {
+  //   border: 1px solid #e0e0e0; /* Add a light border around the card sections */
+  // }
+    .prompt + .card-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 25px;
+    font-family: 'raleway', sans-serif;
+  }
 
 #img-artist img {
   z-index: 10;
@@ -60,6 +85,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-height: calc(100vh - 200px);
   overflow-y: auto;
+  // margin-bottom: 60px;
 }
 
 .profile-content {
@@ -80,11 +106,19 @@
   width: 90%;
   text-shadow: 2px 2px #d372ff;
   margin-left: 20px;
+  // margin-bottom: 50px;
+  margin-top: -148px;
 }
 
-.profile-name {
+.profile-namea {
   font-size: 30px;
-  margin-top: 380px;
+  // margin-top: 380px;
+  // transform: translate(40px, -70px);
+  width: 90%;
+  text-shadow: 2px 2px #d372ff;
+  // margin-bottom: 50px;
+  margin-left: 15px;
+  margin-top: 315px;
 }
 
 .swipe-btns {

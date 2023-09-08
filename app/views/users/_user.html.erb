@@ -1,65 +1,51 @@
 <%# <div class="cards" data-controller="hide-cards"> %>
-<% unless @users[-1] == user %>
+<%# unless @users[-1] == user %>
 
-      <div data-user="<%= user.id %>" class="users-container">
-        <div class="card" data-hide-cards-target="cards">
-          <%# <div id="img-artist">
-            <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
-          </div> %>
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <% user.photos.each_with_index do |photo, index| %>
-                <div class="user-image-wrapper carousel-item <%= "active" if index == 0 %>">
-                  <%= cl_image_tag photo.key, class: "d-block" %>
-                </div>
-              <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+<div data-user="<%= user.id %>" class="users-container">
+  <div class="card" data-hide-cards-target="cards">
+    <%# <div id="img-artist">
+      <img src="https://extra-images.akamaized.net/image/0a/o/2018/12/25/0a5af3a0210b5d3e98f7ea85b67a2fb3_md.jpg" alt="Favourite Artist">
+    </div> %>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% user.photos.each_with_index do |photo, index| %>
+          <div class="user-image-wrapper carousel-item <%= "active" if index == 0 %>">
+            <%= cl_image_tag photo.key, class: "d-block" %>
           </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+     <div class="profile-namea">
+      <%= user.name %>
+    </div>
 
-          <div class="profile-name">
-            <%= user.name %>
-          </div>
-
-          <div class="swipe-btns">
-            <div class="swipe-left">
-              <form action="/users/<%= user.id %>/dislike" method="post">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button type="submit">
-                  <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                  <lord-icon
-                      src="https://cdn.lordicon.com/hrqwmuhr.json"
-                      trigger="click"
-                      colors="primary:#121331,secondary:#blue"
-                      style="width:70px;height:70px">
-                  </lord-icon>
-                </button>
-              </form>
-            </div>
-            <div class="swipe-right">
-              <form action="/users/<%= user.id %>/like" method="post">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <button type="submit">
-                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                  <lord-icon
-                      src="https://cdn.lordicon.com/rjzlnunf.json"
-                      trigger="click"
-                      colors="primary:#121331,secondary:#e8308c"
-                      <%# state="morph-two-hearts" %>
-                      style="width:70px;height:70px">
-                  </lord-icon>
-                  <%# <i class="fa-regular fa-heart" id="swipe-left-button" style="position: relative; z-index: 999"></i> %>
-                </button>
-              </form>
-            </div>
-          </div>
+           <div class="swipe-btns">
+      <div class="swipe-left">
+        <form action="/users/<%= user.id %>/dislike" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <button type="submit">
+            <i class="fa-solid fa-xmark" style="font-size: 50px; position: relative; z-index: 999"></i>
+          </button>
+        </form>
+      </div>
+      <div class="swipe-right">
+        <form action="/users/<%= user.id %>/like" method="post">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <button type="submit">
+            <i class="fa-regular fa-heart" style="position: relative; z-index: 999"></i>
+          </button>
+        </form>
+      </div>
+    </div>
         </div>
 
           <div class="padding">
@@ -83,10 +69,3 @@
           </div>
         </div>
         </div>
-      <% else %>
-        <div class="match-end-card"><p>No more matches available. Sorry ! 😶</p></div>
-    <% end %>
-
-
-
-        <%# <%= render 'shared/footer' %>
