@@ -1,17 +1,31 @@
 .card {
   background-color: white;
   width: 100%;
+  border-radius: 10px;
+  // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   // position: relative;
   position: relative;
 }
 
+// .parent-element {
+//   overflow: scroll;
+// }
+
+// .page-content {
+//   max-height: 100vh; /* Set a maximum height equal to the viewport height */
+//   overflow-y: auto; /* Enable vertical scrolling if needed */
+// }
 .h6 {
   text-align: left;
 }
 .user-image-wrapper {
   height: 450px;
   width: 100%;
-  margin-bottom: -20px;
+  margin-bottom: 10px;
+//   object-fit: cover;
+//   object-position: center;
+//   border-radius: 50%;
+//   border: 5px solid #b99cfc;
 }
 
 .user-image-wrapper img {
@@ -22,16 +36,13 @@
   border: 15px solid #b99cfc ;
 }
 
-.card-section{
-    position: relative;
-    background: #4bc1e4;
-    border-radius: 0.4em;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    margin: 20px;
+.card-section {
+  background-color: #ffffff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 
     .card-section:after {
       content: '';
@@ -48,6 +59,17 @@
     }
   }
 
+  // .card-section {
+  //   border: 1px solid #e0e0e0; /* Add a light border around the card sections */
+  // }
+    .prompt + .card-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 25px;
+    font-family: 'raleway', sans-serif;
+  }
+
 #img-artist img {
   z-index: 10;
   position: absolute;
@@ -61,8 +83,10 @@
 }
 
 .padding {
-  padding-left: 20px;
-  padding-right: 20px;
+  background-color: #6bcce4; /* Use a background color that fits your app's theme */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 60px;
 }
 
@@ -74,19 +98,20 @@
 .prompt {
   // font-family: monospace;
   font-family: "lobster", cursive;
-  font-size: 18px;
+  font-size: 22px;
+  margin-left: 20px;
 }
 
 .profile-name {
   position: absolute;
   z-index: 999;
   color: white;
-  font-size: 30px;
+  font-size: 36px;
   // transform: translate(40px, -70px);
   width: 90%;
   text-shadow: 2px 2px #d372ff;
   // margin-bottom: 50px;
-  margin-left: 15px;
+  margin-left: 20px;
   margin-top: -148px;
 }
 
@@ -101,7 +126,6 @@
   // margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 315px;
-
 
 }
 
