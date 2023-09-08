@@ -105,9 +105,9 @@
   font-size: 36px;
   width: 90%;
   text-shadow: 2px 2px #d372ff;
-  margin-left: 20px;
+  margin-left: 30px;
   // margin-bottom: 50px;
-  margin-top: -148px;
+  margin-top: 390px;
 }
 
 .profile-namea {
@@ -116,20 +116,20 @@
   // transform: translate(40px, -70px);
   width: 90%;
   text-shadow: 2px 2px #d372ff;
-  // margin-bottom: 50px;
   margin-left: 15px;
   margin-top: 315px;
+  // margin-bottom: 50px;
 }
 
 .swipe-btns {
   display: flex;
   justify-content: space-between;
   width: 70%;
-  margin: 0 auto;
-  // transform: translateY(-20px);
+  margin: 20px auto;
   color: black;
-  // position: relative;
   z-index: 999;
+  // position: relative;
+  // transform: translateY(-20px);
 
   i {
     font-size: 50px;
@@ -200,7 +200,7 @@
   width: 80%;
   margin: 0 auto;
   position: relative;
-  top: 40%;
+  top: 25%;
 
   p {
     margin: 20px;

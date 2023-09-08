@@ -24,8 +24,24 @@
   //   margin-top: 20px;
   // }
 
+  a {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Raleway';
+    font-size: 20px;
+    color: black;
+    background: #a6fffe;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+  }
+
   .btn {
       display: flex;
+      justify-content: center;
       padding: 10px 45px;
       text-decoration: none;
       font-family: 'Raleway';
