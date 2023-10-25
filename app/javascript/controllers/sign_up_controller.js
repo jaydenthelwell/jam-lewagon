@@ -17,6 +17,9 @@ export default class extends Controller {
   }
 
   nextContent() {
+    if (this.step === 9) {
+      this.nextTarget.classList.add("transparent")
+    }
     console.log(this.inputTargets[this.step])
     this.inputTargets[this.step].classList.add("d-none")
     this.step += 1

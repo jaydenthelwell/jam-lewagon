@@ -1,0 +1,11 @@
+development:
+  cloud_name: "dg1doueiz"
+  api_key: "992267637796444"
+  api_secret: "5u0sxTPD8YS2XGEn1SXt9SF1sqs"
+  secure: true
+
+production:
+  cloud_name: "dg1doueiz"
+  api_key: "992267637796444"
+  api_secret: "5u0sxTPD8YS2XGEn1SXt9SF1sqs"
+  secure: true
