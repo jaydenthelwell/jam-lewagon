@@ -63,6 +63,9 @@ Rails.application.configure do
 
   # config.serve_static_files = true
 
+  config.serve_static_assets = false
+
+
   config.serve_static_files = false
 
   # Raises error for missing translations.

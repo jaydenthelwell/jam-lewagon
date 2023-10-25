@@ -1,18 +1,44 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+<div class="background__wrapper">
+  <div class="background-login">
+    <svg>
+      <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+        <feTurbulence id="fluid" numOctaves="1" seed="1" baseFrequency="0.001 0.001" type="fractalNoise"></feTurbulence>
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="155" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        <animate xlink:href="#fluid" attributeName="baseFrequency" dur="30s" values="0.001 0.001;0.004 0.006;0.001 0.003;0.005 0.003;0.003 0.004;0.001 0.001" keySplines="
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99" keyTimes="
+                    0;0.2;0.4;0.6;0.8;1" calcMode="spline" repeatCount="indefinite" />
+      </filter>
+    </svg>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="card login-card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Forgot your password?</h2>
 
-<%= render "devise/shared/links" %>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-group">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+      </div>
+
+      <div class="form-group text-center" style="padding: 20px;">
+        <%= f.button :submit, "Reset your password", class: "btn btn-primary"%>
+      </div>
+    <% end %>
+
+    <div class="auth-links text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,4 @@
-.card {
-  background-color: white;
-  width: 100%;
-  border-radius: 10px;
-  // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-  max-height: 100vh;
-  overflow-y: auto;
-}
+
 
 // .parent-element {
 //   overflow: scroll;
@@ -187,6 +179,15 @@
   .profile-name-match {
     color: black;
     font-size: 26px;
+  }
+  .card {
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 }
 
