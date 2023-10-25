@@ -1,277 +1,179 @@
-// Specific CSS for your home-page
-.landing-pages {
-  font-family: "lobster", cursive;
-
-}
-
-.landing-page img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    transform: translateX(-100px);
-}
-
-.landing-page-animation img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  height: 100vh;
-  width: 100vw;
-  transform: translateX(0px);
-
-  animation-name: blackSlide;
-  animation-duration: 4250ms;
-  animation-fill-mode: forwards;
-}
-
-
-
-
-
-.slogan {
-  position: absolute;
-  top: 50px;
-  left: 40px;
-  // width: 50px;
-  color: white;
-  h1 {
-    font-family: 'raleway';
-    margin-top: 90px;
-    top: 47px;
+.background__wrapper {
+    overflow: hidden;
     position: relative;
-    right: 13px;
-    margin-top: 90px;
-    font-size: 23px;
-    // text-shadow: 0.5px 0.5px 1px black;
-  }
-}
-
-
-
-  @keyframes blackSlide {
-    0% {
-      top: 0px;
-    }
-    25% {
-      top: 0px;
-    }
-    100% {
-      top: -100vh;
-    }
-  }
-
-  .landing-page-typed {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 199;
-    margin: 0 auto;
-    color: rgb(255, 255, 255);
-    font-size: 74px;
-    font-family: "lobster", cursive;
-    text-shadow: 1px 1px black;
-
-    animation-name: jamSlide;
-    animation-duration: 4500ms;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes jamSlide {
-    0% {
-      top: 50%;
-    }
-    50% {
-      top: 50%;
-    }
-    100% {
-      top: 16.5%;
-    }
-  }
-
-  .signup-button {
-    position: fixed;
-    top: 73%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    opacity: 0;
-    visibility: inherit;
-    transition: 0.1s all ease-in-out;
-
-    animation-name: showButton;
-    animation-duration: 5470ms;
-    animation-fill-mode: forwards;
-
-    .btn {
-      border-radius: 100px;
-      color: black;
-      background-color: purple;
-      background-color: #ffffff;
-      padding: 3px 24px;
-      font-size: 25px;
-      border-color: white;
-      box-shadow: 10px 10px
-    }
-  }
-
-  .scroll-down-btn {
-    position: fixed;
-    top: 95%;
-    left: 20%;
-    z-index: 99;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    visibility: inherit;
-    color: black;
-    background-color: white;
-    border-radius: 20px;
-    transition: 0.5s all ease-in-out;
-
-    animation-name: showButton;
-    animation-duration: 5470ms;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes showButton {
-    0% {
-      opacity: 0;
-    }
-    70% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .login-button {
-    margin: 0 auto;
-    position: fixed;
-    top: 81%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    opacity: 0;
-    visibility: inherit;
-    transition: 0.1s all ease-in-out;
-
-    animation-name: showButton;
-    animation-duration: 5470ms;
-    animation-fill-mode: forwards;
-
-    .btn {
-      border-radius: 100px;
-      color: black;
-      background-color: purple;
-      background-color: #ffffff;
-      padding: 3px 24px;
-      font-size: 25px;
-      border-color: white;
-      box-shadow: 10px 9px;
-
-    }
-  }
-
-  @keyframes showButton {
-    0% {
-      opacity: 0;
-    }
-    70% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .second-page {
-    position: fixed;
-    top: 100vh;
-    left: 0;
-    transition: 1s all ease-in-out;
-    z-index: 299;
-  }
-
-  .second-page-bg {
-    position: fixed;
-    z-index: 299;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-  }
-
-  .second-page-bg img {
-    position: absolute;
     top: 0;
     left: 0;
-    z-index: 299;
-    height: 100vh;
     width: 100vw;
-    transform: translateX(0px);
-    object-fit: cover;
-    filter: saturate(50%);
+    height: 100vh;
+    z-index: 0;
   }
 
-  .second-page-content {
+  .background {
+    position: relative;
+    top: -20vh;
+    left: -20vw;
+    width: 140vw;
+    height: 140vh;
+    background-image: url("https://i.imgur.com/KeTQDre.png");
+    background-size: cover;
+    background-position: center;
+    filter: url("#turbulence");
+  }
+
+  .main_bubble {
     position: absolute;
-    z-index: 299;
-    color: white;
-
-    .jam-text {
-      position: relative;
-      left: 50px;
-      top: 50px;
-      width: 300px;
-    }
-
-    .scroll-up-btn {
-      position: relative;
-      left: 17px;
-      top: 581px;
-      background-color: white;
-      color: black;
-      border-radius: 20px;
+    top: 22%;
+    left: 60%;
+    width: 40%;
+    animation: bubble 2s infinite alternate;
   }
 
-    h2 {
-      position: relative;
-      left: 9px;
-      top: 122px;
-      width: 120%;
-      position: relative;
-      left: 20px;
-      top: 279px;
-      background-color: white;
-      color: black;
-      border-radius: 20px;
+  @keyframes bubble {
+    from {
+      transform: translateY(0%);
     }
 
-    h3 {
-      position: relative;
-      top: 466px;
-      left: 143px;
-    }
-
-    h4 {
-      position: relative;
-      top: 438px;
-      left: 82px;
-      width: 80%;
+    to {
+      transform: translateY(2%);
     }
   }
 
-  .up {
-    top: 0px;
+  .top_bubble {
+    position: absolute;
+    top: 0%;
+    left: 35%;
+    width: 30%;
   }
 
-  .down {
-    top: 100vh;
+  .bubbles {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 15%;
   }
 
-  .hide {
-    opacity: 0;
-    visibility: hidden;
+  .title {
+    position: absolute;
+    top: 10%;
+    width: 35%;
+    left: 2%;
   }
+
+.music{
+  position: absolute;
+  top: 55%;
+  left: 35%;
+  width: 30%;
+}
+
+.login-button {
+  position: absolute;
+  top: 4%;
+  color: rgb(0, 0, 0);
+  left: 93%;
+  font-family: "Poppins";
+  background: #A6B2E8;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.login-button:hover {
+  text-decoration: underline;
+}
+
+.email-input {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 24px;
+  border: white;
+  top: 80%;
+  left: 3%;
+  width: 30%;
+  height: 7%;
+  color: black;
+  font-size: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  padding: 10px;
+}
+
+.signup {
+  position: absolute;
+  background: #C1FF72;
+  border-radius: 18px;
+  text-align: center;
+  padding: 15px;
+  top: 80%;
+  left: 35%;
+  width: 7%;
+  font-family: "Poppins";
+  color: black;
+  font-weight: 900;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.signup:hover {
+  text-decoration: underline;
+}
+
+.fa-bars {
+  position: absolute;
+  top: 5.5%;
+  left: 3.3%;
+  font-size: 30px;
+}
+
+.connect-with-music {
+  position: absolute;
+  top: 55%;
+  left: 5%;
+  font-family: Suez one;
+  color: white;
+}
+
+.connect-with-harmony {
+  position: absolute;
+  top: 60%;
+  left: 5%;
+  color: white;
+  font-size: 27px;
+}
+
+@media only screen and (max-width: 850px) {
+  .login-button {
+    // width: 18%;
+    left: 75%;
+  }
+
+  .signup {
+    width: 30%;
+    padding: 10px;
+    top: 85%;
+  }
+
+  .title {
+    width: 80%;
+    top: 5%;
+    left: 15%;
+  }
+
+  .enter-email {
+    display: none;
+  }
+
+  .main_bubble {
+    top: 50%;
+    left: 15%;
+    width: 70%;
+  }
+
+  .connect-with-harmony {
+    font-size: 18px;
+    top: 33%;
+    left: 0%;
+    text-align: center;
+  }
+
+  .connect-with-music {
+    display: none;
+  }
+}

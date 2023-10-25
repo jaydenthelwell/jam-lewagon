@@ -1,58 +1,58 @@
-<div class="landing-pages d-flex justify-content-center" data-controller="landing-page-scroll">
-
-  <div class="video-container">
-    <video style="z-index-1" width="100%" height="100%" src="<%= video_url "girlgrooving.mp4" %>" autoplay loop muted playsinline>
-    </video>
+<div class="background__wrapper">
+  <div class="background">
+    <svg>
+      <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+        <feTurbulence id="fluid" numOctaves="1" seed="1" baseFrequency="0.001 0.001" type="fractalNoise"></feTurbulence>
+        <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="155" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        <animate xlink:href="#fluid" attributeName="baseFrequency" dur="30s" values="0.001 0.001;0.004 0.006;0.001 0.003;0.005 0.003;0.003 0.004;0.001 0.001" keySplines="
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99;
+                      .52 .02 .62 .99" keyTimes="
+                    0;0.2;0.4;0.6;0.8;1" calcMode="spline" repeatCount="indefinite" />
+      </filter>
+    </svg>
   </div>
 
-  <div class="landing-page-typed" data-controller="typedjs">
+  <div class="jam_title">
+    <%= image_tag("jam_title", alt: "Jam Title", class: "title") %>
   </div>
-
-  <%# <div>
-   <img src="../../../app/assets/images/Jam Logo - white.png" alt="Jam">
-  </div> %>
-
-    <div class="slogan text-center">
-      <h1 style="font-family:raleway; margin-top: 100px; ">Where music meets new connections</h1>
+  <%# <div class="music">
+    <%= image_tag("music_notes.png", alt: "Music notes", class: "music") %>
+  <%# </div> %>
+  <div class="signup-login">
+    <div>
+      <h2 class="connect-with-music">Connect with like-minded music lovers.</h2>
+      <p class="connect-with-harmony">
+        Discover your perfect harmony.<br>
+        Find your musical soulmates and create unforgettable connections with <br>people who share your music tastes.
+      </p>
     </div>
-
-
-
-    <div class="signup-button">
-      <%= link_to "Sign Up", new_user_registration_path, class: "sign-up-button btn btn-primary" %>
+    <div class="enter-email">
+      <input type="email" placeholder="Enter your email" class="email-input">
     </div>
-
+    <div class="signup">
+      <%= link_to "Sign Up", new_user_registration_path, class: "sign-up-button btn" %>
+    </div>
+    <%# <i class="fa-solid fa-bars" style="color: #000000;"></i> %>
     <div class="login-button">
       <% if current_user %>
-        <%= link_to "Log Out", destroy_user_session_path, class: "log-in-button btn btn-primary", data: { turbo_method: :delete } %>
+        <%= link_to "Log Out", destroy_user_session_path,  style: "color: black; text-decoration: none;", data: { turbo_method: :delete } %>
       <% else %>
-        <%= link_to "Log In", new_user_session_path, class: "log-in-button btn btn-primary" %>
+        <%= link_to "Log In", new_user_session_path, style: "color: black; text-decoration: none;" %>
       <% end %>
     </div>
-
-
-
-    <%# <button class="btn scroll-down-btn" data-action="click->landing-page-scroll#scrollDown">Go Down<button> %>
-
-    <div class="landing-page-animation">
-      <%= image_tag "black image.png" %>
-    </div>
   </div>
-
-  <div class="second-page" data-landing-page-scroll-target="secondPage">
-    <div class="second-page-bg">
-      <%= image_tag "jam second.jpg"%>
+  <div class="bubbles_container">
+    <div>
+      <%= image_tag("main_bubble.png", alt: "Bubbles", class: "main_bubble") %>
     </div>
-
-    <div class="second-page-content">
-      <h2>"Notes of connection in every swipe"</h2>
-      <h3> Melodic Approach:</h3>
-
-      <div class="jam-text">
-        <h4>Tune in to find your beat with people who share your music taste.</h4>
-      </div>
-
-      <%# <button class="btn scroll-up-btn" data-action="click->landing-page-scroll#scrollUp">Go Up</button> %>
+    <div>
+      <%= image_tag("top_bubbles.png", alt: "Bubbles", class: "top_bubble") %>
+    </div>
+    <div>
+      <%= image_tag("bubbles.png", alt: "Bubbles", class: "bubbles") %>
     </div>
   </div>
 </div>
